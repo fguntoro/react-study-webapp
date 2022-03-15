@@ -1,6 +1,6 @@
 import React from 'react'
 import { AboutBg, VideoBg, AboutContainer, AboutContent, AboutH1, AboutWrapper, AboutCard, AboutH2, AboutP, Antibody, Nose, Virus, HeadVirus} from './AboutElements'
-import Video from '../../../videos/virus_white.mp4'
+import Video from '../../../assets/videos/virus_white.mp4'
 // TODO Edit video to reverse loop so no breaks
 import { CircularButton } from '../../ButtonElements'
 import { Link as LinkS } from 'react-scroll'

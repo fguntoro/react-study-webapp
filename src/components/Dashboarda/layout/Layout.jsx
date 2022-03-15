@@ -2,9 +2,8 @@ import React, {useEffect} from 'react'
 
 import './layout.css'
 
-import Sidebar from '../../sidebar/Sidebar'
-import TopNav from '../topnav/TopNav'
-import Routes from '../../Routes'
+import { Sidebar, TopNav } from '../../'
+import Routes from '../Routes'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { HomePage, SignInPage, Dashboard } from './pages'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Layout } from './components'
 
 
 import { createStore } from 'redux'
@@ -20,7 +21,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<HomePage/>}/>
         {/* <Route exact path="/signin" element={<SignInPage/>}/> */}
-        <Route exact path="/dashboard" element={<Dashboard/>}/>
+        <Route exact path="/dashboard" element={<Layout/>}/>
       </Routes>
     </Router>
   );

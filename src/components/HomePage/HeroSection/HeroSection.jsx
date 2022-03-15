@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight} from './HeroSectionElements'
-import Video from '../../videos/video.mp4'
-import { Button } from '../ButtonElements'
+import Video from '../../../assets/videos/video.mp4'
+import { Button } from '../../ButtonElements'
 
 // TODO Add join mailing list form and button
 
