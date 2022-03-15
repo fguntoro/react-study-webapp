@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 
 import { HomePage, SignInPage, Dashboard } from './pages'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import {Layout} from './components'
+import { Layout } from './components'
+
 
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
