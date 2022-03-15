@@ -3,6 +3,8 @@ import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, HeroP, HeroBtnWrap
 import Video from '../../videos/video.mp4'
 import { Button } from '../ButtonElements'
 
+// TODO Add join mailing list form and button
+
 const HeroSection = () => {
 
     const [hover, setHover] = useState(false)
@@ -20,7 +22,7 @@ const HeroSection = () => {
             <HeroH1>Real-time Assessment of Community Transmission</HeroH1>
             <HeroP>Find out more about how our studies are supporting COVID-19 surveillance in England</HeroP>
             <HeroBtnWrapper>
-                <Button to="about" onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'>
+                <Button to="about" onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true' smooth={true} duration={500}  spy={true} exact='true' offset={-60}>
                     Get started {hover ? <ArrowForward/> : <ArrowRight/>}
                 </Button>
             </HeroBtnWrapper>

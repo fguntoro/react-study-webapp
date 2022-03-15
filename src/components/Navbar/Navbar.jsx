@@ -1,32 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { animateScroll as scroll } from 'react-scroll';
 import { FaBars } from 'react-icons/fa'
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavbarElements';
+import { IconContext } from 'react-icons/lib'
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinkS, NavLinkR, NavBtn, NavBtnLink} from './NavbarElements';
 
 const Navbar = ({ toggle }) => {
+    const [scrollNav, setScrollNav] = useState(false)
+
+    const changeNav = () => {
+        if(window.scrollY >= 60) {
+            setScrollNav(true)
+        } else {
+            setScrollNav(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', changeNav)
+    }, [])
+
+    const toggleHome = () => {
+        scroll.scrollToTop();
+    }
+
   return (
     <>
-        <Nav>
-            <NavbarContainer>
-                <NavLogo to='/'>REACT</NavLogo>
-                <MobileIcon onClick={toggle}>
-                    <FaBars />
-                </MobileIcon>
-                <NavMenu>
-                    <NavItem>
-                        <NavLinks to='about'>About</NavLinks>
-                    </NavItem>
-                    <NavItem>
-                        <NavLinks to='resources'>Resources</NavLinks>
-                    </NavItem>
-                    <NavItem>
-                        <NavLinks to='explore'>Explore</NavLinks>
-                    </NavItem>
-                </NavMenu>
-                <NavBtn>
-                    <NavBtnLink to='sign-in'>Sign In</NavBtnLink>
-                </NavBtn>
-            </NavbarContainer>
-        </Nav>
+        <IconContext.Provider value={{ color: '#fff'}}>
+            <Nav scrollNav={scrollNav}>
+                <NavbarContainer>
+                    <NavLogo to='/' onClick={toggleHome}>REACT</NavLogo>
+                    <MobileIcon onClick={toggle}>
+                        <FaBars />
+                    </MobileIcon>
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinkS to='about' smooth={true} duration={500} spy={true} exact='true' offset={-60}>About</NavLinkS>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinkS to='resources' smooth={true} duration={500} spy={true} exact='true' offset={-60}>Resources</NavLinkS>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinkS to='explore' smooth={true} duration={500} spy={true} exact='true' offset={-60}>Explore</NavLinkS>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinkR to='/dashboard' smooth={true} duration={500} spy={true} exact='true' offset={-60}>Dashboard</NavLinkR>
+                        </NavItem>
+                    </NavMenu>
+                    <NavBtn>
+                        {/* <NavBtnLink to='/signin'>Sign In</NavBtnLink> */}
+                    </NavBtn>
+                </NavbarContainer>
+            </Nav>
+        </IconContext.Provider>
     </>
   )
 }

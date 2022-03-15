@@ -1,16 +1,38 @@
 import './App.css';
-import { Home, SigninPage } from './components/'
+import React from 'react'
+import ReactDOM from 'react-dom';
+
+import { HomePage, SignInPage, Dashboard } from './pages'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-function App() {
+
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './redux/reducers'
+
+const store = createStore(
+  rootReducer
+)
+
+const App = () => {
   return (
     <Router className="App">
       <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/signin" component={<SigninPage/>}/>
+        <Route exact path="/" element={<HomePage/>}/>
+        {/* <Route exact path="/signin" element={<SignInPage/>}/> */}
+        <Route exact path="/dashboard" element={<Dashboard/>}/>
       </Routes>
     </Router>
   );
 }
 
-export default App;
+ReactDOM.render(
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
+  document.getElementById('root')
+);
+
+export default App
