@@ -2,15 +2,15 @@ import React, {useEffect} from 'react'
 
 import './layout.css'
 
-import Sidebar from '../sidebar/Sidebar'
+import Sidebar from '../../sidebar/Sidebar'
 import TopNav from '../topnav/TopNav'
-import Routes from '../Routes'
+import Routes from '../../Routes'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import ThemeAction from '../../redux/actions/ThemeAction'
+import ThemeAction from '../../../redux/actions/ThemeAction'
 
 const Layout = () => {
 
