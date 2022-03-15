@@ -49,8 +49,8 @@ const topCustomers = {
     ],
     body: [
         {
-            "username": "john doe",
-            "order": "490",
+            "username": "jonathan",
+            "order": "555",
             "price": "$15,870"
         },
         {
