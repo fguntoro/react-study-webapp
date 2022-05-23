@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../../ButtonElements";
+import { SafeAreaView, View, StyleSheet, Button } from "react-native";
 import {
   InfoContainer,
   InfoWrapper,
@@ -15,6 +15,7 @@ import {
   Img,
 } from "./Elements";
 import LeafletMap from "./LeafletMap/index";
+import LineChart from "./LineChart/index";
 
 const props = {
   id: "prevalence",
@@ -26,7 +27,7 @@ const props = {
   headLine: "Prevalence",
   description:
     "Our REACT-1 study looked at how many people already had COVID-19...",
-  buttonLabel: "Next",
+  buttonLabel: "Show",
   imgStart: true,
   alt: "prevalence",
   dark: true,
@@ -50,6 +51,17 @@ const InfoPage = ({
   mapCenter,
   mapZoom,
 }) => {
+  const [show, setShow] = useState(false);
+
+  const styles = StyleSheet.create({
+    container: {
+      justifyContent: "center",
+      alignItems: "center",
+      flex: 1,
+      margin: 10,
+    },
+  });
+
   return (
     <>
       <InfoContainer lightBg={lightBg} id={id}>
@@ -61,19 +73,18 @@ const InfoPage = ({
                 <Heading lightText={lightText}>{headLine}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
-                  <Button
-                    smooth="true"
-                    duration={500}
-                    exact="true"
-                    offset={-60}
-                    primary={primary ? 1 : 0}
-                    dark={dark ? 1 : 0}
-                    dark2={dark2 ? 1 : 0}
-                  >
-                    {buttonLabel}
-                  </Button>
+                  <Button title={buttonLabel} onPress={() => setShow(!show)} />
                 </BtnWrap>
               </TextWrapper>
+              <SafeAreaView style={{ Flex: 1 }}>
+                <View style={styles.container}>
+                  {show ? (
+                    <LineChart width={500} height={300} />
+                  ) : (
+                    <svg width={500} height={300} />
+                  )}
+                </View>
+              </SafeAreaView>
             </Column1>
             <Column2>
               <LeafletMap center={mapCenter} zoom={mapZoom} />
@@ -92,7 +103,11 @@ const Prevalence = () => {
   });
   const [mapZoom, setMapZoom] = useState(5.5);
 
-  return <InfoPage {...props} mapCenter={mapCenter} mapZoom={mapZoom} />;
+  return (
+    <>
+      <InfoPage {...props} mapCenter={mapCenter} mapZoom={mapZoom} />
+    </>
+  );
 };
 
 export default Prevalence;

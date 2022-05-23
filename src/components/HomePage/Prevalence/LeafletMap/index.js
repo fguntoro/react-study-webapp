@@ -4,6 +4,8 @@ import "leaflet/dist/leaflet.css";
 import "./Map.css";
 import { useAtlas } from "./useAtlas";
 import { useData } from "./useData";
+import Spinner from "react-bootstrap/Spinner";
+
 import Slider from "@mui/material/Slider";
 import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
@@ -42,7 +44,11 @@ function Map({ center, zoom }) {
   const data = useData();
 
   if (!atlas || !data) {
-    return <pre>Loading...</pre>;
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
   }
 
   const handleChange = (event, newValue) => {
