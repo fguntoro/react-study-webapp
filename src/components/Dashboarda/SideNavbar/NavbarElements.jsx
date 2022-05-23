@@ -2,51 +2,38 @@ import styled from 'styled-components'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS } from 'react-scroll'
 
-export const Nav = styled.nav`
+export const Nav = styled.div`
+    background-color: '#fafafb';
+    min-width:300px;
+    height:100vh;
     position: fixed;
     left: 0;
-    margin: 0;
-    height: 100vh;
-    margin-top: 60px;
-    background-color: #fff;
-    align-items: center;
-    width: 200px;
-
-    @media screen and (max-width: 960px) {
-        transition:0.8s all ease;
-    }
+    top: 0;
+    font-size: 1rem;
+    box-shadow: rgba(149, 157, 165, .2) 0px 8px 24px;
 `
 
-export const SideNavbarContainer = styled.div`
-    position: fixed;
-    left: 0;
-    margin: 0;
-    height: 100vh;
-    margin-top: 60px;
-    background-color: #fff;
-    align-items: center;
+export const NavbarContainer = styled.div`
+    justify-content: space-between;
+    padding: 0 30px;
 `
 
-export const MobileIcon = styled.div`
-    display: none;
-
-    @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #fff;
-    }
+export const NavLogo = styled(LinkR)`
+    /* color: #fff;
+    justify-self: flex-start;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    font-weight: bold;
+    text-decoration: none; */
 `
 
 export const NavMenu = styled.ul`
-    align-items: center;
+    display: flex-start;
     list-style: none;
-    text-align: center;
-    margin-right: -22px;
+    text-align: left;
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -65,37 +52,29 @@ export const NavLinkS = styled(LinkS)`
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
-
-    &.active {
-        border-bottom: 3px solid #01bf71;
-    }
 `
 
 export const NavLinkR = styled(LinkR)`
-    color: #fff;
+    color: #010101;
     display: flex;
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
-
-    &.active {
-        border-bottom: 3px solid #01bf71;
-    }
 `
 
 export const NavBtn = styled.nav`
-    display: flex;
+    /* display: flex;
     align-items: center;
 
     @media screen and (max-width: 768px) {
         display: none;
-    }
+    } */
 `
 
 export const NavBtnLink = styled(LinkR)`
-    border-radius: 50px;
+    /* border-radius: 50px;
     background: #01bf71;
     white-space: nowrap;
     padding: 10px 22px;
@@ -111,5 +90,5 @@ export const NavBtnLink = styled(LinkR)`
         transition: all 0.2s ease-in-out;
         background: #fff;
         color: #010606;
-    }
+    } */
 `

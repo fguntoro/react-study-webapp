@@ -62,6 +62,7 @@ export const homeObjFour = {
     headLine: 'REACT-LC',
     description: 'The REACT Long COVID study involves more than 120,000 people to better understand why some people who are infected with SARS-CoV-2 continue to have symptoms for several weeks or even months.',
     buttonLabel: 'Next',
+    linkTo: 'reactlc',
     imgStart: true,
     img: require('../../../assets/images/reactGE.svg').default,
     alt: 'reactlc',
