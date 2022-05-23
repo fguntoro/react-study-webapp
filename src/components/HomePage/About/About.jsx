@@ -1,55 +1,64 @@
-import React from 'react'
-import { AboutBg, VideoBg, AboutContainer, AboutContent, AboutH1, AboutWrapper, AboutCard, AboutH2, AboutP, Antibody, Nose, Virus, HeadVirus} from './AboutElements'
-import Video from '../../../assets/videos/virus_white.mp4'
+import React, { useState } from "react";
+import {
+  AboutBg,
+  VideoBg,
+  AboutContainer,
+  AboutContent,
+  AboutH1,
+  AboutWrapper,
+  AboutCard,
+  AboutH2,
+  AboutP,
+  Antibody,
+  Nose,
+  Virus,
+  HeadVirus,
+} from "./AboutElements";
+import {
+  InfoSection,
+  homeObjOne,
+  homeObjTwo,
+  homeObjThree,
+  homeObjFour,
+} from "../../index";
+import Video from "../../../assets/videos/virus_white.mp4";
 // TODO Edit video to reverse loop so no breaks
-import { CircularButton } from '../../ButtonElements'
-import { Link as LinkS } from 'react-scroll'
+import { CircularButton } from "../../ButtonElements";
+import { Link as LinkS } from "react-scroll";
+import "bootstrap/dist/css/bootstrap.css";
+import Carousel from "react-bootstrap/Carousel";
 
+const ImageSlider = () => {
+  const [current, setCurrent] = useState(0);
+};
 
 const About = () => {
   return (
     <AboutContainer id="about">
-        <AboutBg>
-            <VideoBg autoPlay loop muted src={Video} type='video/mp4' />
-        </AboutBg>
-        <AboutContent>
-            <AboutH1>4 Research Programmes</AboutH1>
-        <AboutWrapper>
-            <LinkS to='react1' smooth={true} duration={500}  spy={true} exact='true' offset={-60}>
-                <AboutCard>
-                    <CircularButton to='react1' primary='true' dark='true' smooth={true} duration={500}  spy={true} exact='true' offset={-60}><Nose/></CircularButton>
-                    <AboutH2>REACT-1</AboutH2>
-                    <AboutP>Prevalence study: Nose/throat swabs</AboutP>
-                </AboutCard>
-            </LinkS>
-
-            <LinkS to='react2' smooth={true} duration={500}  spy={true} exact='true' offset={-60}>
-                <AboutCard>
-                    <CircularButton to='react2' primary='true' dark='true' smooth={true} duration={500}  spy={true} exact='true' offset={-60}><Antibody/></CircularButton>
-                    <AboutH2>REACT-2</AboutH2>
-                    <AboutP>Prevalence study: Antibody tests</AboutP>
-                </AboutCard>
-            </LinkS>
-
-            <LinkS to='reactge' smooth={true} duration={500}  spy={true} exact='true' offset={-60}>
-                <AboutCard>
-                    <CircularButton to='reactge' primary='true' dark='true' smooth={true} duration={500}  spy={true} exact='true' offset={-60}><Virus/></CircularButton>
-                    <AboutH2>REACT-GE</AboutH2>
-                    <AboutP>Genetic and other biological signatures influencing COVID-19 severity</AboutP>
-                </AboutCard>
-            </LinkS>
-
-            <LinkS to='reactlc' smooth={true} duration={500}  spy={true} exact='true' offset={-60}>
-                <AboutCard>
-                    <CircularButton to='reactlc' primary='true' dark='true' smooth={true} duration={500}  spy={true} exact='true' offset={-60}><HeadVirus/></CircularButton>
-                    <AboutH2>REACT-LC</AboutH2>
-                    <AboutP>Biological, environmental and social factors underlying Long COVID</AboutP>
-                </AboutCard>
-            </LinkS>
-        </AboutWrapper>
-        </AboutContent>
+      <AboutBg>
+        <VideoBg autoPlay={false} loop muted src={Video} type="video/mp4" />
+      </AboutBg>
+      <AboutContent>
+        <AboutH1>4 Research Programmes</AboutH1>
+        <div style={{ display: "block", width: 900, height: 500, padding: 30 }}>
+          <Carousel>
+            <Carousel.Item interval={5000}>
+              <InfoSection {...homeObjOne} />
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <InfoSection {...homeObjTwo} />
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <InfoSection {...homeObjThree} />
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <InfoSection {...homeObjFour} />
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </AboutContent>
     </AboutContainer>
-  )
-}
+  );
+};
 
-export default About
+export default About;

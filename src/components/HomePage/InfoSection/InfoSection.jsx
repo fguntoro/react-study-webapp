@@ -16,9 +16,9 @@ const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, darkText, head
                             <BtnWrap>
                                 <Button
                                 to={linkTo}
-                                smooth={true}
+                                smooth="true"
                                 duration={500} 
-                                spy={true} 
+                                 
                                 exact="true" 
                                 offset={-60} 
                                 primary={primary ? 1 : 0} 

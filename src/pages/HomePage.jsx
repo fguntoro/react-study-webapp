@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Navbar, Sidebar, HeroSection, About, InfoSection, homeObjOne, homeObjTwo, homeObjThree, homeObjFour, Resources, Explore, Footer } from '../components'
+import { Navbar, Sidebar, HeroSection, About, Prevalence, Resources, Explore, Footer } from '../components'
 
 const HomePage = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -10,19 +10,16 @@ const HomePage = () => {
 
   return (
     <>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
-        <Navbar toggle={toggle} />
-        <HeroSection />
-        <About />
-        <InfoSection {...homeObjOne}/>
-        <InfoSection {...homeObjTwo}/>
-        <InfoSection {...homeObjThree}/>
-        <InfoSection {...homeObjFour}/>
-        <Resources />
-        <Explore />
-        <Footer />
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />
+      <HeroSection />
+      <About />
+      <Prevalence />
+      <Resources />
+      <Explore />
+      {/* <Footer /> */}
     </>
-  )
+  );
 }
 
 export default HomePage

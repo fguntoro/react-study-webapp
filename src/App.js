@@ -18,7 +18,7 @@ const App = () => {
     <Router className="App">
       <Routes>
         <Route exact path="/" element={<HomePage/>}/>
-        <Route exact path="/dashboard" element={<DashboardPage/>}/>
+        {/* <Route exact path="/dashboard" element={<DashboardPage/>}/> */}
       </Routes>
     </Router>
   );
