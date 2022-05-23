@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-study-webapp/static/css/main.36ba9a27.css",
-    "main.js": "/react-study-webapp/static/js/main.f96dc0cd.js",
+    "main.js": "/react-study-webapp/static/js/main.40a2a13b.js",
     "static/js/787.6f00fbaa.chunk.js": "/react-study-webapp/static/js/787.6f00fbaa.chunk.js",
     "static/media/virus_white.mp4": "/react-study-webapp/static/media/virus_white.e179e7634509123518cd.mp4",
     "static/media/video.mp4": "/react-study-webapp/static/media/video.31fbd7eda740f5033ce0.mp4",
@@ -11,11 +11,11 @@
     "static/media/react1.svg": "/react-study-webapp/static/media/react1.da1b35af45975df093bdf7244d3bccb5.svg",
     "index.html": "/react-study-webapp/index.html",
     "main.36ba9a27.css.map": "/react-study-webapp/static/css/main.36ba9a27.css.map",
-    "main.f96dc0cd.js.map": "/react-study-webapp/static/js/main.f96dc0cd.js.map",
+    "main.40a2a13b.js.map": "/react-study-webapp/static/js/main.40a2a13b.js.map",
     "787.6f00fbaa.chunk.js.map": "/react-study-webapp/static/js/787.6f00fbaa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.36ba9a27.css",
-    "static/js/main.f96dc0cd.js"
+    "static/js/main.40a2a13b.js"
   ]
 }
