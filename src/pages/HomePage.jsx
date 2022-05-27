@@ -1,12 +1,28 @@
-import React, {useState} from 'react'
-import { Navbar, Sidebar, HeroSection, About, Prevalence, Resources, Explore, Footer } from '../components'
+import React, { useState } from "react";
+import {
+  Navbar,
+  Sidebar,
+  HeroSection,
+  About,
+  Prevalence,
+  RoundSummary,
+  PersonalStatistics,
+  WorkStatus,
+  Covid,
+  PrecautionaryMeasures,
+  Vaccination,
+  TravelHistory,
+  Resources,
+  Explore,
+  Footer,
+} from "../components";
 
 const HomePage = () => {
-    const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => {
-        setIsOpen(!isOpen)
-    }
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -15,11 +31,18 @@ const HomePage = () => {
       <HeroSection />
       <About />
       <Prevalence />
+      <RoundSummary />
+      <PersonalStatistics />
+      <WorkStatus />
+      <Covid />
+      <PrecautionaryMeasures />
+      <Vaccination />
+      <TravelHistory />
       <Resources />
       <Explore />
       {/* <Footer /> */}
     </>
   );
-}
+};
 
-export default HomePage
+export default HomePage;

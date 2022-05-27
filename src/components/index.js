@@ -10,6 +10,13 @@ export { default as Explore } from './HomePage/Explore/Explore'
 export { default as Dashboard } from './Dashboarda/Dashboard_clean/Dashboard'
 export { default as Footer } from './Footer/Footer'
 export { default as Prevalence } from "./HomePage/Prevalence/Prevalence";
+export { default as RoundSummary } from "./HomePage/RoundSummary/RoundSummary";
+export { default as PersonalStats } from "./HomePage/PersonalStats/Index";
+export { default as WorkStatus } from "./HomePage/WorkStatus/Index";
+export { default as Covid } from "./HomePage/Covid/Index";
+export { default as PrecautionaryMeasures } from "./HomePage/PrecautionaryMeasures/Index";
+export { default as Vaccination } from "./HomePage/Vaccination/Index";
+export { default as TravelHistory } from "./HomePage/TravelHistory/Index";
 
 
 export { homeObjOne, homeObjTwo, homeObjThree, homeObjFour } from './HomePage/InfoSection/Data';
