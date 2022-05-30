@@ -14,9 +14,12 @@ import {
   ImgWrap,
   Img,
 } from "./Elements";
-import LineChart from "./LineChart/index";
+import { default as InfoRowCaseContact } from "./CaseContact/index";
+import { default as InfoRowMask } from "./Mask/index";
+import { default as InfoRowShielding } from "./Shielding/index";
+import { default as InfoRowSymptoms } from "./Symptoms/index";
 
-const props = {
+const propsMain = {
   id: "covid",
   lightBg: true,
   lightText: false,
@@ -31,68 +34,83 @@ const props = {
   primary: true,
 };
 
-const InfoPage = ({
-  lightBg,
-  id,
-  imgStart,
-  topLine,
-  lightText,
-  darkText,
-  headLine,
-  description,
-  buttonLabel,
-  primary,
-  dark,
-  dark2,
-  linkTo,
-  mapCenter,
-  mapZoom,
-}) => {
-  const [show, setShow] = useState(false);
+const propsCaseContact = {
+  id: "propsCaseContact",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "COVID and Long COVID Symptoms",
+  headLine: "Case Contact",
+  description: "",
+  imgStart: true,
+  alt: "propsCaseContact",
+  dark: true,
+  primary: true,
+};
 
-  const styles = StyleSheet.create({
-    container: {
-      justifyContent: "center",
-      alignItems: "center",
-      flex: 1,
-      margin: 10,
-    },
-  });
+const propsMask = {
+  id: "propsMask",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Mask",
+  description: "",
+  imgStart: true,
+  alt: "propsMask",
+  dark: true,
+  primary: true,
+};
 
+const propsShielding = {
+  id: "propsShielding",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Shielding",
+  description: "",
+  imgStart: true,
+  alt: "propsShielding",
+  dark: true,
+  primary: true,
+};
+
+const propsSymptoms = {
+  id: "propsSymptoms",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Symptoms",
+  description: "",
+  imgStart: true,
+  alt: "propsSymptoms",
+  dark: true,
+  primary: true,
+};
+
+const Covid = ({ data }) => {
+  console.log(data);
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id}>
+      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
-          <InfoRow imgStart={imgStart}>
-            <Column1>
-              <TextWrapper>
-                <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
-              </TextWrapper>
-            </Column1>
-            <Column2>
-              <LineChart width={500} height={300} />
-            </Column2>
-          </InfoRow>
+          <InfoRowCaseContact
+            {...propsCaseContact}
+            data={data.covid_case_contact}
+          />
+          <InfoRowMask {...propsMask} data={data.mask_wear} />
+          <InfoRowShielding {...propsShielding} data={data.shielding} />
+          <InfoRowSymptoms {...propsSymptoms} data={data.symptoms_status} />
         </InfoWrapper>
       </InfoContainer>
     </>
   );
 };
 
-const RoundSummary = () => {
-  const [mapCenter, setMapCenter] = useState({
-    lat: 53,
-    lng: -1,
-  });
-  const [mapZoom, setMapZoom] = useState(5.5);
-
-  return (
-    <>
-      <InfoPage {...props} mapCenter={mapCenter} mapZoom={mapZoom} />
-    </>
-  );
-};
-
-export default RoundSummary;
+export default Covid;

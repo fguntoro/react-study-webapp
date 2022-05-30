@@ -18,9 +18,9 @@ import LineChart from "./LineChart/index";
 
 const props = {
   id: "round summary",
-  lightBg: true,
-  lightText: false,
-  darkText: true,
+  lightBg: false,
+  lightText: true,
+  darkText: false,
   lightTextDesc: true,
   topLine: "",
   headLine: "Round Summary",

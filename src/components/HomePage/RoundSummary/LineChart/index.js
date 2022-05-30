@@ -110,7 +110,7 @@ function BuildChart({ data, props }) {
       )
       .attr("cy", (d) => yScale(yValue(d)))
       .attr("r", 5)
-      .attr("fill", "black")
+      .attr("fill", "white")
       .attr("opacity", 1)
       .transition()
       .attr("height", innerHeight);
@@ -128,7 +128,7 @@ function BuildChart({ data, props }) {
       .append("path")
       .style("transform", `translate(${margin.left}px, ${margin.top}px)`)
       .attr("fill", "none")
-      .attr("stroke", "black")
+      .attr("stroke", "white")
       .attr("stroke-width", 2)
       .attr("class", "line")
       .attr("d", linePath);

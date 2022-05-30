@@ -14,85 +14,82 @@ import {
   ImgWrap,
   Img,
 } from "./Elements";
-import LineChart from "./LineChart/index";
+import { default as InfoRowUrban } from "./Urban/index";
+import { default as InfoRowHouseholdSize } from "./HouseholdSize/index";
+import { default as InfoRowEmployment } from "./Employment/index";
 
-const props = {
+
+const propsMain = {
   id: "workStatus",
-  lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  lightBg: false,
   topLine: "",
-  headLine: "Work Status",
-  description: "Key worker status, Outdoor work, reason to leave work, etc",
+  headLine: "Home and Work Status",
+  description: "Sex, Age Groups, Ethnicity, Education, Smoking, Accommodation",
   imgStart: true,
   alt: "workStatus",
   dark: true,
   primary: true,
 };
 
-const InfoPage = ({
-  lightBg,
-  id,
-  imgStart,
-  topLine,
-  lightText,
-  darkText,
-  headLine,
-  description,
-  buttonLabel,
-  primary,
-  dark,
-  dark2,
-  linkTo,
-  mapCenter,
-  mapZoom,
-}) => {
-  const [show, setShow] = useState(false);
+const propsUrban = {
+  id: "propsUrban",
+  lightBg: true,
+  lightText: true,
+  darkText: false,
+  lightTextDesc: true,
+  topLine: "Home and Work Status",
+  headLine: "Lives in urban",
+  description: "",
+  imgStart: true,
+  alt: "propsUrban",
+  dark: true,
+  primary: true,
+};
 
-  const styles = StyleSheet.create({
-    container: {
-      justifyContent: "center",
-      alignItems: "center",
-      flex: 1,
-      margin: 10,
-    },
-  });
+const propsHouseholdSize = {
+  id: "propsHouseholdSize",
+  lightBg: true,
+  lightText: true,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Household Size",
+  description: "",
+  imgStart: true,
+  alt: "propsHouseholdSize",
+  dark: true,
+  primary: true,
+};
 
+const propsEmployment = {
+  id: "propsEmployment",
+  lightBg: true,
+  lightText: true,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Employment",
+  description: "",
+  imgStart: true,
+  alt: "propsEmployment",
+  dark: true,
+  primary: true,
+};
+
+const WorkStatus = ({ data }) => {
+  console.log(data);
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id}>
+      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
-          <InfoRow imgStart={imgStart}>
-            <Column1>
-              <TextWrapper>
-                <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
-              </TextWrapper>
-            </Column1>
-            <Column2>
-              <LineChart width={500} height={300} />
-            </Column2>
-          </InfoRow>
+          <InfoRowUrban {...propsUrban} data={data.urban} />
+          <InfoRowHouseholdSize {...propsHouseholdSize} data={data.household_size} />
+          <InfoRowEmployment {...propsEmployment} data={data.employment} />
         </InfoWrapper>
       </InfoContainer>
     </>
   );
 };
 
-const RoundSummary = () => {
-  const [mapCenter, setMapCenter] = useState({
-    lat: 53,
-    lng: -1,
-  });
-  const [mapZoom, setMapZoom] = useState(5.5);
+export default WorkStatus;
 
-  return (
-    <>
-      <InfoPage {...props} mapCenter={mapCenter} mapZoom={mapZoom} />
-    </>
-  );
-};
-
-export default RoundSummary;

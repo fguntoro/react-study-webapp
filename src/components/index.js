@@ -1,5 +1,7 @@
 export { default as Navbar } from './Navbar/Navbar';
-export { default as Sidebar } from './Dashboarda/Sidebar/Sidebar';
+export { default as Sidebar } from './Sidebar/Sidebar';
+export { default as SidebarFilter } from "./SidebarFilter/Index";
+
 export { default as SideNavbar } from './Dashboarda/SideNavbar/Navbar';
 export { default as About } from './HomePage/About/About'
 export { default as SignIn } from './SignInPage/SignIn/SignIn';
@@ -17,6 +19,7 @@ export { default as Covid } from "./HomePage/Covid/Index";
 export { default as PrecautionaryMeasures } from "./HomePage/PrecautionaryMeasures/Index";
 export { default as Vaccination } from "./HomePage/Vaccination/Index";
 export { default as TravelHistory } from "./HomePage/TravelHistory/Index";
+export { useData } from "./useData";
 
 
 export { homeObjOne, homeObjTwo, homeObjThree, homeObjFour } from './HomePage/InfoSection/Data';

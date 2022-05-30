@@ -48,13 +48,24 @@ export const MobileIcon = styled.div`
         display: block;
         position: absolute;
         top: 0;
-        right: 0;
+        right: 50px;
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
         color: #fff;
     }
 `
+
+export const FilterIcon = styled.div`
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+`;
 
 export const NavMenu = styled.ul`
     display: flex;

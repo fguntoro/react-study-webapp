@@ -13,8 +13,9 @@ import {
   ImgWrap,
   Img,
 } from "../Elements";
-import LineChart from "./chart"
-const InfoRowSex = ({
+import Chart from "./chart"
+
+const InfoRowAge = ({
   lightBg,
   id,
   imgStart,
@@ -41,11 +42,11 @@ const InfoRowSex = ({
           </TextWrapper>
         </Column1>
         <Column2>
-          <LineChart data={data} width={500} height={300} />
+          <Chart data={data} width={500} height={300} />
         </Column2>
       </InfoRow>
     </>
   );
 };
 
-export default InfoRowSex;
+export default InfoRowAge;

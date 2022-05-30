@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { animateScroll as scroll } from "react-scroll";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaFilter } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import {
   Nav,
@@ -13,9 +13,10 @@ import {
   NavLinkR,
   NavBtn,
   NavBtnLink,
+  FilterIcon,
 } from "./NavbarElements";
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, toggleFilter }) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
@@ -48,6 +49,9 @@ const Navbar = ({ toggle }) => {
             <MobileIcon onClick={toggle}>
               <FaBars />
             </MobileIcon>
+            <FilterIcon onClick={toggleFilter}>
+              <FaFilter />
+            </FilterIcon>
             <NavMenu>
               <NavItem>
                 <NavLinkS

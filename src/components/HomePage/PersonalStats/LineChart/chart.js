@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useData } from "./useData";
+import ProgressBar from "react-customizable-progressbar";
+import { BsFillPersonFill } from "react-icons/bs";
 import {
   select,
   axisBottom,
@@ -15,10 +16,8 @@ import {
 } from "d3";
 import "./index.css";
 
-function BuildChart({ data, props }) {
+function BuildChart({ data, width, height }) {
   const svgRef = useRef();
-
-  const { width, height } = props;
 
   const margin = { top: 50, right: 50, bottom: 50, left: 50 };
   const innerHeight = height - margin.top - margin.bottom;
@@ -28,6 +27,7 @@ function BuildChart({ data, props }) {
   const xAxisLabelOffset = 12;
   const yAxisLabelOffset = 30;
 
+  console.log(data);
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
@@ -132,7 +132,6 @@ function BuildChart({ data, props }) {
       .attr("stroke-width", 2)
       .attr("class", "line")
       .attr("d", linePath);
-      
 
     //set the label
     svg
@@ -170,22 +169,44 @@ function BuildChart({ data, props }) {
         <g className="x-axis2" />
         <g className="y-axis" />
       </svg>
+
+      <ProgressBar progress={60} radius={100} />
     </>
   );
 }
 
-const LineChart = (props) => {
-  //   const [data, setData] = useState([25, 30, 45, 60, 10, 65, 75]);
-  const data = useData();
-
-  if (!data) {
-    return <pre> Loading... </pre>;
-  }
-
+const LineChart = ({ data, width, height }) => {
+  const progress = Math.round(4.52/8.82 * 100 * 10)/10;
   return (
     <>
       {/* <h2> Line Chart</h2> */}
-      <BuildChart data={data} props={props} />
+      {/* <BuildChart data={data} width={width} height={height} /> */}
+      <ProgressBar
+        progress={progress}
+        radius={100}
+        cut={120}
+        rotate={-210}
+        strokeWidth={16}
+        strokeColor="#5d9cec"
+        strokeLinecap="square"
+        trackStrokeWidth={8}
+        trackStrokeColor="#e6e6e6"
+        trackStrokeLinecap="square"
+        pointerRadius={0}
+        initialAnimation={true}
+        transition="1.5s ease 0.5s"
+        trackTransition="0s ease"
+      >
+        <div className="indicator-volume">
+          <div className="inner">
+            <div className="icon">
+              <BsFillPersonFill />
+            </div>
+            <div className="percentage">{progress}%</div>
+          </div>
+        </div>
+      </ProgressBar>
+
       {/* <button onClick={() => setData(data.map((value) => value + 5))}>
         Update data
       </button>
