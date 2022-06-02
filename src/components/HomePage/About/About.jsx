@@ -6,7 +6,7 @@ import {
   AboutContent,
   AboutH1,
   AboutWrapper,
-  AboutCard,
+  AboutPaper,
   AboutH2,
   AboutP,
   Antibody,
@@ -21,26 +21,18 @@ import {
   homeObjThree,
   homeObjFour,
 } from "../../index";
-import Video from "../../../assets/videos/virus_white.mp4";
-// TODO Edit video to reverse loop so no breaks
-import { CircularButton } from "../../ButtonElements";
-import { Link as LinkS } from "react-scroll";
+
+import Paper from "@mui/material/Paper";
 import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
-
-const ImageSlider = () => {
-  const [current, setCurrent] = useState(0);
-};
+import { grey } from "@mui/material/colors";
 
 const About = () => {
   return (
     <AboutContainer id="about">
-      <AboutBg>
-        <VideoBg autoPlay={false} loop muted src={Video} type="video/mp4" />
-      </AboutBg>
       <AboutContent>
         <AboutH1>4 Research Programmes</AboutH1>
-        <div style={{ display: "block", width: 900, height: 500, padding: 30 }}>
+        <AboutPaper elevation={5}>
           <Carousel>
             <Carousel.Item interval={5000}>
               <InfoSection {...homeObjOne} />
@@ -55,7 +47,7 @@ const About = () => {
               <InfoSection {...homeObjFour} />
             </Carousel.Item>
           </Carousel>
-        </div>
+        </AboutPaper>
       </AboutContent>
     </AboutContainer>
   );

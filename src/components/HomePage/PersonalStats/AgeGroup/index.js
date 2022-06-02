@@ -30,6 +30,7 @@ const InfoRowAge = ({
   dark2,
   linkTo,
   data,
+  variable
 }) => {
   return (
     <>
@@ -42,7 +43,7 @@ const InfoRowAge = ({
           </TextWrapper>
         </Column1>
         <Column2>
-          <Chart data={data} width={500} height={300} />
+          <Chart data={data} width={500} height={300} variable={variable}/>
         </Column2>
       </InfoRow>
     </>

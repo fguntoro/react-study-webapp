@@ -1,27 +1,24 @@
 import styled from "styled-components";
 import { BsClipboardData, BsTable } from 'react-icons/bs'
 import { IoNewspaperOutline } from 'react-icons/io5'
+import Paper from "@mui/material/Paper";
 
 export const ResourcesContainer = styled.div`
-    height: 800px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #010606;
 
-    @media screen and (max-width: 768px) {
-        height: 1100px;
-    }
-
     @media screen and (max-width: 480px) {
-        height: 1300px;
+        height: 1000px;
     }
 `
 
 export const ResourcesWrapper = styled.div`
-    //background-color: red;
-    width: 1000px;
+    width: 100%;
+    max-width: 1180px;
     margin: 4rem 6rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -39,7 +36,7 @@ export const ResourcesWrapper = styled.div`
     }
 `
 
-export const ResourcesCard = styled.div`
+export const ResourcesCard = styled(Paper)`
     background: #fff;
     display: flex;
     flex-direction: column;

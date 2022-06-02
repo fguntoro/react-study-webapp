@@ -62,7 +62,7 @@ const propsHouseholdSize = {
 };
 
 const propsEmployment = {
-  id: "propsEmployment",
+  id: "employment",
   lightBg: true,
   lightText: true,
   darkText: true,
@@ -77,14 +77,13 @@ const propsEmployment = {
 };
 
 const WorkStatus = ({ data }) => {
-  console.log(data);
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
-          <InfoRowUrban {...propsUrban} data={data.urban} />
-          <InfoRowHouseholdSize {...propsHouseholdSize} data={data.household_size} />
-          <InfoRowEmployment {...propsEmployment} data={data.employment} />
+          {/* <InfoRowUrban {...propsUrban} data={data.urban} /> */}
+          <InfoRowHouseholdSize {...propsHouseholdSize} data={data.nadults} />
+          <InfoRowEmployment {...propsEmployment} data={data.empl} />
         </InfoWrapper>
       </InfoContainer>
     </>

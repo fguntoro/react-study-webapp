@@ -14,9 +14,9 @@ import {
   ImgWrap,
   Img,
 } from "./Elements";
-import InfoRowSex from "./LineChart/index";
 import InfoRowAge from "./AgeGroup/index";
 import { default as InfoRowEthnic } from "./Ethnicity/index";
+import { default as InfoRowGender } from "./Gender/index";
 
 const propsMain = {
   id: "personalStats",
@@ -30,14 +30,14 @@ const propsMain = {
   primary: true,
 };
 
-const propsSex = {
+const propsGender = {
   id: "personalStats",
   lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
-  topLine: "Personal Statistics",
-  headLine: "Sex",
+  topLine: "",
+  headLine: "Gender",
   description: "",
   imgStart: true,
   alt: "personalStats",
@@ -75,14 +75,22 @@ const propsEthnic = {
   primary: true,
 };
 
-const PersonalStats = ({ data }) => {
+const PersonalStats = ({ data, variable }) => {
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
-          <InfoRowSex {...propsSex} data={data} />
-          <InfoRowAge {...propsAge} data={data.age} />
-          <InfoRowEthnic {...propsEthnic} data={data.ethnicity} />
+          <InfoRowGender
+            {...propsGender}
+            data={data.gender}
+            variable={variable}
+          />
+          <InfoRowAge {...propsAge} data={data.age_group} variable={variable} />
+          <InfoRowEthnic
+            {...propsEthnic}
+            data={data.ethnic}
+            variable={variable}
+          />
         </InfoWrapper>
       </InfoContainer>
     </>

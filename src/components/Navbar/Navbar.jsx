@@ -49,9 +49,6 @@ const Navbar = ({ toggle, toggleFilter }) => {
             <MobileIcon onClick={toggle}>
               <FaBars />
             </MobileIcon>
-            <FilterIcon onClick={toggleFilter}>
-              <FaFilter />
-            </FilterIcon>
             <NavMenu>
               <NavItem>
                 <NavLinkS
@@ -59,11 +56,76 @@ const Navbar = ({ toggle, toggleFilter }) => {
                   smooth="true"
                   duration={500}
                   exact="true"
-                  offset={-60}
+                  offset={-65}
+                  spy={true}
                 >
                   About
                 </NavLinkS>
               </NavItem>
+              <NavItem>
+                <NavLinkS
+                  to="prevalence"
+                  smooth="true"
+                  duration={500}
+                  exact="true"
+                  offset={-60}
+                  spy={true}
+                >
+                  Map
+                </NavLinkS>
+              </NavItem>
+              <NavItem>
+                <NavLinkS
+                  to="roundSummary"
+                  smooth="true"
+                  duration={500}
+                  exact="true"
+                  offset={-60}
+                  spy={true}
+                >
+                  Summary
+                </NavLinkS>
+              </NavItem>
+
+              <NavItem>
+                <NavLinkS
+                  to="personalStats"
+                  smooth="true"
+                  duration={500}
+                  exact="true"
+                  offset={-60}
+                  spy={true}
+                >
+                  Characteristics
+                </NavLinkS>
+              </NavItem>
+
+              <NavItem>
+                <NavLinkS
+                  to="workStatus"
+                  smooth="true"
+                  duration={500}
+                  exact="true"
+                  offset={-60}
+                  spy={true}
+                >
+                  Life
+                </NavLinkS>
+              </NavItem>
+
+              <NavItem>
+                <NavLinkS
+                  to="covid"
+                  smooth="true"
+                  duration={500}
+                  exact="true"
+                  offset={-60}
+                  spy={true}
+                >
+                  COVID
+                </NavLinkS>
+              </NavItem>
+
               <NavItem>
                 <NavLinkS
                   to="resources"
@@ -71,28 +133,33 @@ const Navbar = ({ toggle, toggleFilter }) => {
                   duration={500}
                   exact="true"
                   offset={-60}
+                  spy={true}
                 >
                   Resources
                 </NavLinkS>
               </NavItem>
-              <NavItem>
+
+              {/* <NavItem>
                 <NavLinkS
                   to="explore"
                   smooth="true"
                   duration={500}
                   exact="true"
                   offset={-60}
+                  spy={true}
                 >
                   Explore
                 </NavLinkS>
-              </NavItem>
+              </NavItem> */}
               {/* <NavItem>
                             <NavLinkR to='/dashboard' smooth="true" duration={500}  exact='true' offset={-60}>Dashboard</NavLinkR>
                         </NavItem> */}
             </NavMenu>
-            <NavBtn>
-              {/* <NavBtnLink to='/signin'>Sign In</NavBtnLink> */}
-            </NavBtn>
+
+            <FilterIcon onClick={toggleFilter}>
+              <FaFilter />
+            </FilterIcon>
+            
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

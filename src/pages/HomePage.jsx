@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import {
   Navbar,
@@ -23,11 +23,11 @@ import {
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const [roundSelected, setRoundSelected] = useState(false);
+  const [roundSelected, setRoundSelected] = useState(19);
   const [roundSelectedRight, setRoundSelectedRight] = useState(null);
+  const [variableSelected, setVariableSelected] = useState("uwt_prev");
 
   const data = useData();
-
   if (!data) {
     return (
       <Spinner animation="border" role="status">
@@ -44,18 +44,29 @@ const HomePage = () => {
     setIsOpenFilter(!isOpenFilter);
   };
 
+
+
+  const filteredData = data[`round${roundSelected}`];
+  console.log(filteredData);
+  // console.log(variableSelected);
+
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
-      <SidebarFilter isOpen={isOpenFilter} toggle={toggleFilter} />
+      <SidebarFilter
+        isOpen={isOpenFilter}
+        toggle={toggleFilter}
+        setRoundSelected={setRoundSelected}
+        setVariableSelected={setVariableSelected}
+      />
       <Navbar toggle={toggle} toggleFilter={toggleFilter} />
       <HeroSection />
       <About />
       <Prevalence />
       <RoundSummary />
-      <PersonalStats data={data} />
-      <WorkStatus data={data} />
-      <Covid data={data} />
+      <PersonalStats data={filteredData} variable={variableSelected} />
+      <WorkStatus data={filteredData} variable={variableSelected} />
+      {/* <Covid data={data} /> */}
       {/* <PrecautionaryMeasures />
       <Vaccination />
       <TravelHistory /> */}

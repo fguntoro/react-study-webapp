@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
   width: 100%;
-  height: 100px;
+  height: 150px;
   background: #0d0d0d;
   display: grid;
   top: 0;
@@ -22,9 +23,9 @@ export const SidebarContainer = styled.aside`
 export const SidebarWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 90px;
+  height: 90%;
   background: #0d0d0d;
-  width: 90%;
+  width: 95%;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
@@ -49,26 +50,31 @@ export const SidebarRow = styled.div`
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
-  grid-template-areas: 'col1 col2';
+  grid-template-areas: "col1 col2";
 
   @media screen and (max-width: 768px) {
-    grid-template-areas: 'col1 col1' 'col2 col2';
+    grid-template-areas: "col1 col1" "col2 col2";
   }
 `;
 
+export const SidebarRow2 = styled.div`
+  display: grid;
+  grid-auto-columns: minmax(auto, 1fr);
+  align-items: center;
+  padding: 0 15px;
+`;
 
 export const Column1 = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 0 15px;
   grid-area: col1;
 `;
 
 export const Column2 = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 0 15px;
   grid-area: col2;
 `;
-
 
 export const SidebarMenu = styled.div`
   display: grid;

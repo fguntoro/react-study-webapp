@@ -95,7 +95,6 @@ const propsSymptoms = {
 };
 
 const Covid = ({ data }) => {
-  console.log(data);
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>

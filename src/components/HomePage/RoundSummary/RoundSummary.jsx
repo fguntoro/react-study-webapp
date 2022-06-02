@@ -17,7 +17,7 @@ import {
 import LineChart from "./LineChart/index";
 
 const props = {
-  id: "round summary",
+  id: "roundSummary",
   lightBg: false,
   lightText: true,
   darkText: false,
@@ -28,7 +28,7 @@ const props = {
     "Round Selected, Swab Positivity, Regional Prevalence",
   buttonLabel: "Show",
   imgStart: true,
-  alt: "round summary",
+  alt: "roundSummary",
   dark: true,
   primary: true,
 };
