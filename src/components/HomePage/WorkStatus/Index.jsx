@@ -76,14 +76,22 @@ const propsEmployment = {
   primary: true,
 };
 
-const WorkStatus = ({ data }) => {
+const WorkStatus = ({ data, variable }) => {
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
           {/* <InfoRowUrban {...propsUrban} data={data.urban} /> */}
-          <InfoRowHouseholdSize {...propsHouseholdSize} data={data.nadults} />
-          <InfoRowEmployment {...propsEmployment} data={data.empl} />
+          <InfoRowHouseholdSize
+            {...propsHouseholdSize}
+            data={data.nadults}
+            variable={variable}
+          />
+          <InfoRowEmployment
+            {...propsEmployment}
+            data={data.empl}
+            variable={variable}
+          />
         </InfoWrapper>
       </InfoContainer>
     </>

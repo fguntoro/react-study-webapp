@@ -1,16 +1,23 @@
 .map {
-  z-index: 999;
+    background-color: white;
   height: 600px;
   width: 600px;
-  background-color: white;
   padding: 1rem;
   border-radius: 20px;
   margin-top: 16px;
   box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .map {
+    height: 400px;
+    width: 400px;
+  }
 }
 
 .map .leaflet-container {
-  z-index: 999;
   height: 80%;
   border-radius: 12px;
 }

@@ -12,7 +12,7 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 800px;
+  height: 100%;
   width: 100%;
   max-width: 1100px;
   margin-right: auto;
@@ -26,24 +26,32 @@ export const InfoRow = styled.div`
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
   grid-template-areas: ${({ imgStart }) =>
-    imgStart ? `'col2 col1'` : `'col1 col2'`};
+    imgStart ? `'box2 box1''box2 box3'` : `'box1 box2''box3 box2'`};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 820px) {
     grid-template-areas: ${({ imgStart }) =>
-      imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+      imgStart
+        ? `'box1' 'box2' 'box3'`
+        : `'box1 box1' 'box2 box2' 'box3 box3'`};
   }
 `;
 
-export const Column1 = styled.div`
+export const Box1 = styled.div`
   margin-bottom: 15px;
   padding: 0 15px;
-  grid-area: col1;
+  grid-area: box1;
 `;
 
-export const Column2 = styled.div`
+export const Box2 = styled.div`
   margin-bottom: 15px;
   padding: 0 15px;
-  grid-area: col2;
+  grid-area: box2;
+`;
+
+export const Box3 = styled.div`
+  margin-bottom: 15px;
+  padding: 0 15px;
+  grid-area: box3;
 `;
 
 export const TextWrapper = styled.div`

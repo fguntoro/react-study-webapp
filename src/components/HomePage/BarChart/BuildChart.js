@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
 import {
   select,
   selectAll,
@@ -18,9 +17,18 @@ import {
 } from "d3";
 import "./index.css";
 import tip from "d3-tip";
-import { axisLabelDict } from "./labels";
+import { yAxisLabelDict } from "./labels.js";
+import "antd/dist/antd.css";
+import { Empty } from "antd";
 
-function BuildChart({ data, width, height }) {
+function BuildChart({
+  data,
+  width,
+  height,
+  variable,
+  xAxisLabel,
+  axisLabelDict,
+}) {
   const svgRef = useRef();
 
   const margin = { top: 50, right: 50, bottom: 50, left: 50 };
@@ -31,8 +39,24 @@ function BuildChart({ data, width, height }) {
   const xAxisLabelOffset = 40;
   const yAxisLabelOffset = 35;
 
-  const yAxisLabel = "Unweighted Prevalence (%)";
-  const xAxisLabel = "Gender";
+  function getYAxisLabel() {
+    const inDict = yAxisLabelDict.filter(function (v) {
+      return v.value === variable;
+    });
+
+    return inDict.length ? inDict[0].label : variable;
+  }
+  const yAxisLabel = getYAxisLabel();
+
+  // const yAxisLabel = "Unweighted Prevalence (%)";
+
+  // useEffect(() => {
+  //   data.map((d) => {
+  //     d.positive = d.positive / 100;
+  //     d.total = d.total / 1000;
+  //   });
+  //   console.log(data);
+  // });
 
   // will be called initially and on every data change
   useEffect(() => {
@@ -42,7 +66,15 @@ function BuildChart({ data, width, height }) {
 
     const xValue = (d) => Object.values(d)[0];
 
-    const yValue = (d) => d["uwt_prev"];
+    let yValue = () => {};
+
+    if (variable === "uwt_prev") {
+      yValue = (d) => d[`${variable}`];
+    } else if (variable === "positive") {
+      yValue = (d) => d[`${variable}`] / 100;
+    } else if (variable === "total") {
+      yValue = (d) => d[`${variable}`] / 1000;
+    }
 
     const xScale = scaleBand()
       .domain(data.map(xValue))
@@ -54,14 +86,16 @@ function BuildChart({ data, width, height }) {
       .range([innerHeight, 0])
       .nice();
 
-    const xAxis = axisBottom(xScale)
-      .ticks(data.length)
-      .tickFormat((d) => {
+    const xAxis = axisBottom(xScale).ticks(data.length);
+
+    if (axisLabelDict) {
+      xAxis.tickFormat((d) => {
         const inDict = axisLabelDict.filter(function (v) {
           return v.value === d;
         });
         return inDict.length ? inDict[0].label : d;
       });
+    }
 
     svg
       .select(".x-axis")
@@ -170,7 +204,7 @@ function BuildChart({ data, width, height }) {
     //   .attr("class", "line")
     //   .attr("id", "id_line")
     //   .attr("d", linePath);
-  }, [data]);
+  }, [data, variable]);
 
   return (
     <div id="chartArea">
@@ -202,13 +236,36 @@ function BuildChart({ data, width, height }) {
   );
 }
 
-const Chart = ({ data, width, height }) => {
+const Chart = ({
+  data,
+  width,
+  height,
+  variable,
+  xAxisLabel,
+  axisLabelDict,
+}) => {
   const progress = 60;
+
+  if (!data) {
+    return (
+      <>
+        <Empty />
+      </>
+    );
+  }
+
   return (
     <>
-      {/* <h2> Line Chart</h2> */}
-      <BuildChart data={data} width={width} height={height} />
+      <BuildChart
+        data={data}
+        width={width}
+        height={height}
+        variable={variable}
+        xAxisLabel={xAxisLabel}
+        axisLabelDict={axisLabelDict}
+      />
     </>
   );
 };
+
 export default Chart;

@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const SidebarContainer = styled.aside`
   position: fixed;
-  z-index: 999;
+  z-index: 1002;
   width: 100%;
   height: 150px;
   background: #0d0d0d;

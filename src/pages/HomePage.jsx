@@ -67,9 +67,9 @@ const HomePage = () => {
       <PersonalStats data={filteredData} variable={variableSelected} />
       <WorkStatus data={filteredData} variable={variableSelected} />
       {/* <Covid data={data} /> */}
-      {/* <PrecautionaryMeasures />
-      <Vaccination />
-      <TravelHistory /> */}
+      <PrecautionaryMeasures data={filteredData} variable={variableSelected} />
+      {/* <Vaccination /> */}
+      {/* <TravelHistory /> */}
       <Resources />
       {/* <Explore /> */}
       <Footer />

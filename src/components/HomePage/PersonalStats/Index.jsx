@@ -14,7 +14,7 @@ import {
   ImgWrap,
   Img,
 } from "./Elements";
-import InfoRowAge from "./AgeGroup/index";
+import { default as InfoRowAge } from "./AgeGroup/index";
 import { default as InfoRowEthnic } from "./Ethnicity/index";
 import { default as InfoRowGender } from "./Gender/index";
 
@@ -43,6 +43,7 @@ const propsGender = {
   alt: "personalStats",
   dark: true,
   primary: true,
+  xAxisLabel: "Gender",
 };
 
 const propsAge = {
@@ -58,6 +59,7 @@ const propsAge = {
   alt: "propsAge",
   dark: true,
   primary: true,
+  xAxisLabel: "Age Group",
 };
 
 const propsEthnic = {
@@ -73,6 +75,7 @@ const propsEthnic = {
   alt: "propsEthnic",
   dark: true,
   primary: true,
+  xAxisLabel: "Ethnicity",
 };
 
 const PersonalStats = ({ data, variable }) => {

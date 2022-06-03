@@ -14,7 +14,7 @@ import {
   ImgWrap,
   Img,
 } from "./Elements";
-import LineChart from "./LineChart/index";
+import { default as InfoRowShielding1 } from "./Shielding1/index";
 
 const props = {
   id: "precaution",
@@ -31,68 +31,77 @@ const props = {
   primary: true,
 };
 
-const InfoPage = ({
-  lightBg,
-  id,
-  imgStart,
-  topLine,
-  lightText,
-  darkText,
-  headLine,
-  description,
-  buttonLabel,
-  primary,
-  dark,
-  dark2,
-  linkTo,
-  mapCenter,
-  mapZoom,
-}) => {
-  const [show, setShow] = useState(false);
+const propsMain = {
+  id: "personalStats",
+  lightBg: true,
+  topLine: "",
+  headLine: "Personal Statistics",
+  description: "Sex, Age Groups, Ethnicity, Education, Smoking, Accommodation",
+  imgStart: true,
+  alt: "personalStats",
+  dark: true,
+  primary: true,
+};
 
-  const styles = StyleSheet.create({
-    container: {
-      justifyContent: "center",
-      alignItems: "center",
-      flex: 1,
-      margin: 10,
-    },
-  });
+const propsGender = {
+  id: "personalStats",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Gender",
+  description: "",
+  imgStart: true,
+  alt: "personalStats",
+  dark: true,
+  primary: true,
+};
 
+const propsAge = {
+  id: "propsAge",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Age Groups",
+  description: "",
+  imgStart: true,
+  alt: "propsAge",
+  dark: true,
+  primary: true,
+};
+
+const propsEthnic = {
+  id: "propsEthnic",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Ethnicity",
+  description: "",
+  imgStart: true,
+  alt: "propsEthnic",
+  dark: true,
+  primary: true,
+};
+
+const Section = ({ data, variable }) => {
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id}>
+      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
-          <InfoRow imgStart={imgStart}>
-            <Column1>
-              <TextWrapper>
-                <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
-              </TextWrapper>
-            </Column1>
-            <Column2>
-              <LineChart width={500} height={300} />
-            </Column2>
-          </InfoRow>
+          <InfoRowShielding1
+            {...propsGender}
+            data={data.shield1}
+            variable={variable}
+          />
         </InfoWrapper>
       </InfoContainer>
     </>
   );
 };
 
-const RoundSummary = () => {
-  const [mapCenter, setMapCenter] = useState({
-    lat: 53,
-    lng: -1,
-  });
-  const [mapZoom, setMapZoom] = useState(5.5);
-
-  return (
-    <>
-      <InfoPage {...props} mapCenter={mapCenter} mapZoom={mapZoom} />
-    </>
-  );
-};
-
-export default RoundSummary;
+export default Section;

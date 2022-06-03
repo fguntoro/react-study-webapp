@@ -19,6 +19,8 @@ import {
 import "./index.css";
 import tip from "d3-tip";
 import { yAxisLabelDict } from "./labels.js";
+import "antd/dist/antd.css";
+import { Empty } from "antd";
 
 // .tickFormat((d) => {
 //   const inDict = axisLabelDict.filter(function (v) {
@@ -229,6 +231,15 @@ function BuildChart({ data, width, height, variable }) {
 
 const Chart = ({ data, width, height, variable }) => {
   const progress = 60;
+
+  if (!data) {
+    return (
+      <>
+          <Empty />
+      </>
+    );
+  }
+
   return (
     <>
       <BuildChart

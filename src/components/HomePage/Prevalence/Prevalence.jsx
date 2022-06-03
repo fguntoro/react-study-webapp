@@ -4,8 +4,9 @@ import {
   InfoContainer,
   InfoWrapper,
   InfoRow,
-  Column1,
-  Column2,
+  Box1,
+  Box2,
+  Box3,
   TextWrapper,
   TopLine,
   Heading,
@@ -67,28 +68,30 @@ const InfoPage = ({
       <InfoContainer lightBg={lightBg} id={id}>
         <InfoWrapper>
           <InfoRow imgStart={imgStart}>
-            <Column1>
+            <Box1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headLine}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
-                <BtnWrap>
-                  <Button title={buttonLabel} onPress={() => setShow(!show)} />
-                </BtnWrap>
               </TextWrapper>
+            </Box1>
+            <Box2>
+              <LeafletMap center={mapCenter} zoom={mapZoom} />
+            </Box2>
+            <Box3>
+              <BtnWrap>
+                <Button title={buttonLabel} onPress={() => setShow(!show)} />
+              </BtnWrap>
               <SafeAreaView style={{ Flex: 1 }}>
                 <View style={styles.container}>
                   {show ? (
                     <LineChart width={500} height={300} />
                   ) : (
-                    <svg width={500} height={300} />
+                    <svg width={0} height={0} />
                   )}
                 </View>
               </SafeAreaView>
-            </Column1>
-            <Column2>
-              <LeafletMap center={mapCenter} zoom={mapZoom} />
-            </Column2>
+            </Box3>
           </InfoRow>
         </InfoWrapper>
       </InfoContainer>
