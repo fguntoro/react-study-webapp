@@ -27,13 +27,3 @@
     color: #5d9cec;
     margin-bottom: 15px;
 }
-
-.d3-tip {
-    line-height: 0.5;
-    font-weight: bold;
-    padding: 13px 10px 0px 10px ;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    border-radius: 10px;
-    pointer-events: none;
-}

@@ -15,6 +15,9 @@ import {
   Img,
 } from "./Elements";
 import { default as InfoRowShielding1 } from "./Shielding1/index";
+import { default as InfoRowShielding2 } from "./Shielding2/index";
+import { default as InfoRowFaceCov } from "./FaceCov/index";
+import { default as InfoRowIndoorMask } from "./IndoorMask/index";
 
 const props = {
   id: "precaution",
@@ -43,47 +46,58 @@ const propsMain = {
   primary: true,
 };
 
-const propsGender = {
-  id: "personalStats",
-  lightBg: true,
+const propsShielding1 = {
+  id: "Shielding1",
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
-  headLine: "Gender",
-  description: "",
+  headLine: "Shielding1",
+  description: "Do you consider yourself to be at risk of severe illness for COVID-19?",
   imgStart: true,
-  alt: "personalStats",
+  alt: "Shielding1",
   dark: true,
   primary: true,
 };
 
-const propsAge = {
-  id: "propsAge",
-  lightBg: true,
+const propsShielding2 = {
+  id: "Shielding2",
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
-  headLine: "Age Groups",
-  description: "",
+  headLine: "Shielding2",
+  description: "Are you shielding or taking specific precautions because you are concerned that you will become severely ill with COVID-19?",
   imgStart: true,
-  alt: "propsAge",
+  alt: "Shielding2",
   dark: true,
   primary: true,
 };
 
-const propsEthnic = {
-  id: "propsEthnic",
-  lightBg: true,
+const propsFaceCov = {
+  id: "FaceCov",
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
-  headLine: "Ethnicity",
-  description: "",
+  headLine: "Face Covering",
+  description: "Whether you mainly wear any kind of face covering or mask when you are outside of the home because of COVID-19?",
   imgStart: true,
-  alt: "propsEthnic",
+  alt: "FaceCov",
+  dark: true,
+  primary: true,
+};
+
+const propsIndoorMask = {
+  id: "IndoorMask",
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Indoor Mask",
+  description: "How often do you wear any kind of face covering or mask indoors?",
+  imgStart: true,
+  alt: "IndoorMask",
   dark: true,
   primary: true,
 };
@@ -94,8 +108,23 @@ const Section = ({ data, variable }) => {
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
           <InfoRowShielding1
-            {...propsGender}
+            {...propsShielding1}
             data={data.shield1}
+            variable={variable}
+          />
+          <InfoRowShielding2
+            {...propsShielding2}
+            data={data.shield2}
+            variable={variable}
+          />
+          <InfoRowFaceCov
+            {...propsFaceCov}
+            data={data.face_cov}
+            variable={variable}
+          />
+          <InfoRowIndoorMask
+            {...propsIndoorMask}
+            data={data.indmask}
             variable={variable}
           />
         </InfoWrapper>

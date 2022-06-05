@@ -50,12 +50,13 @@ const propsMain = {
 
 const propsVaccinated = {
   id: "Vaccinated",
+  lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
   headLine: "Vaccinated",
-  description: "Have you ever had a coronavirus vaccine?",
+  description: "",
   imgStart: true,
   alt: "Vaccinated",
   dark: true,
@@ -64,12 +65,13 @@ const propsVaccinated = {
 
 const propsVaccineAccept = {
   id: "VaccineAccept",
+  lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
   headLine: "VaccineAccept",
-  description: "Would you accept a coronavirus vaccine if offered?",
+  description: "",
   imgStart: true,
   alt: "VaccineAccept",
   dark: true,
@@ -78,12 +80,13 @@ const propsVaccineAccept = {
 
 const propsVaccineApp2 = {
   id: "VaccineApp2",
+  lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
   headLine: "VaccineApp2",
-  description: "Which of the following best describes your decision regarding being offered a coronavirus vaccine?",
+  description: "",
   imgStart: true,
   alt: "VaccineApp2",
   dark: true,
@@ -92,12 +95,13 @@ const propsVaccineApp2 = {
 
 const propsVaccineDose = {
   id: "VaccineDose",
+  lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
   headLine: "VaccineDose",
-  description: "How many doses of infections have you had so far?",
+  description: "",
   imgStart: true,
   alt: "VaccineDose",
   dark: true,
@@ -106,12 +110,13 @@ const propsVaccineDose = {
 
 const propsVaccineType = {
   id: "VaccineType",
+  lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "",
   headLine: "VaccineType",
-  description: "Which vaccine did you receive from healthcare provider?",
+  description: "",
   imgStart: true,
   alt: "VaccineType",
   dark: true,

@@ -1,4 +1,4 @@
 // export const axisLabelDict = [
-//   { value: 1, label: "Male" },
-//   { value: 2, label: "Female" },
+//   { value: -92, label: "NA" },
+//   { value: 1, label: "British" },
 // ];

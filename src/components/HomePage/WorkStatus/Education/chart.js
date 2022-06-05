@@ -18,18 +18,8 @@ import {
 } from "d3";
 import "./index.css";
 import tip from "d3-tip";
-import { yAxisLabelDict } from "./labels.js";
-import "antd/dist/antd.css";
-import { Empty } from "antd";
 
-// .tickFormat((d) => {
-//   const inDict = axisLabelDict.filter(function (v) {
-//     return v.value === d;
-//   });
-//   return inDict.length ? inDict[0].label : d;
-// });
-
-function BuildChart({ data, width, height, variable }) {
+function BuildChart({ data, width, height }) {
   const svgRef = useRef();
 
   const margin = { top: 50, right: 50, bottom: 50, left: 50 };
@@ -40,25 +30,8 @@ function BuildChart({ data, width, height, variable }) {
   const xAxisLabelOffset = 40;
   const yAxisLabelOffset = 35;
 
-  function getYAxisLabel() {
-    const inDict = yAxisLabelDict.filter(function (v) {
-      return v.value === variable;
-    });
-
-    return inDict.length ? inDict[0].label : variable;
-  }
-  const yAxisLabel = getYAxisLabel();
-
-  // const yAxisLabel = "Unweighted Prevalence (%)";
+  const yAxisLabel = "Unweighted Prevalence (%)";
   const xAxisLabel = "Age Group";
-
-  // useEffect(() => {
-  //   data.map((d) => {
-  //     d.positive = d.positive / 100;
-  //     d.total = d.total / 1000;
-  //   });
-  //   console.log(data);
-  // });
 
   // will be called initially and on every data change
   useEffect(() => {
@@ -68,15 +41,7 @@ function BuildChart({ data, width, height, variable }) {
 
     const xValue = (d) => Object.values(d)[0];
 
-    let yValue = () => {};
-
-    if (variable === "uwt_prev") {
-      yValue = (d) => d[`${variable}`];
-    } else if (variable === "positive") {
-      yValue = (d) => d[`${variable}`] / 100;
-    } else if (variable === "total") {
-      yValue = (d) => d[`${variable}`] / 1000;
-    }
+    const yValue = (d) => d["uwt_prev"];
 
     const xScale = scaleBand()
       .domain(data.map(xValue))
@@ -197,7 +162,7 @@ function BuildChart({ data, width, height, variable }) {
     //   .attr("class", "line")
     //   .attr("id", "id_line")
     //   .attr("d", linePath);
-  }, [data, variable]);
+  }, [data]);
 
   return (
     <div id="chartArea">
@@ -229,25 +194,12 @@ function BuildChart({ data, width, height, variable }) {
   );
 }
 
-const Chart = ({ data, width, height, variable }) => {
+const Chart = ({ data, width, height }) => {
   const progress = 60;
-
-  if (!data) {
-    return (
-      <>
-          <Empty />
-      </>
-    );
-  }
-
   return (
     <>
-      <BuildChart
-        data={data}
-        width={width}
-        height={height}
-        variable={variable}
-      />
+      {/* <h2> Line Chart</h2> */}
+      <BuildChart data={data} width={width} height={height} />
     </>
   );
 };
