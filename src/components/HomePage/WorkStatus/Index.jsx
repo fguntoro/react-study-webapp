@@ -21,6 +21,7 @@ import { default as InfoRowCarehome } from "./Carehome/index";
 import { default as InfoRowEmployment } from "./Employment/index";
 import { default as InfoRowEducation } from "./Education/index";
 import { default as InfoRowCampus } from "./Campus/index";
+import {getSum, collapseContinuous, recodeNA, recode} from "../../utils/dataManipulation"
 
 const propsMain = {
   id: "workStatus",
@@ -135,40 +136,51 @@ const propsEducation = {
   primary: true,
 };
 
-function getSum(dat) {
-  const sum = dat.reduce(
-    (previousVal, currentVal) => previousVal + currentVal,
-    0
-  );
-  return sum;
-}
+const code_employment = {
+  Employee: [1, 2],
+  SelfEmployed: [3],
+  Unemployed: [5],
+  Retired: [6],
+  Student: [7],
+  Other: [8, 9, 10],
+  NA: [-92, -91, -77]
+};
 
-function collapseContinuous(data, threshold) {
-  const dataLow = data.filter((d) => Object.values(d)[0] < threshold);
-  const dataHigh = data.filter((d) => Object.values(d)[0] >= threshold);
-
-  const dataHighSum = {
-    nadults: `${threshold}+`,
-    positive: getSum(dataHigh.map((d) => d.positive)),
-    total: getSum(dataHigh.map((d) => d.total)),
-  };
-  dataHighSum.uwt_prev =
-    Math.round((dataHighSum.positive / dataHighSum.total) * 100 * 10) / 10;
-
-  const dataFinal = dataLow.concat(dataHighSum);
-
-  return dataFinal;
-}
+const code_education = {
+  Degree: [1, 2],
+  ALevel: [3],
+  GCSE: [4,5],
+  Other: [6],
+  No: [7],
+  NA: [-92, -91, -77, 8],
+};
 
 const WorkStatus = ({ data, variable }) => {
   const [dataHouseholdSize, setDataHouseholdSize] = useState(data.nadults);
   const [dataHouseholdChildren, setDataHouseholdChildren] = useState(
     data.nchild
   );
+  const [dataCarehome, setDataCarehome] = useState(data.carehome);
+  const [dataEmployment, setDataEmployment] = useState(data.empl);
+  const [dataEducation, setDataEducation] = useState(data.educ);
 
   useEffect(() => {
-    setDataHouseholdSize(collapseContinuous(data.nadults, 6));
-    setDataHouseholdChildren(collapseContinuous(data.nchild, 4));
+    if (data.nadults !== undefined && data.nadults !== null) {
+      setDataHouseholdSize(collapseContinuous(data.nadults, 6));
+    }
+
+    if (data.nchild !== undefined && data.nchild !== null) {
+      setDataHouseholdChildren(collapseContinuous(data.nchild, 4));
+    }
+    if (data.carehome !== undefined && data.carehome !== null) {
+      setDataCarehome(recodeNA(data.carehome));
+    }
+    if (data.empl !== undefined && data.empl !== null) {
+      setDataEmployment(recode(data.empl, code_employment));
+    }
+        if (data.educ !== undefined && data.educ !== null) {
+          setDataEducation(recode(data.educ, code_education));
+        }
   }, [data]);
 
   return (
@@ -188,22 +200,22 @@ const WorkStatus = ({ data, variable }) => {
           />
           <InfoRowCarehome
             {...propsCarehome}
-            data={data.carehome}
+            data={dataCarehome}
             variable={variable}
           />
-          <InfoRowCampus
+          {/* <InfoRowCampus
             {...propsCampus}
             data={data.campus2}
             variable={variable}
-          />
+          /> */}
           <InfoRowEmployment
             {...propsEmployment}
-            data={data.empl}
+            data={dataEmployment}
             variable={variable}
           />
           <InfoRowEducation
             {...propsEducation}
-            data={data.educ}
+            data={dataEducation}
             variable={variable}
           />
         </InfoWrapper>

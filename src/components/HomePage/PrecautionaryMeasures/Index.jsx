@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, StyleSheet, Button } from "react-native";
 import {
   InfoContainer,
@@ -18,6 +18,12 @@ import { default as InfoRowShielding1 } from "./Shielding1/index";
 import { default as InfoRowShielding2 } from "./Shielding2/index";
 import { default as InfoRowFaceCov } from "./FaceCov/index";
 import { default as InfoRowIndoorMask } from "./IndoorMask/index";
+import {
+  getSum,
+  collapseContinuous,
+  recodeNA,
+  recode,
+} from "../../utils/dataManipulation";
 
 const props = {
   id: "precaution",
@@ -103,6 +109,19 @@ const propsIndoorMask = {
 };
 
 const Section = ({ data, variable }) => {
+    const [dataFaceCov, setDataFaceCov] = useState(data.face_cov);
+        const [dataIndMask, setDataIndMask] = useState(data.indmask);
+
+  useEffect(() => {
+    if (data.face_cov !== undefined && data.face_cov !== null) {
+      setDataFaceCov(recodeNA(data.face_cov));
+    }
+        if (data.indmask !== undefined && data.indmask !== null) {
+          setDataIndMask(recodeNA(data.indmask));
+        }
+  }, [data]);
+
+
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
@@ -119,14 +138,14 @@ const Section = ({ data, variable }) => {
           />
           <InfoRowFaceCov
             {...propsFaceCov}
-            data={data.face_cov}
+            data={dataFaceCov}
             variable={variable}
           />
-          <InfoRowIndoorMask
+          {/* <InfoRowIndoorMask
             {...propsIndoorMask}
-            data={data.indmask}
+            data={dataIndMask}
             variable={variable}
-          />
+          /> */}
         </InfoWrapper>
       </InfoContainer>
     </>

@@ -23,7 +23,5 @@ export const useData = () => {
     });
   }, []);
 
-  console.log(data);
-
   return data;
 };

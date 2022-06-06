@@ -11,6 +11,7 @@ import {
   PersonalStats,
   WorkStatus,
   Covid,
+  LongCovid,
   PrecautionaryMeasures,
   Vaccination,
   TravelHistory,
@@ -19,6 +20,7 @@ import {
   Footer,
   useData,
 } from "../components";
+import { recodeNA } from "../components/utils/dataManipulation";
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +38,10 @@ const HomePage = () => {
     );
   }
 
+  const filteredData = data[`round${roundSelected}`];
+
+  console.log(filteredData);
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -43,12 +49,6 @@ const HomePage = () => {
   const toggleFilter = () => {
     setIsOpenFilter(!isOpenFilter);
   };
-
-
-
-  const filteredData = data[`round${roundSelected}`];
-  console.log(filteredData);
-  // console.log(variableSelected);
 
   return (
     <>
@@ -66,9 +66,10 @@ const HomePage = () => {
       <RoundSummary />
       <PersonalStats data={filteredData} variable={variableSelected} />
       <WorkStatus data={filteredData} variable={variableSelected} />
-      {/* <Covid data={data} /> */}
-      {/* <PrecautionaryMeasures data={filteredData} variable={variableSelected} /> */}
-      {/* <Vaccination data={filteredData} variable={variableSelected} /> */}
+      <Covid data={filteredData} variable={variableSelected} />
+      <LongCovid data={filteredData} variable={variableSelected} />
+      <PrecautionaryMeasures data={filteredData} variable={variableSelected} />
+      <Vaccination data={filteredData} variable={variableSelected} />
       {/* <TravelHistory /> */}
       <Resources />
       {/* <Explore /> */}

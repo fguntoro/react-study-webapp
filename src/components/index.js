@@ -16,6 +16,7 @@ export { default as RoundSummary } from "./HomePage/RoundSummary/RoundSummary";
 export { default as PersonalStats } from "./HomePage/PersonalStats/Index";
 export { default as WorkStatus } from "./HomePage/WorkStatus/Index";
 export { default as Covid } from "./HomePage/Covid/Index";
+export { default as LongCovid } from "./HomePage/LongCovid/Index";
 export { default as PrecautionaryMeasures } from "./HomePage/PrecautionaryMeasures/Index";
 export { default as Vaccination } from "./HomePage/Vaccination/Index";
 export { default as TravelHistory } from "./HomePage/TravelHistory/Index";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, StyleSheet, Button } from "react-native";
 import {
   InfoContainer,
@@ -20,6 +20,12 @@ import { default as InfoRowVaccineAccept } from "./VaccineAccept/index";
 import { default as InfoRowVaccineApp2 } from "./VaccineApp2/index";
 import { default as InfoRowVaccineDose } from "./VaccineDose/index";
 import { default as InfoRowVaccineType } from "./VaccineType/index";
+import {
+  getSum,
+  collapseContinuous,
+  recodeNA,
+  recode,
+} from "../../utils/dataManipulation";
 
 const props = {
   id: "precaution",
@@ -83,7 +89,8 @@ const propsVaccineApp2 = {
   lightTextDesc: true,
   topLine: "",
   headLine: "VaccineApp2",
-  description: "Which of the following best describes your decision regarding being offered a coronavirus vaccine?",
+  description:
+    "Which of the following best describes your decision regarding being offered a coronavirus vaccine?",
   imgStart: true,
   alt: "VaccineApp2",
   dark: true,
@@ -118,29 +125,70 @@ const propsVaccineType = {
   primary: true,
 };
 
+const code_vaccinated = {
+  Yes: ["yes"],
+  No: ["no"],
+};
+
+const code_vaccineaccept = {
+  Yes: [1],
+  No: [2],
+  Unknown: [3],
+  NA: [-92, -91, -77],
+};
+
+const code_vaccineapp2 = {
+  waiting: [1],
+  no: [2],
+  uncertain: [3],
+  NA: [-92, -91, -77, 4],
+};
+
 const Section = ({ data, variable }) => {
+  const [dataVaccinated, setDataVaccinated] = useState(data.vaccinated);
+  const [dataVaccineAccept, setDataVaccineAccept] = useState(
+    data.vaccineaccept
+  );
+  const [dataVaccineApp2, setDataVaccineApp2] = useState(data.vaccineapp2);
+  const [dataVaccDose, setDataVaccDose] = useState(data.vaccdose);
+
+  useEffect(() => {
+    if (data.vaccinated !== undefined && data.vaccinated !== null) {
+      setDataVaccinated(recode(data.vaccinated, code_vaccinated));
+    }
+    if (data.vaccineaccept !== undefined && data.vaccineaccept !== null) {
+      setDataVaccineAccept(recode(data.vaccineaccept, code_vaccineaccept));
+    }
+    if (data.vaccineapp2 !== undefined && data.vaccineapp2 !== null) {
+      setDataVaccineApp2(recode(data.vaccineapp2, code_vaccineapp2));
+    }
+        if (data.vaccdose !== undefined && data.vaccdose !== null) {
+          setDataVaccDose(recodeNA(data.vaccdose));
+        }
+  }, [data]);
+
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
           <InfoRowVaccinated
             {...propsVaccinated}
-            data={data.vaccinated}
+            data={dataVaccinated}
             variable={variable}
           />
           <InfoRowVaccineAccept
             {...propsVaccineAccept}
-            data={data.vaccineaccept}
+            data={dataVaccineAccept}
             variable={variable}
           />
           <InfoRowVaccineApp2
             {...propsVaccineApp2}
-            data={data.vaccineapp2}
+            data={dataVaccineApp2}
             variable={variable}
           />
           <InfoRowVaccineDose
             {...propsVaccineDose}
-            data={data.vaccdose}
+            data={dataVaccDose}
             variable={variable}
           />
           <InfoRowVaccineType
