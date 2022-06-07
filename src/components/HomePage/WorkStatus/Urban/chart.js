@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import ProgressBar from "react-customizable-progressbar";
 import { BsFillPersonFill } from "react-icons/bs";
 import {
   select,
@@ -122,7 +121,6 @@ function BuildChart({ data, width, height }) {
 }
 
 const Chart = ({ data, width, height }) => {
-  const progress = 60;
   return (
     <>
       {/* <h2> Line Chart</h2> */}

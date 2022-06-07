@@ -277,7 +277,6 @@ const Chart = ({
   yAxisLabel,
   axisLabelDict,
 }) => {
-  const progress = 60;
 
   if (!data) {
     return (
