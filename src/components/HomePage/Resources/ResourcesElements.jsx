@@ -47,7 +47,7 @@ export const ResourcesCard = styled(Paper)`
     transition: all 0.2s ease-in-out;
 
     &:hover {
-        transform: scale()(1.02);
+        transform: scale(1.02);
         transition: all 0.2s ease-in-out;
         cursor: pointer;
     }

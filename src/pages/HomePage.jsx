@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Typography from "@mui/material/Typography";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import {
   Navbar,
   Sidebar,
@@ -39,7 +45,7 @@ const HomePage = () => {
   }
 
   const filteredData = data[`round${roundSelected}`];
-console.log(roundSelected)
+  console.log(roundSelected);
   console.log(filteredData);
 
   const toggle = () => {
@@ -63,13 +69,89 @@ console.log(roundSelected)
       <HeroSection />
       <About />
       <Prevalence />
-      <RoundSummary roundSelected={roundSelected}/>
-      <PersonalStats data={filteredData} variable={variableSelected} />
-      <WorkStatus data={filteredData} variable={variableSelected} />
-      <Covid data={filteredData} variable={variableSelected} />
-      <LongCovid data={filteredData} variable={variableSelected} />
-      <PrecautionaryMeasures data={filteredData} variable={variableSelected} />
-      <Vaccination data={filteredData} variable={variableSelected} />
+      <RoundSummary roundSelected={roundSelected} />
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Personal Statistics</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <PersonalStats data={filteredData} variable={variableSelected} />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Work Status</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <WorkStatus data={filteredData} variable={variableSelected} />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>COVID</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Covid data={filteredData} variable={variableSelected} />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Long COVID</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <LongCovid data={filteredData} variable={variableSelected} />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Precautionary Measures</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <PrecautionaryMeasures
+            data={filteredData}
+            variable={variableSelected}
+          />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Vaccination</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Vaccination data={filteredData} variable={variableSelected} />
+        </AccordionDetails>
+      </Accordion>
+
       {/* <TravelHistory /> */}
       <Resources />
       {/* <Explore /> */}

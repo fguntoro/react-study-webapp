@@ -55,7 +55,7 @@ export const AboutWrapper = styled.div`
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 16px;
   padding: 0 50px;
@@ -71,15 +71,20 @@ export const AboutWrapper = styled.div`
 `;
 
 export const AboutPaper = styled(Paper)`
-  height: 100%;
-  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  height: 200px;
+  width: 200px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
 
-  @media screen and (max-width: 768px) {
-    height: 400px;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 300px;
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
   }
 `;
 

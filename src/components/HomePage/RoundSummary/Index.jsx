@@ -46,9 +46,40 @@ const Section = (roundSelected) => {
     <AboutContainer id="about">
       <AboutContent>
         <AboutH1>Round Summary</AboutH1>
-        <AboutPaper elevation={5}>
-          Round Selected = {filteredData[0].Round}
-        </AboutPaper>
+        <AboutWrapper>
+          <AboutPaper elevation={5}>
+            <p>Round Selected</p>
+            <h1 style={{ color: "lightseagreen" }}>{filteredData[0].Round}</h1>
+          </AboutPaper>
+          <AboutPaper elevation={5}>
+            <p>Prevalence</p>
+            <h1 style={{ color: "lightseagreen" }}>
+              {filteredData[0].Prevalence}%
+            </h1>
+          </AboutPaper>
+          <AboutPaper elevation={5}>
+            <p>Start Date</p>
+            <h2 style={{ color: "lightseagreen" }}>
+              {filteredData[0].Start.toDateString()}
+            </h2>
+          </AboutPaper>
+          <AboutPaper elevation={5}>
+            <p>End Date</p>
+            <h2 style={{ color: "lightseagreen" }}>
+              {filteredData[0].End.toDateString()}
+            </h2>
+          </AboutPaper>
+          <AboutPaper elevation={5}>
+            <p>Positive Tests</p>
+            <h1 style={{ color: "lightseagreen" }}>
+              {filteredData[0].Positive}
+            </h1>
+          </AboutPaper>
+          <AboutPaper elevation={5}>
+            <p>Total Swabs</p>
+            <h1 style={{ color: "lightseagreen" }}>{filteredData[0].Tested}</h1>
+          </AboutPaper>
+        </AboutWrapper>
       </AboutContent>
     </AboutContainer>
   );
