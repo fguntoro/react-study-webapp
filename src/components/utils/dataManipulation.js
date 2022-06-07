@@ -63,3 +63,26 @@ export function recode(data, codeArray) {
 
   return dataFinal;
 }
+
+
+export function compileData(data, variableArray) {
+  var tmp = null;
+  var key = null;
+  var dataRow = null;
+  var dataFinal = [];
+
+  for (let i = 0; i < variableArray.length; i++) {
+    key = variableArray[i];
+    tmp = data[key].filter((d) => Object.values(d)[0] == 1);
+    dataRow = {
+      _row: key,
+      positive: tmp[0].positive,
+      total: tmp[0].total,
+      uwt_prev: tmp[0].uwt_prev,
+    };
+
+    dataFinal.push(dataRow);
+  }
+
+  return dataFinal;
+}

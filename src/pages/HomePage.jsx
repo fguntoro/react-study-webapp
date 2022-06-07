@@ -39,7 +39,7 @@ const HomePage = () => {
   }
 
   const filteredData = data[`round${roundSelected}`];
-
+console.log(roundSelected)
   console.log(filteredData);
 
   const toggle = () => {
@@ -63,7 +63,7 @@ const HomePage = () => {
       <HeroSection />
       <About />
       <Prevalence />
-      <RoundSummary />
+      <RoundSummary roundSelected={roundSelected}/>
       <PersonalStats data={filteredData} variable={variableSelected} />
       <WorkStatus data={filteredData} variable={variableSelected} />
       <Covid data={filteredData} variable={variableSelected} />

@@ -18,11 +18,14 @@ import { default as InfoRowIntermit } from "./Intermit/index";
 import { default as InfoRowAbility } from "./Ability/index";
 import { default as InfoRowActivity } from "./Activity/index";
 import { default as InfoRowDescribe } from "./Describe/index";
+import { default as InfoRowSymptoms } from "./Symptoms/index";
+
 import {
   getSum,
   collapseContinuous,
   recodeNA,
   recode,
+  compileData,
 } from "../../utils/dataManipulation";
 
 const propsMain = {
@@ -101,11 +104,43 @@ const propsIntermit = {
   primary: true,
 };
 
+const propsSymptoms = {
+  id: "propsSymptoms",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Long COVID Symptoms",
+  description: "Which of these symptoms were part of your Long COVID illness?",
+  imgStart: true,
+  alt: "propsSymptoms",
+  dark: true,
+  primary: true,
+};
+
+const var_symptoms = [];
+for (var i = 1; i <= 14; i++) {
+  var_symptoms.push(`covidsym2_${i}`);
+}
+for (var i = 1; i <= 11; i++) {
+  var_symptoms.push(`covidsym3_${i}`);
+}
+const var_symptoms_filtered = var_symptoms.filter(function (value) {
+  return ![
+    "covidsym2_11",
+    "covidsym3_10",
+    "covidsym2_12",
+    "covidsym3_11",
+  ].includes(value);
+});
+
 const Section = ({ data, variable }) => {
   const [dataIntermit, setDataIntermit] = useState(data.longintermit);
   const [dataAbility, setDataAbility] = useState(data.longcovidability);
   const [dataActivity, setDataActivity] = useState(data.longcovidactiv);
   const [dataDescribe, setDataDescribe] = useState(data.longcoviddesc);
+  const [dataSymptoms, setDataSymptoms] = useState(null);
 
   useEffect(() => {
     if (data.longintermit !== undefined && data.longintermit !== null) {
@@ -119,6 +154,9 @@ const Section = ({ data, variable }) => {
     }
     if (data.longcoviddesc !== undefined && data.longcoviddesc !== null) {
       setDataDescribe(recodeNA(data.longcoviddesc));
+    }
+    if (data.covidsym2_1 !== undefined) {
+      setDataSymptoms(compileData(data, var_symptoms_filtered));
     }
   }, [data]);
 
@@ -144,6 +182,11 @@ const Section = ({ data, variable }) => {
           <InfoRowDescribe
             {...propsDescribe}
             data={dataDescribe}
+            variable={variable}
+          />
+          <InfoRowSymptoms
+            {...propsSymptoms}
+            data={dataSymptoms}
             variable={variable}
           />
         </InfoWrapper>

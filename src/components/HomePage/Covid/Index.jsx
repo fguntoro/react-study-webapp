@@ -18,12 +18,14 @@ import { default as InfoRowCaseContact } from "./CaseContact/index";
 import { default as InfoRowContact } from "./Contact/index";
 import { default as InfoRowContactPlace } from "./ContactPlace/index";
 import { default as InfoRowLongCovid1 } from "./LongCovid1/index";
+import { default as InfoRowSymptoms } from "./Symptoms/index";
 
 import {
   getSum,
   collapseContinuous,
   recodeNA,
   recode,
+  compileData
 } from "../../utils/dataManipulation";
 
 const propsMain = {
@@ -85,21 +87,6 @@ const propsContactPlace = {
   primary: true,
 };
 
-const propsSymptoms = {
-  id: "propsSymptoms",
-  lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
-  topLine: "",
-  headLine: "Symptoms",
-  description: "",
-  imgStart: true,
-  alt: "propsSymptoms",
-  dark: true,
-  primary: true,
-};
-
 const propsLongCovid1 = {
   id: "propsLongCovid1",
   lightBg: true,
@@ -116,6 +103,22 @@ const propsLongCovid1 = {
   primary: true,
 };
 
+const propsSymptoms = {
+  id: "propsSymptoms",
+  lightBg: true,
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "COVID Symptoms",
+  description:
+    "Which of these symptoms have you had in the last 7 days?",
+  imgStart: true,
+  alt: "propsSymptoms",
+  dark: true,
+  primary: true,
+};
+
 const var_contact = ["covidcon_1", "covidcon_2", "covidcon_3"];
 const var_contactpl = [
   "covidconpl_1",
@@ -125,34 +128,17 @@ const var_contactpl = [
   "covidconpl_5",
   "covidconpl_6",
 ];
-
-function compileData(data, variableArray) {
-  var tmp = null;
-  var key = null;
-  var dataRow = null;
-  var dataFinal = [];
-
-  for (let i = 0; i < variableArray.length; i++) {
-    key = variableArray[i];
-    tmp = data[key].filter((d) => Object.values(d)[0] == 1);
-    dataRow = {
-      _row: key,
-      positive: tmp[0].positive,
-      total: tmp[0].total,
-      uwt_prev: tmp[0].uwt_prev,
-    };
-
-    dataFinal.push(dataRow);
-  }
-
-  return dataFinal;
+const var_symptoms = [];
+for (var i = 1; i <= 29; i++) {
+  var_symptoms.push(`symptnowaw_${i}`);
 }
 
 const Section = ({ data, variable }) => {
   const [dataCaseContact, setDataCaseContact] = useState(data.contact1);
+  const [dataLongCovid1, setDataLongCovid1] = useState(data.longcovid1);
   const [dataContact, setDataContact] = useState(null);
   const [dataContactPlace, setDataContactPlace] = useState(null);
-  const [dataLongCovid1, setDataLongCovid1] = useState(data.longcovid1);
+  const [dataSymptoms, setDataSymptoms] = useState(null);
 
   useEffect(() => {
     if (data.contact1 !== undefined && data.contact1 !== null) {
@@ -178,8 +164,12 @@ const Section = ({ data, variable }) => {
     ) {
       setDataContactPlace(compileData(data, var_contactpl));
     }
+    if (data.symptnowaw_1 !== undefined) {
+      setDataSymptoms(compileData(data, var_symptoms));
+    }
   }, [data]);
 
+  console.log(dataSymptoms)
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
@@ -204,7 +194,11 @@ const Section = ({ data, variable }) => {
             data={dataLongCovid1}
             variable={variable}
           />
-          {/* <InfoRowSymptoms {...propsSymptoms} data={data.symptoms_status} /> */}
+          <InfoRowSymptoms
+            {...propsSymptoms}
+            data={dataSymptoms}
+            variable={variable}
+          />
         </InfoWrapper>
       </InfoContainer>
     </>
