@@ -241,7 +241,11 @@ function BuildChart({
 
   return (
     <div id="chartArea">
-      <svg ref={svgRef} width={width} height={height}>
+      <svg
+        ref={svgRef}
+        style={{ width: "105%", height: "105%" }}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         <g className="x-axis" />
         <g className="y-axis" />
         <text

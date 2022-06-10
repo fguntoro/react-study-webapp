@@ -56,21 +56,21 @@ function Map({ center, zoom }) {
   };
 
   const mapPolygonColor = (d) => {
-    return d > 0.065
+    return d > 6.5
       ? "#67000d"
-      : d > 0.055
+      : d > 5.5
       ? "#a50f15"
-      : d > 0.045
+      : d > 4.5
       ? "#cb181d"
-      : d > 0.035
+      : d > 3.5
       ? "#ef3b2c"
-      : d > 0.025
+      : d > 2.5
       ? "#fb6a4a"
-      : d > 0.015
+      : d > 1.5
       ? "#fc9272"
-      : d > 0.005
+      : d > 0.5
       ? "#fcbba1"
-      : d > 0.001
+      : d > 0.1
       ? "#fee0d2"
       : "#fff5f0";
   };
@@ -147,7 +147,7 @@ function Map({ center, zoom }) {
           <GeoJSON data={feature} style={style} onEachFeature={onEachFeature} />
         )}
       </MapContainer>
-      <h4>Slide to select round: </h4>
+      <h4 className="slider-title">Slide to select round: {selectedRound}</h4>
       <Stack
         spacing={2}
         direction="row"

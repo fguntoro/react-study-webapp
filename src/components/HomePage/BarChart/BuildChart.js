@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { View } from "react-native";
 import {
   select,
   selectAll,
@@ -244,7 +245,12 @@ function BuildChart({
 
   return (
     <div id="chartArea">
-      <svg ref={svgRef} width={width} height={height}>
+      {/* <View className="chartView"> */}
+      <svg
+        ref={svgRef}
+        style={{ width: "105%", height: "100%" }}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         <g className="x-axis" />
         <g className="y-axis" />
         <text
@@ -268,6 +274,7 @@ function BuildChart({
           <text className="tooltip-area__text"></text>
         </g> */}
       </svg>
+      {/* </View> */}
     </div>
   );
 }

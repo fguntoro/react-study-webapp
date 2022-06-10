@@ -7,7 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 1002;
-  width: 100%;
+  width: 100vw;
   height: 150px;
   background: #0d0d0d;
   display: grid;
@@ -18,18 +18,27 @@ export const SidebarContainer = styled.aside`
   top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
   padding: 0 24px;
   align-items: center;
+
+  @media screen and (max-width: 480px) {
+    padding: 0 12px;
+  }
 `;
 
 export const SidebarWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 90%;
+  height: 150px;
   background: #0d0d0d;
-  width: 95%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
   color: #fff;
+  background-color: red;
+
+  @media screen and (max-width: 480px) {
+    padding: 0 0;
+  }
 `;
 
 export const CloseIcon = styled(FaTimes)`
@@ -38,7 +47,8 @@ export const CloseIcon = styled(FaTimes)`
 
 export const Icon = styled.div`
   position: absolute;
-  top: 1.2rem;
+  z-index: 2;
+  top: 0.5rem;
   right: 1.5rem;
   background: transparent;
   font-size: 2rem;

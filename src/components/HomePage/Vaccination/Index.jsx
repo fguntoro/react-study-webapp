@@ -13,7 +13,7 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "./Elements";
+} from "../Elements";
 
 import { default as InfoRowVaccinated } from "./Vaccinated/index";
 import { default as InfoRowVaccineAccept } from "./VaccineAccept/index";
@@ -66,6 +66,7 @@ const propsVaccinated = {
   alt: "Vaccinated",
   dark: true,
   primary: true,
+  xAxisLabel: "Vaccinated",
 };
 
 const propsVaccineAccept = {
@@ -80,6 +81,7 @@ const propsVaccineAccept = {
   alt: "VaccineAccept",
   dark: true,
   primary: true,
+  xAxisLabel: "Would Accept Vaccine",
 };
 
 const propsVaccineApp2 = {
@@ -95,6 +97,7 @@ const propsVaccineApp2 = {
   alt: "VaccineApp2",
   dark: true,
   primary: true,
+  xAxisLabel: "Decision Regarding Vaccination",
 };
 
 const propsVaccineDose = {
@@ -109,6 +112,7 @@ const propsVaccineDose = {
   alt: "VaccineDose",
   dark: true,
   primary: true,
+  xAxisLabel: "Dose of Vaccine",
 };
 
 const propsVaccineType = {
@@ -123,6 +127,7 @@ const propsVaccineType = {
   alt: "VaccineType",
   dark: true,
   primary: true,
+  xAxisLabel: "Type of Vaccine",
 };
 
 const code_vaccinated = {
@@ -176,11 +181,11 @@ const Section = ({ data, variable }) => {
             data={dataVaccinated}
             variable={variable}
           />
-          <InfoRowVaccineAccept
+          {/* <InfoRowVaccineAccept
             {...propsVaccineAccept}
             data={dataVaccineAccept}
             variable={variable}
-          />
+          /> */}
           <InfoRowVaccineApp2
             {...propsVaccineApp2}
             data={dataVaccineApp2}

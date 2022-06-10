@@ -13,15 +13,22 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "./Elements";
-import { default as InfoRowUrban } from "./Urban/index";
+} from "../Elements";
 import { default as InfoRowHouseholdSize } from "./HouseholdSize/index";
 import { default as InfoRowHouseholdChildren } from "./HouseholdChildren/index";
 import { default as InfoRowCarehome } from "./Carehome/index";
 import { default as InfoRowEmployment } from "./Employment/index";
 import { default as InfoRowEducation } from "./Education/index";
 import { default as InfoRowCampus } from "./Campus/index";
-import {getSum, collapseContinuous, recodeNA, recode} from "../../utils/dataManipulation"
+import { default as InfoRowWorkType } from "./WorkType/index";
+import { default as InfoRowWorkOutdoors } from "./WorkOutdoors/index";
+
+import {
+  getSum,
+  collapseContinuous,
+  recodeNA,
+  recode,
+} from "../../utils/dataManipulation";
 
 const propsMain = {
   id: "workStatus",
@@ -48,6 +55,7 @@ const propsUrban = {
   alt: "propsUrban",
   dark: true,
   primary: true,
+  xAxisLabel: "Urban",
 };
 
 const propsHouseholdSize = {
@@ -63,6 +71,7 @@ const propsHouseholdSize = {
   alt: "propsHouseholdSize",
   dark: true,
   primary: true,
+  xAxisLabel: "Household Size",
 };
 
 const propsHouseholdChildren = {
@@ -78,6 +87,7 @@ const propsHouseholdChildren = {
   alt: "propsHouseholdChildren",
   dark: true,
   primary: true,
+  xAxisLabel: "Number of Children in Household",
 };
 
 const propsCarehome = {
@@ -92,6 +102,7 @@ const propsCarehome = {
   alt: "Carehome",
   dark: true,
   primary: true,
+  xAxisLabel: "Lives in Carehome",
 };
 
 const propsCampus = {
@@ -120,6 +131,7 @@ const propsEmployment = {
   alt: "propsEmployment",
   dark: true,
   primary: true,
+  xAxisLabel: "Employment Status",
 };
 
 const propsEducation = {
@@ -134,6 +146,38 @@ const propsEducation = {
   alt: "propsEducation",
   dark: true,
   primary: true,
+  xAxisLabel: "Education Level",
+};
+
+const propsWorkType = {
+  id: "WorkType",
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Work Type",
+  description: "What is the type of work that you do?",
+  imgStart: true,
+  alt: "WorkType",
+  dark: true,
+  primary: true,
+  xAxisLabel: "Type of Work",
+};
+
+const propsWorkOutdoors = {
+  id: "WorkOutdoors",
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Work Outdoors",
+  description:
+    "Does your job require you to work outside of home, if so please specify?",
+  imgStart: true,
+  alt: "WorkOutdoors",
+  dark: true,
+  primary: true,
+  xAxisLabel: "Working Outdoors",
 };
 
 const code_employment = {
@@ -143,17 +187,33 @@ const code_employment = {
   Retired: [6],
   Student: [7],
   Other: [8, 9, 10],
-  NA: [-92, -91, -77]
+  NA: [-92, -91, -77],
 };
 
 const code_education = {
   Degree: [1, 2],
   ALevel: [3],
-  GCSE: [4,5],
+  GCSE: [4, 5],
   Other: [6],
   No: [7],
   NA: [-92, -91, -77, 8],
 };
+
+const code_worktype = {
+  Healthcare: [1, 2],
+  Carehome: [3, 4],
+  Essential: [5],
+  None: [6],
+  Uncertain: [7],
+};
+
+// const code_workoutdoors = {
+//   Healthcare: [1, 2],
+//   Carehome: [3, 4],
+//   Essential: [5],
+//   None: [6],
+//   Uncertain: [7],
+// };
 
 const WorkStatus = ({ data, variable }) => {
   const [dataHouseholdSize, setDataHouseholdSize] = useState(data.nadults);
@@ -163,6 +223,7 @@ const WorkStatus = ({ data, variable }) => {
   const [dataCarehome, setDataCarehome] = useState(data.carehome);
   const [dataEmployment, setDataEmployment] = useState(data.empl);
   const [dataEducation, setDataEducation] = useState(data.educ);
+  const [dataWorkType, setDataWorkType] = useState(data.work_type1);
 
   useEffect(() => {
     if (data.nadults !== undefined && data.nadults !== null) {
@@ -178,9 +239,12 @@ const WorkStatus = ({ data, variable }) => {
     if (data.empl !== undefined && data.empl !== null) {
       setDataEmployment(recode(data.empl, code_employment));
     }
-        if (data.educ !== undefined && data.educ !== null) {
-          setDataEducation(recode(data.educ, code_education));
-        }
+    if (data.educ !== undefined && data.educ !== null) {
+      setDataEducation(recode(data.educ, code_education));
+    }
+    if (data.work_type1 !== undefined && data.work_type1 !== null) {
+      setDataWorkType(recode(data.work_type1, code_worktype));
+    }
   }, [data]);
 
   return (
@@ -218,6 +282,16 @@ const WorkStatus = ({ data, variable }) => {
             data={dataEducation}
             variable={variable}
           />
+          <InfoRowWorkType
+            {...propsWorkType}
+            data={dataWorkType}
+            variable={variable}
+          />
+          {/* <InfoRowWorkOutdoors
+            {...propsWorkOutdoors}
+            data={data.work_type2}
+            variable={variable}
+          /> */}
         </InfoWrapper>
       </InfoContainer>
     </>

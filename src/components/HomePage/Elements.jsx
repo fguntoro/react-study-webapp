@@ -5,7 +5,11 @@ export const InfoContainer = styled.div`
   background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
 
   @media screen and (max-width: 768px) {
-    padding: 100px 0;
+    padding: 50px 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 25px 0;
   }
 `;
 
@@ -27,33 +31,56 @@ export const InfoRow = styled.div`
   align-items: center;
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? `'col2 col1'` : `'col1 col2'`};
+  width: 800px;
 
   @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+    width: 600px;
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-areas: ${({ imgStart }) =>
+      imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+    width: 350px;
   }
 `;
 
 export const Column1 = styled.div`
   margin-bottom: 15px;
-  padding: 0 15px;
+  padding: 30px 15px 0 0;
   grid-area: col1;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 0;
+    padding: 20px 15px 0 45px;
+  }
+
 `;
 
 export const Column2 = styled.div`
   margin-bottom: 15px;
   padding: 0 15px;
   grid-area: col2;
+
+  @media screen and (max-width: 768px) {
+    margin-top: -35px;
+    padding: 0 15px 15px 15px;
+  }
 `;
 
 export const TextWrapper = styled.div`
   max-width: 540px;
   padding-top: 0;
   padding-bottom: 60px;
+
+  @media screen and (max-width: 768px) {
+    padding-bottom: 0px;
+  }
 `;
 
 export const TopLine = styled.p`
-  color: #01bf71;
+  color: lightseagreen;
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -72,14 +99,22 @@ export const Heading = styled.h1`
   @media screen and (max-width: 768px) {
     font-size: 32px;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const Subtitle = styled.p`
-  max-width: 440px;
+  max-width: 540px;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#f7f8fa")};
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const BtnWrap = styled.div`

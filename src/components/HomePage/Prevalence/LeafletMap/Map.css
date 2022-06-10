@@ -6,18 +6,32 @@
   border-radius: 20px;
   margin-top: 16px;
   box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
-
-
-}
-
-@media screen and (max-width: 480px) {
-  .map {
-    height: 400px;
-    width: 400px;
-  }
 }
 
 .map .leaflet-container {
   height: 80%;
   border-radius: 12px;
+}
+
+.slider-title {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .map {
+    height: 500px;
+    width: 450px;
+  }
+
+    .slider-title {
+      font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+  .map {
+    height: 450px;
+    width: 350px;
+  }
 }

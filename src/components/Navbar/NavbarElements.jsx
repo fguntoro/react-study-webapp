@@ -39,17 +39,21 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: lightseagreen;
+  }
 `;
 
 export const MobileIcon = styled.div`
   display: none;
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
-    top: -20px;
-    right: 50px;
-    transform: translate(-100%, 60%);
+    top: 4px;
+    right: 80px;
     font-size: 1.8rem;
     cursor: pointer;
     color: #fff;
@@ -66,6 +70,11 @@ export const FilterIcon = styled.div`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: lightseagreen;
+  }
 `;
 
 export const NavMenu = styled.ul`
@@ -76,7 +85,7 @@ export const NavMenu = styled.ul`
   text-align: center;
   justify-content: space-between;
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
@@ -97,6 +106,11 @@ export const NavLinkS = styled(LinkS)`
   &.active {
     border-bottom: 3px solid lightseagreen;
   }
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: lightseagreen;
+  }
 `;
 
 export const NavLinkR = styled(LinkR)`
@@ -110,6 +124,11 @@ export const NavLinkR = styled(LinkR)`
 
   &.active {
     border-bottom: 3px solid lightseagreen;
+  }
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: lightseagreen;
   }
 `;
 

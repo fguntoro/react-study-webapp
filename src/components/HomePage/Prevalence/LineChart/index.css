@@ -4,3 +4,11 @@
 .x-axis2 path {
     opacity: 0
 }
+
+.x-axis text {
+    font-size: 8px;
+}
+
+.x-axis2 text {
+    font-size: 8px;
+}

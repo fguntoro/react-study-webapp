@@ -4,16 +4,16 @@ import "./Legend.css";
 const Legend = () => {
   return (
     <div className="legend">
-      <h4>Prevalence</h4>
-      <div style={{ "--color": "#67000d" }}>{">"} 0.065</div>
-      <div style={{ "--color": "#a50f15" }}>0.055 - 0.064</div>
-      <div style={{ "--color": "#cb181d" }}>0.045 - 0.054</div>
-      <div style={{ "--color": "#ef3b2c" }}>0.035 - 0.044</div>
-      <div style={{ "--color": "#fb6a4a" }}>0.025 - 0.034</div>
-      <div style={{ "--color": "#fc9272" }}>0.015 - 0.024</div>
-      <div style={{ "--color": "#fcbba1" }}>0.005 - 0.014</div>
-      <div style={{ "--color": "#fee0d2" }}>0.001 - 0.004</div>
-      <div style={{ "--color": "#fff5f0" }}> {"<"} 0.010</div>
+      <h4 className="legend-title">Prevalence(%)</h4>
+      <div style={{ "--color": "#67000d" }}>{">"} 6.5</div>
+      <div style={{ "--color": "#a50f15" }}>5.5 - 6.4</div>
+      <div style={{ "--color": "#cb181d" }}>4.5 - 5.4</div>
+      <div style={{ "--color": "#ef3b2c" }}>3.5 - 4.4</div>
+      <div style={{ "--color": "#fb6a4a" }}>2.5 - 3.4</div>
+      <div style={{ "--color": "#fc9272" }}>1.5 - 2.4</div>
+      <div style={{ "--color": "#fcbba1" }}>0.5 - 1.4</div>
+      <div style={{ "--color": "#fee0d2" }}>0.1 - 0.4</div>
+      <div style={{ "--color": "#fff5f0" }}> {"<"} 0.1</div>
     </div>
   );
 };

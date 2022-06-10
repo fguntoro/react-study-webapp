@@ -26,7 +26,8 @@ function BuildChart({ data, props }) {
 
   const tickOffset = -5;
   const xAxisLabelOffset = 12;
-  const yAxisLabelOffset = 30;
+  const yAxisLabelOffset = 35;
+  const yAxisLabel = "Prevalence (%)";
 
   // will be called initially and on every data change
   useEffect(() => {
@@ -36,7 +37,6 @@ function BuildChart({ data, props }) {
     // const xAxisLabel = "Time";
 
     const yValue = (d) => d["Prevalence"];
-    // const yAxisLabel = "Total Dead and Missing";
 
     const xScale = scaleTime()
       .domain([
@@ -132,7 +132,6 @@ function BuildChart({ data, props }) {
       .attr("stroke-width", 2)
       .attr("class", "line")
       .attr("d", linePath);
-      
 
     //set the label
     svg
@@ -165,10 +164,23 @@ function BuildChart({ data, props }) {
 
   return (
     <>
-      <svg ref={svgRef} width={width} height={height}>
+      <svg
+        ref={svgRef}
+        style={{ width: "110%", height: "110%" }}
+        viewBox={`0 0 ${width} ${height}`}
+      >
         <g className="x-axis" />
         <g className="x-axis2" />
         <g className="y-axis" />
+        <text
+          className="yAxis-label"
+          textAnchor="middle"
+          transform={`translate(${margin.left - yAxisLabelOffset},${
+            margin.top + innerHeight / 2
+          }) rotate(-90)`}
+        >
+          {yAxisLabel}
+        </text>
       </svg>
     </>
   );

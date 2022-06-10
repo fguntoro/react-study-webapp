@@ -12,7 +12,7 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "../Elements";
+} from "../../Elements";
 import Chart from "../../BarChart/BuildChart";
 import { axisLabelDict } from "./labels";
 

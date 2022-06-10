@@ -34,7 +34,7 @@ export const AboutContent = styled.div`
 
 export const AboutContainer = styled.div`
   background: whitesmoke;
-  height: 800px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,11 +43,11 @@ export const AboutContainer = styled.div`
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    height: 1100px;
+    height: 800px;
   }
 
   @media screen and (max-width: 480px) {
-    height: 1300px;
+    height: 750px;
   }
 `;
 
@@ -63,11 +63,6 @@ export const AboutWrapper = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
-  }
 `;
 
 export const AboutPaper = styled(Paper)`
@@ -79,12 +74,23 @@ export const AboutPaper = styled(Paper)`
   width: 200px;
   padding: 30px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.02);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 175px;
+    width: 175px;
+    padding: 25px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 150px;
+    width: 150px;
+    padding: 20px;
   }
 `;
 

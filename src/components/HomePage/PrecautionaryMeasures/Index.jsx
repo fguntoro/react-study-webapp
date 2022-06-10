@@ -13,7 +13,7 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "./Elements";
+} from "../Elements";
 import { default as InfoRowShielding1 } from "./Shielding1/index";
 import { default as InfoRowShielding2 } from "./Shielding2/index";
 import { default as InfoRowFaceCov } from "./FaceCov/index";
@@ -59,11 +59,13 @@ const propsShielding1 = {
   lightTextDesc: true,
   topLine: "",
   headLine: "Shielding1",
-  description: "Do you consider yourself to be at risk of severe illness for COVID-19?",
+  description:
+    "Do you consider yourself to be at risk of severe illness for COVID-19?",
   imgStart: true,
   alt: "Shielding1",
   dark: true,
   primary: true,
+  xAxisLabel: "At Risk of Severe Illness",
 };
 
 const propsShielding2 = {
@@ -73,11 +75,13 @@ const propsShielding2 = {
   lightTextDesc: true,
   topLine: "",
   headLine: "Shielding2",
-  description: "Are you shielding or taking specific precautions because you are concerned that you will become severely ill with COVID-19?",
+  description:
+    "Are you shielding or taking specific precautions because you are concerned that you will become severely ill with COVID-19?",
   imgStart: true,
   alt: "Shielding2",
   dark: true,
   primary: true,
+  xAxisLabel: "Shielding/ Taking Specific Precautions",
 };
 
 const propsFaceCov = {
@@ -87,11 +91,13 @@ const propsFaceCov = {
   lightTextDesc: true,
   topLine: "",
   headLine: "Face Covering",
-  description: "Whether you mainly wear any kind of face covering or mask when you are outside of the home because of COVID-19?",
+  description:
+    "Whether you mainly wear any kind of face covering or mask when you are outside of the home because of COVID-19?",
   imgStart: true,
   alt: "FaceCov",
   dark: true,
   primary: true,
+  xAxisLabel: "Wearing Face Covering Outdoors",
 };
 
 const propsIndoorMask = {

@@ -13,7 +13,7 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "./Elements";
+} from "../Elements";
 import { default as InfoRowAge } from "./AgeGroup/index";
 import { default as InfoRowEthnic } from "./Ethnicity/index";
 import { default as InfoRowGender } from "./Gender/index";
@@ -147,7 +147,7 @@ const PersonalStats = ({ data, variable }) => {
 
   return (
     <>
-      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
+      <InfoContainer id="personalStats" lightBg={propsMain.lightBg}>
         <InfoWrapper>
           <InfoRowGender
             {...propsGender}

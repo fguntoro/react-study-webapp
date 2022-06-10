@@ -13,7 +13,7 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "./Elements";
+} from "../Elements";
 import { default as InfoRowCaseContact } from "./CaseContact/index";
 import { default as InfoRowContact } from "./Contact/index";
 import { default as InfoRowContactPlace } from "./ContactPlace/index";
@@ -25,7 +25,7 @@ import {
   collapseContinuous,
   recodeNA,
   recode,
-  compileData
+  compileData,
 } from "../../utils/dataManipulation";
 
 const propsMain = {
@@ -43,34 +43,36 @@ const propsMain = {
   primary: true,
 };
 
-const propsCaseContact = {
-  id: "propsCaseContact",
+const propsContact = {
+  id: "propsContact",
   lightBg: true,
   lightText: false,
   darkText: true,
   lightTextDesc: true,
   topLine: "COVID and Long COVID Symptoms",
-  headLine: "Case Contact",
+  headLine: "Contact",
   description:
     "How many different people (not including members of your household) did you have contact with yesterday?",
-  imgStart: true,
-  alt: "propsCaseContact",
-  dark: true,
-  primary: true,
-};
-
-const propsContact = {
-  id: "propsContact",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
-  topLine: "",
-  headLine: "Contact",
-  description: "Have you been in close contact with anyone with COVID-19?",
   imgStart: true,
   alt: "propsContact",
   dark: true,
   primary: true,
+  xAxisLabel: "Number of Contacts"
+};
+
+const propsCaseContact = {
+  id: "propsCaseContact",
+  lightText: false,
+  darkText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headLine: "Case Contact",
+  description: "Have you been in close contact with anyone with COVID-19?",
+  imgStart: true,
+  alt: "propsCaseContact",
+  dark: true,
+  primary: true,
+  xAxisLabel: "Contact with COVID Cases",
 };
 
 const propsContactPlace = {
@@ -85,6 +87,7 @@ const propsContactPlace = {
   alt: "propsContactPlace",
   dark: true,
   primary: true,
+  xAxisLabel: "Place of Contact",
 };
 
 const propsLongCovid1 = {
@@ -101,6 +104,7 @@ const propsLongCovid1 = {
   alt: "propsLongCovid1",
   dark: true,
   primary: true,
+  xAxisLabel: "Experiencing COVID symptoms",
 };
 
 const propsSymptoms = {
@@ -111,8 +115,7 @@ const propsSymptoms = {
   lightTextDesc: true,
   topLine: "",
   headLine: "COVID Symptoms",
-  description:
-    "Which of these symptoms have you had in the last 7 days?",
+  description: "Which of these symptoms have you had in the last 7 days?",
   imgStart: true,
   alt: "propsSymptoms",
   dark: true,
@@ -134,15 +137,15 @@ for (var i = 1; i <= 29; i++) {
 }
 
 const Section = ({ data, variable }) => {
-  const [dataCaseContact, setDataCaseContact] = useState(data.contact1);
+  const [dataContact, setDataContact] = useState(data.contact1);
   const [dataLongCovid1, setDataLongCovid1] = useState(data.longcovid1);
-  const [dataContact, setDataContact] = useState(null);
+  const [dataCaseContact, setDataCaseContact] = useState(null);
   const [dataContactPlace, setDataContactPlace] = useState(null);
   const [dataSymptoms, setDataSymptoms] = useState(null);
 
   useEffect(() => {
     if (data.contact1 !== undefined && data.contact1 !== null) {
-      setDataCaseContact(collapseContinuous(data.contact1, 10));
+      setDataContact(collapseContinuous(data.contact1, 10));
     }
     if (data.longcovid1 !== undefined && data.longcovid1 !== null) {
       setDataLongCovid1(recodeNA(data.longcovid1));
@@ -152,7 +155,7 @@ const Section = ({ data, variable }) => {
       data.covidcon_2 !== undefined &&
       data.covidcon_3 !== undefined
     ) {
-      setDataContact(compileData(data, var_contact));
+      setDataCaseContact(compileData(data, var_contact));
     }
     if (
       data.covidconpl_1 !== undefined &&
@@ -169,19 +172,18 @@ const Section = ({ data, variable }) => {
     }
   }, [data]);
 
-  console.log(dataSymptoms)
   return (
     <>
       <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
         <InfoWrapper>
-          <InfoRowCaseContact
-            {...propsCaseContact}
-            data={dataCaseContact}
-            variable={variable}
-          />
           <InfoRowContact
             {...propsContact}
             data={dataContact}
+            variable={variable}
+          />
+          <InfoRowCaseContact
+            {...propsCaseContact}
+            data={dataCaseContact}
             variable={variable}
           />
           <InfoRowContactPlace

@@ -92,14 +92,20 @@ const SidebarFilter = ({
                       },
                       "& .MuiSvgIcon-root": {
                         fontSize: 18,
+                        [`@media (max-width: 768px)`]: {
+                          fontSize: 15,
+                        },
                       },
                     }}
                   />
                 }
-                label="Prevalence (Unweighted)"
+                label="Prevalence"
                 sx={{
                   ".MuiFormControlLabel-label	": {
                     fontSize: 15,
+                    [`@media (max-width: 768px)`]: {
+                      fontSize: 12,
+                    },
                   },
                 }}
               />
@@ -114,6 +120,9 @@ const SidebarFilter = ({
                       },
                       "& .MuiSvgIcon-root": {
                         fontSize: 18,
+                        [`@media (max-width: 768px)`]: {
+                          fontSize: 15,
+                        },
                       },
                     }}
                   />
@@ -122,10 +131,14 @@ const SidebarFilter = ({
                 sx={{
                   ".MuiFormControlLabel-label	": {
                     fontSize: 15,
+                    [`@media (max-width: 768px)`]: {
+                      fontSize: 12,
+                    },
                   },
                 }}
               />
               <FormControlLabel
+                className="FilterControl"
                 value="total"
                 control={
                   <Radio
@@ -136,6 +149,9 @@ const SidebarFilter = ({
                       },
                       "& .MuiSvgIcon-root": {
                         fontSize: 18,
+                        [`@media (max-width: 768px)`]: {
+                          fontSize: 15,
+                        },
                       },
                     }}
                   />
@@ -144,6 +160,9 @@ const SidebarFilter = ({
                 sx={{
                   ".MuiFormControlLabel-label	": {
                     fontSize: 15,
+                    [`@media (max-width: 768px)`]: {
+                      fontSize: 12,
+                    },
                   },
                 }}
               />

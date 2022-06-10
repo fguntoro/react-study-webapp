@@ -45,8 +45,6 @@ const HomePage = () => {
   }
 
   const filteredData = data[`round${roundSelected}`];
-  console.log(roundSelected);
-  console.log(filteredData);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -74,8 +72,8 @@ const HomePage = () => {
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-personal-content"
+          id="panel-personal-header"
         >
           <Typography>Personal Statistics</Typography>
         </AccordionSummary>
@@ -87,8 +85,8 @@ const HomePage = () => {
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-work-content"
+          id="panel-work-header"
         >
           <Typography>Work Status</Typography>
         </AccordionSummary>
@@ -100,8 +98,8 @@ const HomePage = () => {
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-covid-content"
+          id="panel-covid-header"
         >
           <Typography>COVID</Typography>
         </AccordionSummary>
@@ -113,8 +111,8 @@ const HomePage = () => {
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-longcovid-content"
+          id="panel-longcovid-header"
         >
           <Typography>Long COVID</Typography>
         </AccordionSummary>
@@ -126,8 +124,8 @@ const HomePage = () => {
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-measures-content"
+          id="panel-measures-header"
         >
           <Typography>Precautionary Measures</Typography>
         </AccordionSummary>
@@ -142,8 +140,8 @@ const HomePage = () => {
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-vaccine-content"
+          id="panel-vaccine-header"
         >
           <Typography>Vaccination</Typography>
         </AccordionSummary>

@@ -89,40 +89,14 @@ const Navbar = ({ toggle, toggleFilter }) => {
 
               <NavItem>
                 <NavLinkS
-                  to="personalStats"
+                  to="panel-personal-header"
                   smooth="true"
                   duration={500}
                   exact="true"
                   offset={-60}
                   spy={true}
                 >
-                  Characteristics
-                </NavLinkS>
-              </NavItem>
-
-              <NavItem>
-                <NavLinkS
-                  to="workStatus"
-                  smooth="true"
-                  duration={500}
-                  exact="true"
-                  offset={-60}
-                  spy={true}
-                >
-                  Life
-                </NavLinkS>
-              </NavItem>
-
-              <NavItem>
-                <NavLinkS
-                  to="covid"
-                  smooth="true"
-                  duration={500}
-                  exact="true"
-                  offset={-60}
-                  spy={true}
-                >
-                  COVID
+                  Explore
                 </NavLinkS>
               </NavItem>
 

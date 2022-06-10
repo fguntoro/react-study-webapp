@@ -13,7 +13,7 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "./Elements";
+} from "../Elements";
 import { default as InfoRowIntermit } from "./Intermit/index";
 import { default as InfoRowAbility } from "./Ability/index";
 import { default as InfoRowActivity } from "./Activity/index";
@@ -57,6 +57,7 @@ const propsAbility = {
   alt: "propsAbility",
   dark: true,
   primary: true,
+  xAxisLabel: "Reduction in Ability",
 };
 
 const propsActivity = {
@@ -72,6 +73,7 @@ const propsActivity = {
   alt: "propsActivity",
   dark: true,
   primary: true,
+  xAxisLabel: "Reduction in Activity",
 };
 
 const propsDescribe = {
@@ -87,6 +89,7 @@ const propsDescribe = {
   alt: "propsDescribe",
   dark: true,
   primary: true,
+  xAxisLabel: "Experiencing Long COVID Symptoms",
 };
 
 const propsIntermit = {
@@ -102,6 +105,7 @@ const propsIntermit = {
   alt: "propsIntermit",
   dark: true,
   primary: true,
+  xAxisLabel: "Frequency of Long COVID Symptoms",
 };
 
 const propsSymptoms = {

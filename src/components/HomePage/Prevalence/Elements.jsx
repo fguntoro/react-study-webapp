@@ -4,9 +4,7 @@ export const InfoContainer = styled.div`
   /* color: #fff; */
   background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
 
-  @media screen and (max-width: 768px) {
-    padding: 100px 0;
-  }
+  padding: 50px 0;
 `;
 
 export const InfoWrapper = styled.div`
@@ -14,10 +12,10 @@ export const InfoWrapper = styled.div`
   z-index: 1;
   height: 100%;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1180px;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 24px;
+  padding: 0 12px;
   justify-content: center;
 `;
 
@@ -40,6 +38,10 @@ export const Box1 = styled.div`
   margin-bottom: 15px;
   padding: 0 15px;
   grid-area: box1;
+
+  @media screen and (max-width: 820px) {
+    height: 150px;
+  }
 `;
 
 export const Box2 = styled.div`

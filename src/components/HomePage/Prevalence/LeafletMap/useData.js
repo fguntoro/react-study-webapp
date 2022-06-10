@@ -6,7 +6,7 @@ const csvUrl =
 
 const row = (d) => {
   d.round = +d.round;
-  d.ltla_prevalence = +d.ltla_prevalence;
+  d.ltla_prevalence = +d.ltla_prevalence * 100;
   return d;
 };
 

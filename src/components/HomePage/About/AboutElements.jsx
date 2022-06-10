@@ -30,6 +30,14 @@ export const AboutContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 820px) {
+    max-width: 720px;
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: 400px;
+  }
 `;
 
 export const AboutContainer = styled.div`
@@ -42,12 +50,8 @@ export const AboutContainer = styled.div`
   position: relative;
   z-index: 1;
 
-  @media screen and (max-width: 768px) {
-    height: 1100px;
-  }
-
   @media screen and (max-width: 480px) {
-    height: 1300px;
+    height: 650px;
   }
 `;
 
@@ -74,13 +78,13 @@ export const AboutPaper = styled(Paper)`
   height: 100%;
   width: 100%;
 
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     height: 400px;
   }
 
   @media screen and (max-width: 480px) {
     height: 300px;
-  }
+  } */
 `;
 
 export const AboutCard = styled.div`
@@ -96,7 +100,7 @@ export const AboutCard = styled.div`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    transform: scale() (1.02);
+    transform: scale(1.02);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
   }

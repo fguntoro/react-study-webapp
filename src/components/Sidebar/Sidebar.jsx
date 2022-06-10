@@ -18,15 +18,8 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="roundSummary" onClick={toggle}>
             Summary
           </SidebarLink>
-          <SidebarLink to="personalStats" onClick={toggle}>
-            Characteristics
-          </SidebarLink>
-
-          <SidebarLink to="workStatus" onClick={toggle}>
-            Life
-          </SidebarLink>
-          <SidebarLink to="covid" onClick={toggle}>
-            COVID
+          <SidebarLink to="panel-personal-header" onClick={toggle}>
+            Explore
           </SidebarLink>
           <SidebarLink to="resources" onClick={toggle}>
             Resources

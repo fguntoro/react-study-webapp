@@ -43,7 +43,7 @@ const Section = (roundSelected) => {
   console.log(filteredData[0].Round);
 
   return (
-    <AboutContainer id="about">
+    <AboutContainer id="roundSummary">
       <AboutContent>
         <AboutH1>Round Summary</AboutH1>
         <AboutWrapper>

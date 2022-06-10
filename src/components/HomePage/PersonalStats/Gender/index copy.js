@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   InfoContainer,
   InfoWrapper,
@@ -12,8 +12,9 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-} from "../Elements";
-import Chart from "./chart"
+} from "../../Elements";
+import Chart from "../../BarChart/BuildChart";
+import { axisLabelDict } from "./labels";
 
 const Info = ({
   lightBg,
@@ -30,6 +31,8 @@ const Info = ({
   dark2,
   linkTo,
   data,
+  variable,
+  xAxisLabel,
 }) => {
   return (
     <>
@@ -42,7 +45,14 @@ const Info = ({
           </TextWrapper>
         </Column1>
         <Column2>
-          <Chart data={data} width={500} height={300} />
+          <Chart
+            data={data}
+            width={500}
+            height={300}
+            variable={variable}
+            xAxisLabel={xAxisLabel}
+            axisLabelDict={axisLabelDict}
+          />
         </Column2>
       </InfoRow>
     </>
