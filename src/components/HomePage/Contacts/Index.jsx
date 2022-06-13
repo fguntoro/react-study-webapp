@@ -24,9 +24,9 @@ import { default as InfoRowVaccineType } from "./VaccineType/index";
 const props = {
   id: "precaution",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Precautionary Measures",
   description: "Shielding and Mask wearing",
@@ -51,9 +51,9 @@ const propsMain = {
 const propsVaccinated = {
   id: "Vaccinated",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Vaccinated",
   description: "",
@@ -66,9 +66,9 @@ const propsVaccinated = {
 const propsVaccineAccept = {
   id: "VaccineAccept",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineAccept",
   description: "",
@@ -81,9 +81,9 @@ const propsVaccineAccept = {
 const propsVaccineApp2 = {
   id: "VaccineApp2",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineApp2",
   description: "",
@@ -96,9 +96,9 @@ const propsVaccineApp2 = {
 const propsVaccineDose = {
   id: "VaccineDose",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineDose",
   description: "",
@@ -111,9 +111,9 @@ const propsVaccineDose = {
 const propsVaccineType = {
   id: "VaccineType",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineType",
   description: "",
@@ -132,26 +132,31 @@ const Section = ({ data, variable }) => {
             {...propsVaccinated}
             data={data.vaccinated}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowVaccineAccept
             {...propsVaccineAccept}
             data={data.vaccineaccept}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowVaccineApp2
             {...propsVaccineApp2}
             data={data.vaccineapp2}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowVaccineDose
             {...propsVaccineDose}
             data={data.vaccdose}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowVaccineType
             {...propsVaccineType}
             data={data.vaccine_type}
             variable={variable}
+            themeDark={themeDark}
           />
         </InfoWrapper>
       </InfoContainer>

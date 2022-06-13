@@ -36,9 +36,6 @@ const SidebarFilter = ({
 
   return (
     <SidebarContainer isOpen={isOpen}>
-      <Icon onClick={toggle}>
-        <CloseIcon />
-      </Icon>
       <SidebarWrapper>
         <SidebarRow>
           <Column1>
@@ -70,6 +67,11 @@ const SidebarFilter = ({
               // onChange={handleChange}
             />
           </Column2> */}
+          <Column2>
+            <Icon onClick={toggle}>
+              <CloseIcon />
+            </Icon>
+          </Column2>
         </SidebarRow>
         <SidebarRow2>
           <div>

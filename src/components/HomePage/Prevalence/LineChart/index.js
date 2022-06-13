@@ -109,8 +109,8 @@ function BuildChart({ data, props }) {
         (d) => xScale(d["Start"]) + (xScale(d["End"]) - xScale(d["Start"])) / 2
       )
       .attr("cy", (d) => yScale(yValue(d)))
-      .attr("r", 5)
-      .attr("fill", "black")
+      .attr("r", 3)
+      .attr("fill", "lightseagreen")
       .attr("opacity", 1)
       .transition()
       .attr("height", innerHeight);
@@ -128,7 +128,7 @@ function BuildChart({ data, props }) {
       .append("path")
       .style("transform", `translate(${margin.left}px, ${margin.top}px)`)
       .attr("fill", "none")
-      .attr("stroke", "black")
+      .attr("stroke", "lightseagreen")
       .attr("stroke-width", 2)
       .attr("class", "line")
       .attr("d", linePath);
@@ -146,7 +146,7 @@ function BuildChart({ data, props }) {
         "x",
         (d) => xScale(d["Start"]) + (xScale(d["End"]) - xScale(d["Start"])) / 2
       )
-      .attr("y", -10)
+      .attr("y", -15)
       .attr("font-family", "sans-serif")
       .attr("font-size", "11px")
       .attr("fill", "black");
@@ -156,7 +156,7 @@ function BuildChart({ data, props }) {
       .text("Round")
       .attr("text-anchor", "middle")
       .attr("x", margin.left - 15)
-      .attr("y", margin.top - 10)
+      .attr("y", margin.top - 15)
       .attr("font-family", "sans-serif")
       .attr("font-size", "11px")
       .attr("fill", "black");

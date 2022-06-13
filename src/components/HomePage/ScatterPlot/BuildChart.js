@@ -14,6 +14,7 @@ import {
   curveMonotoneX,
   scaleBand,
   pointer,
+  ascending,
 } from "d3";
 import "./index.css";
 import tip from "d3-tip";
@@ -92,6 +93,8 @@ function BuildChart({
 
   // will be called initially and on every data change
   useEffect(() => {
+    data.sort((a, b) => ascending(a[variable], b[variable]));
+
     const svg = select(svgRef.current);
 
     svg.selectAll("#id_bar").remove();
@@ -134,9 +137,9 @@ function BuildChart({
     svg
       .select(".y-axis")
       .style("transform", `translate(${margin.left}px, ${margin.top}px)`)
-      .call(yAxis)
-      // .selectAll(".tick text")
-      // .call(wrap, yScale.bandwidth());
+      .call(yAxis);
+    // .selectAll(".tick text")
+    // .call(wrap, yScale.bandwidth());
 
     svg
       .select(".x-axis")
@@ -176,7 +179,7 @@ function BuildChart({
       .attr("cx", (d) => xScale(xValue(d)))
       .attr("r", 5)
       .attr("fill", "lightseagreen");
-      // .attr("opacity", 0);
+    // .attr("opacity", 0);
 
     // const bars = svg
     //   .selectAll("bar")
@@ -281,7 +284,6 @@ const Chart = ({
   yAxisLabel,
   axisLabelDict,
 }) => {
-
   if (!data) {
     return (
       <>

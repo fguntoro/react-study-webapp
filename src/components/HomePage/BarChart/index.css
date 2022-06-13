@@ -1,5 +1,4 @@
 .indicator-volume {
-
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -11,6 +10,10 @@
     margin: 0 auto;
     font-size: 1.3em;
 }
+/* 
+.yAxis-label {
+    stroke: white;
+} */
 
 .inner {
     margin-bottom: 30px;

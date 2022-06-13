@@ -3,5 +3,5 @@ export const axisLabelDict = [
   { value: 2, label: "Yes(work/ school)" },
   { value: 3, label: "Yes,other" },
   { value: 4, label: "Yes,both" },
-  { value: 5, label: "Always (religious/ cultural)" },
+  { value: 5, label: "Always(cultural/ religious)" },
 ];

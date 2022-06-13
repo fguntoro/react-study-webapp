@@ -41,7 +41,7 @@ export const AboutContent = styled.div`
 `;
 
 export const AboutContainer = styled.div`
-  background: whitesmoke;
+  background: ${({ themeDark }) => (themeDark ? "#1E1C1C" : "whitesmoke")};
   height: 800px;
   display: flex;
   flex-direction: column;

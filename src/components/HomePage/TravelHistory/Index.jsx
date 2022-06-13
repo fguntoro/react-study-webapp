@@ -19,9 +19,9 @@ import LineChart from "./LineChart/index";
 const props = {
   id: "travelHistory",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Travel History",
   description: "Countries visited during COVID",
@@ -36,8 +36,7 @@ const InfoPage = ({
   id,
   imgStart,
   topLine,
-  lightText,
-  darkText,
+  themeDark,
   headLine,
   description,
   buttonLabel,
@@ -67,8 +66,8 @@ const InfoPage = ({
             <Column1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
+                <Heading themeDark={themeDark}>{headLine}</Heading>
+                <Subtitle themeDark={themeDark}>{description}</Subtitle>
               </TextWrapper>
             </Column1>
             <Column2>

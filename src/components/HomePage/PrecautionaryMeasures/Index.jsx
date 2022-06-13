@@ -28,9 +28,9 @@ import {
 const props = {
   id: "precaution",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Precautionary Measures",
   description: "Shielding and Mask wearing",
@@ -54,9 +54,9 @@ const propsMain = {
 
 const propsShielding1 = {
   id: "Shielding1",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Shielding1",
   description:
@@ -70,9 +70,9 @@ const propsShielding1 = {
 
 const propsShielding2 = {
   id: "Shielding2",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Shielding2",
   description:
@@ -86,9 +86,9 @@ const propsShielding2 = {
 
 const propsFaceCov = {
   id: "FaceCov",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Face Covering",
   description:
@@ -102,55 +102,58 @@ const propsFaceCov = {
 
 const propsIndoorMask = {
   id: "IndoorMask",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Indoor Mask",
-  description: "How often do you wear any kind of face covering or mask indoors?",
+  description:
+    "How often do you wear any kind of face covering or mask indoors?",
   imgStart: true,
   alt: "IndoorMask",
   dark: true,
   primary: true,
 };
 
-const Section = ({ data, variable }) => {
-    const [dataFaceCov, setDataFaceCov] = useState(data.face_cov);
-        const [dataIndMask, setDataIndMask] = useState(data.indmask);
+const Section = ({ data, variable, themeDark }) => {
+  const [dataFaceCov, setDataFaceCov] = useState(data.face_cov);
+  const [dataIndMask, setDataIndMask] = useState(data.indmask);
 
   useEffect(() => {
     if (data.face_cov !== undefined && data.face_cov !== null) {
       setDataFaceCov(recodeNA(data.face_cov));
     }
-        if (data.indmask !== undefined && data.indmask !== null) {
-          setDataIndMask(recodeNA(data.indmask));
-        }
+    if (data.indmask !== undefined && data.indmask !== null) {
+      setDataIndMask(recodeNA(data.indmask));
+    }
   }, [data]);
-
 
   return (
     <>
-      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
+      <InfoContainer themeDark={themeDark} id={propsMain.id}>
         <InfoWrapper>
           <InfoRowShielding1
             {...propsShielding1}
             data={data.shield1}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowShielding2
             {...propsShielding2}
             data={data.shield2}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowFaceCov
             {...propsFaceCov}
             data={dataFaceCov}
             variable={variable}
+            themeDark={themeDark}
           />
           {/* <InfoRowIndoorMask
             {...propsIndoorMask}
             data={dataIndMask}
-            variable={variable}
+            variable={variable} themeDark={themeDark}
           /> */}
         </InfoWrapper>
       </InfoContainer>

@@ -33,7 +33,7 @@ export const AboutContent = styled.div`
 `;
 
 export const AboutContainer = styled.div`
-  background: whitesmoke;
+  background: ${({ themeDark }) => (themeDark ? "#1E1C1C" : "whitesmoke")};
   height: 700px;
   display: flex;
   flex-direction: column;
@@ -66,7 +66,6 @@ export const AboutWrapper = styled.div`
 `;
 
 export const AboutPaper = styled(Paper)`
-  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: space-around;

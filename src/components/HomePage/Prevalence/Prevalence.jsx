@@ -21,9 +21,9 @@ import LineChart from "./LineChart/index";
 const props = {
   id: "prevalence",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Prevalence",
   description:
@@ -40,8 +40,7 @@ const InfoPage = ({
   id,
   imgStart,
   topLine,
-  lightText,
-  darkText,
+  themeDark,
   headLine,
   description,
   buttonLabel,
@@ -65,14 +64,14 @@ const InfoPage = ({
 
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id}>
+      <InfoContainer themeDark={themeDark} id={id}>
         <InfoWrapper>
           <InfoRow imgStart={imgStart}>
             <Box1>
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
+                <Heading themeDark={themeDark}>{headLine}</Heading>
+                <Subtitle themeDark={themeDark}>{description}</Subtitle>
               </TextWrapper>
             </Box1>
             <Box2>
@@ -99,7 +98,7 @@ const InfoPage = ({
   );
 };
 
-const Prevalence = () => {
+const Prevalence = ({ themeDark }) => {
   const [mapCenter, setMapCenter] = useState({
     lat: 53,
     lng: -1,
@@ -108,7 +107,12 @@ const Prevalence = () => {
 
   return (
     <>
-      <InfoPage {...props} mapCenter={mapCenter} mapZoom={mapZoom} />
+      <InfoPage
+        {...props}
+        mapCenter={mapCenter}
+        mapZoom={mapZoom}
+        themeDark={themeDark}
+      />
     </>
   );
 };

@@ -21,8 +21,7 @@ const Info = ({
   id,
   imgStart,
   topLine,
-  lightText,
-  darkText,
+  themeDark,
   headLine,
   description,
   buttonLabel,
@@ -33,6 +32,7 @@ const Info = ({
   data,
   variable,
   xAxisLabel,
+  themeDark,
 }) => {
   return (
     <>
@@ -40,8 +40,8 @@ const Info = ({
         <Column1>
           <TextWrapper>
             <TopLine>{topLine}</TopLine>
-            <Heading lightText={lightText}>{headLine}</Heading>
-            <Subtitle darkText={darkText}>{description}</Subtitle>
+            <Heading themeDark={themeDark}>{headLine}</Heading>
+            <Subtitle themeDark={themeDark}>{description}</Subtitle>
           </TextWrapper>
         </Column1>
         <Column2>
@@ -50,6 +50,7 @@ const Info = ({
             width={500}
             height={300}
             variable={variable}
+            themeDark={themeDark}
             xAxisLabel={xAxisLabel}
             axisLabelDict={axisLabelDict}
           />

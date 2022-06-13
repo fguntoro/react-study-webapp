@@ -9,7 +9,7 @@ export const ResourcesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #010606;
+  background: ${({ themeDark }) => (themeDark ? "#1E1C1C" : "whitesmoke")};
 
   @media screen and (max-width: 480px) {
     height: 800px;
@@ -37,7 +37,6 @@ export const ResourcesWrapper = styled.div`
 `;
 
 export const ResourcesCard = styled(Paper)`
-  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: space-around;
@@ -80,6 +79,7 @@ export const ResourcesH2 = styled.h2`
 `;
 
 export const ResourcesP = styled.p`
+  color: ${({ themeDark }) => (themeDark ? "white" : "black")};
   font-size: 1rem;
   text-align: left;
 

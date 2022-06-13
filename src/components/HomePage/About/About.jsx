@@ -27,24 +27,24 @@ import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
 import { grey } from "@mui/material/colors";
 
-const About = () => {
+const About = ({themeDark}) => {
   return (
-    <AboutContainer id="about">
+    <AboutContainer id="about" themeDark={themeDark}>
       <AboutContent>
         <AboutH1>4 Research Programmes</AboutH1>
         <AboutPaper elevation={5}>
           <Carousel>
             <Carousel.Item interval={5000}>
-              <InfoSection {...homeObjOne} />
+              <InfoSection {...homeObjOne} themeDark={themeDark} />
             </Carousel.Item>
             <Carousel.Item interval={5000}>
-              <InfoSection {...homeObjTwo} />
+              <InfoSection {...homeObjTwo} themeDark={themeDark} />
             </Carousel.Item>
             <Carousel.Item interval={5000}>
-              <InfoSection {...homeObjThree} />
+              <InfoSection {...homeObjThree} themeDark={themeDark} />
             </Carousel.Item>
             <Carousel.Item interval={5000}>
-              <InfoSection {...homeObjFour} />
+              <InfoSection {...homeObjFour} themeDark={themeDark} />
             </Carousel.Item>
           </Carousel>
         </AboutPaper>

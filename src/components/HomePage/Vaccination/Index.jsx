@@ -30,9 +30,9 @@ import {
 const props = {
   id: "precaution",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Precautionary Measures",
   description: "Shielding and Mask wearing",
@@ -56,9 +56,9 @@ const propsMain = {
 
 const propsVaccinated = {
   id: "Vaccinated",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Vaccinated",
   description: "Have you ever had a coronavirus vaccine?",
@@ -71,9 +71,9 @@ const propsVaccinated = {
 
 const propsVaccineAccept = {
   id: "VaccineAccept",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineAccept",
   description: "Would you accept a coronavirus vaccine if offered?",
@@ -86,9 +86,9 @@ const propsVaccineAccept = {
 
 const propsVaccineApp2 = {
   id: "VaccineApp2",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineApp2",
   description:
@@ -102,9 +102,9 @@ const propsVaccineApp2 = {
 
 const propsVaccineDose = {
   id: "VaccineDose",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineDose",
   description: "How many doses of infections have you had so far?",
@@ -117,9 +117,9 @@ const propsVaccineDose = {
 
 const propsVaccineType = {
   id: "VaccineType",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "VaccineType",
   description: "Which vaccine did you receive from healthcare provider?",
@@ -149,7 +149,7 @@ const code_vaccineapp2 = {
   NA: [-92, -91, -77, 4],
 };
 
-const Section = ({ data, variable }) => {
+const Section = ({ data, variable, themeDark }) => {
   const [dataVaccinated, setDataVaccinated] = useState(data.vaccinated);
   const [dataVaccineAccept, setDataVaccineAccept] = useState(
     data.vaccineaccept
@@ -167,39 +167,43 @@ const Section = ({ data, variable }) => {
     if (data.vaccineapp2 !== undefined && data.vaccineapp2 !== null) {
       setDataVaccineApp2(recode(data.vaccineapp2, code_vaccineapp2));
     }
-        if (data.vaccdose !== undefined && data.vaccdose !== null) {
-          setDataVaccDose(recodeNA(data.vaccdose));
-        }
+    if (data.vaccdose !== undefined && data.vaccdose !== null) {
+      setDataVaccDose(recodeNA(data.vaccdose));
+    }
   }, [data]);
 
   return (
     <>
-      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
+      <InfoContainer themeDark={themeDark} id={propsMain.id}>
         <InfoWrapper>
           <InfoRowVaccinated
             {...propsVaccinated}
             data={dataVaccinated}
             variable={variable}
+            themeDark={themeDark}
           />
           {/* <InfoRowVaccineAccept
             {...propsVaccineAccept}
             data={dataVaccineAccept}
-            variable={variable}
+            variable={variable} themeDark={themeDark}
           /> */}
           <InfoRowVaccineApp2
             {...propsVaccineApp2}
             data={dataVaccineApp2}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowVaccineDose
             {...propsVaccineDose}
             data={dataVaccDose}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowVaccineType
             {...propsVaccineType}
             data={data.vaccine_type}
             variable={variable}
+            themeDark={themeDark}
           />
         </InfoWrapper>
       </InfoContainer>

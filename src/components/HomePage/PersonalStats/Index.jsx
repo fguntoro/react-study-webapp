@@ -33,9 +33,9 @@ const propsMain = {
 const propsGender = {
   id: "propsGender",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Gender",
   description: "Which one of the following best describes your gender?",
@@ -49,9 +49,9 @@ const propsGender = {
 const propsAge = {
   id: "propsAge",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Age Groups",
   description: "Age recoded into groups",
@@ -65,9 +65,9 @@ const propsAge = {
 const propsEthnic = {
   id: "propsEthnic",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Ethnicity",
   description:
@@ -138,7 +138,7 @@ function recode_ethnic(data) {
   return recoded_data;
 }
 
-const PersonalStats = ({ data, variable }) => {
+const PersonalStats = ({ data, variable, themeDark }) => {
   const [dataEthnic, setDataEthnic] = useState(data.ethnic);
 
   useEffect(() => {
@@ -147,18 +147,25 @@ const PersonalStats = ({ data, variable }) => {
 
   return (
     <>
-      <InfoContainer id="personalStats" lightBg={propsMain.lightBg}>
+      <InfoContainer id="personalStats" themeDark={themeDark}>
         <InfoWrapper>
           <InfoRowGender
             {...propsGender}
             data={data.gender}
             variable={variable}
+            themeDark={themeDark}
           />
-          <InfoRowAge {...propsAge} data={data.age_group} variable={variable} />
+          <InfoRowAge
+            {...propsAge}
+            data={data.age_group}
+            variable={variable}
+            themeDark={themeDark}
+          />
           <InfoRowEthnic
             {...propsEthnic}
             data={dataEthnic}
             variable={variable}
+            themeDark={themeDark}
           />
         </InfoWrapper>
       </InfoContainer>

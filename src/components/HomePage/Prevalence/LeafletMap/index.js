@@ -149,7 +149,7 @@ function Map({ center, zoom }) {
       </MapContainer>
       <h4 className="slider-title">Slide to select round: {selectedRound}</h4>
       <Stack
-        spacing={2}
+        spacing={1}
         direction="row"
         sx={{ mb: 1, px: 1 }}
         alignItems="center"

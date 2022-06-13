@@ -31,9 +31,9 @@ import {
 const propsMain = {
   id: "covid",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "COVID and Long COVID Symptoms",
   description: "7 Days symptoms and Long COVID symptoms",
@@ -46,9 +46,9 @@ const propsMain = {
 const propsAbility = {
   id: "propsAbility",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "Long COVID Symptoms",
   headLine: "Ability Reduction",
   description:
@@ -62,9 +62,9 @@ const propsAbility = {
 
 const propsActivity = {
   id: "propsActivity",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Activity Reduction",
   description:
@@ -78,9 +78,9 @@ const propsActivity = {
 
 const propsDescribe = {
   id: "propsDescribe",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Long Covid?",
   description:
@@ -95,9 +95,9 @@ const propsDescribe = {
 const propsIntermit = {
   id: "propsIntermit",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Long COVID Frequency",
   description: "How often do you exhibit long COVID symptoms?",
@@ -111,9 +111,9 @@ const propsIntermit = {
 const propsSymptoms = {
   id: "propsSymptoms",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Long COVID Symptoms",
   description: "Which of these symptoms were part of your Long COVID illness?",
@@ -139,7 +139,7 @@ const var_symptoms_filtered = var_symptoms.filter(function (value) {
   ].includes(value);
 });
 
-const Section = ({ data, variable }) => {
+const Section = ({ data, variable, themeDark }) => {
   const [dataIntermit, setDataIntermit] = useState(data.longintermit);
   const [dataAbility, setDataAbility] = useState(data.longcovidability);
   const [dataActivity, setDataActivity] = useState(data.longcovidactiv);
@@ -166,32 +166,37 @@ const Section = ({ data, variable }) => {
 
   return (
     <>
-      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
+      <InfoContainer themeDark={themeDark} id={propsMain.id}>
         <InfoWrapper>
           <InfoRowIntermit
             {...propsIntermit}
             data={dataIntermit}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowAbility
             {...propsAbility}
             data={dataAbility}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowActivity
             {...propsActivity}
             data={dataActivity}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowDescribe
             {...propsDescribe}
             data={dataDescribe}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowSymptoms
             {...propsSymptoms}
             data={dataSymptoms}
             variable={variable}
+            themeDark={themeDark}
           />
         </InfoWrapper>
       </InfoContainer>

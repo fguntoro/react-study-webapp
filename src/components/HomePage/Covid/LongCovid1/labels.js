@@ -1,7 +1,7 @@
 export const axisLabelDict = [
   { value: 1, label: "Yes,still" },
-  { value: 2, label: "Yes,but no longer" },
-  { value: 3, label: "No,less than 4 weeks" },
-  { value: 4, label: "No,never had symptom" },
+  { value: 2, label: "Yes,previously" },
+  { value: 3, label: "No,less" },
+  { value: 4, label: "Asymptomatic" },
   { value: 5, label: "Uncertain" },
 ];

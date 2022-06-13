@@ -27,6 +27,10 @@ export const NavbarContainer = styled.div`
   width: 100%;
   padding: 0 24px;
   max-width: 1180px;
+
+  @media screen and (max-width: 480px) {
+    padding: 0 12px;
+  }
 `;
 
 export const NavLogo = styled(LinkR)`
@@ -51,16 +55,17 @@ export const MobileIcon = styled.div`
 
   @media screen and (max-width: 768px) {
     display: block;
-    position: absolute;
+    /* position: absolute;
     top: 4px;
-    right: 80px;
+    right: 80px; */
     font-size: 1.8rem;
     cursor: pointer;
     color: #fff;
+    margin-top:-5px;
   }
 `;
 
-export const FilterIcon = styled.div`
+export const IconContainer = styled.div`
   color: #fff;
   justify-self: flex-end;
   cursor: pointer;

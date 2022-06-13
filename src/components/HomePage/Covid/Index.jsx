@@ -31,9 +31,9 @@ import {
 const propsMain = {
   id: "covid",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "COVID and Long COVID Symptoms",
   description: "7 Days symptoms and Long COVID symptoms",
@@ -46,10 +46,9 @@ const propsMain = {
 const propsContact = {
   id: "propsContact",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
-  topLine: "COVID and Long COVID Symptoms",
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   headLine: "Contact",
   description:
     "How many different people (not including members of your household) did you have contact with yesterday?",
@@ -57,14 +56,14 @@ const propsContact = {
   alt: "propsContact",
   dark: true,
   primary: true,
-  xAxisLabel: "Number of Contacts"
+  xAxisLabel: "Number of Contacts",
 };
 
 const propsCaseContact = {
   id: "propsCaseContact",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Case Contact",
   description: "Have you been in close contact with anyone with COVID-19?",
@@ -77,9 +76,9 @@ const propsCaseContact = {
 
 const propsContactPlace = {
   id: "propsContactPlace",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Contact Place",
   description: "Where did contact with confirmed COVID-19 case take place?",
@@ -93,9 +92,9 @@ const propsContactPlace = {
 const propsLongCovid1 = {
   id: "propsLongCovid1",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Long Lasting Symptoms?",
   description:
@@ -110,9 +109,9 @@ const propsLongCovid1 = {
 const propsSymptoms = {
   id: "propsSymptoms",
   lightBg: true,
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "COVID Symptoms",
   description: "Which of these symptoms have you had in the last 7 days?",
@@ -136,7 +135,7 @@ for (var i = 1; i <= 29; i++) {
   var_symptoms.push(`symptnowaw_${i}`);
 }
 
-const Section = ({ data, variable }) => {
+const Section = ({ data, variable, themeDark }) => {
   const [dataContact, setDataContact] = useState(data.contact1);
   const [dataLongCovid1, setDataLongCovid1] = useState(data.longcovid1);
   const [dataCaseContact, setDataCaseContact] = useState(null);
@@ -174,32 +173,37 @@ const Section = ({ data, variable }) => {
 
   return (
     <>
-      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
+      <InfoContainer themeDark={themeDark} id={propsMain.id}>
         <InfoWrapper>
           <InfoRowContact
             {...propsContact}
             data={dataContact}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowCaseContact
             {...propsCaseContact}
             data={dataCaseContact}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowContactPlace
             {...propsContactPlace}
             data={dataContactPlace}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowLongCovid1
             {...propsLongCovid1}
             data={dataLongCovid1}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowSymptoms
             {...propsSymptoms}
             data={dataSymptoms}
             variable={variable}
+            themeDark={themeDark}
           />
         </InfoWrapper>
       </InfoContainer>

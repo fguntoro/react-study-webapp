@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -26,7 +25,27 @@ import {
   Footer,
   useData,
 } from "../components";
+import { StyledTypography, styledAccordion } from "./HomePageElements";
 import { recodeNA } from "../components/utils/dataManipulation";
+import { ThemeProvider, createTheme } from "@mui/system";
+
+const theme = createTheme({
+  palette: {
+    background: {
+      paper: "#fff",
+    },
+    text: {
+      primary: "#173A5E",
+      secondary: "#46505A",
+    },
+    action: {
+      active: "#001E3C",
+    },
+    success: {
+      dark: "#009688",
+    },
+  },
+});
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +53,7 @@ const HomePage = () => {
   const [roundSelected, setRoundSelected] = useState(19);
   const [roundSelectedRight, setRoundSelectedRight] = useState(null);
   const [variableSelected, setVariableSelected] = useState("uwt_prev");
+  const [themeDark, setThemeDark] = useState(false);
 
   const data = useData();
   if (!data) {
@@ -54,6 +74,10 @@ const HomePage = () => {
     setIsOpenFilter(!isOpenFilter);
   };
 
+  const toggleThemeDark = () => {
+    setThemeDark(!themeDark);
+  };
+
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
@@ -63,95 +87,169 @@ const HomePage = () => {
         setRoundSelected={setRoundSelected}
         setVariableSelected={setVariableSelected}
       />
-      <Navbar toggle={toggle} toggleFilter={toggleFilter} />
+      <Navbar
+        toggle={toggle}
+        toggleFilter={toggleFilter}
+        toggleThemeDark={toggleThemeDark}
+        themeDark={themeDark}
+      />
       <HeroSection />
-      <About />
-      <Prevalence />
-      <RoundSummary roundSelected={roundSelected} />
+      <About themeDark={themeDark} />
+      <Prevalence themeDark={themeDark} />
+      <RoundSummary roundSelected={roundSelected} themeDark={themeDark} />
 
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      {/* <ThemeProvider theme={theme}> */}
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
           aria-controls="panel-personal-content"
           id="panel-personal-header"
         >
-          <Typography>Personal Statistics</Typography>
+          <StyledTypography className="panel-label">
+            Personal Statistics
+          </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
-          <PersonalStats data={filteredData} variable={variableSelected} />
+          <PersonalStats
+            data={filteredData}
+            variable={variableSelected}
+            themeDark={themeDark}
+          />
         </AccordionDetails>
       </Accordion>
 
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
           aria-controls="panel-work-content"
           id="panel-work-header"
         >
-          <Typography>Work Status</Typography>
+          <StyledTypography className="panel-label">
+            Work Status
+          </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
-          <WorkStatus data={filteredData} variable={variableSelected} />
+          <WorkStatus
+            data={filteredData}
+            variable={variableSelected}
+            themeDark={themeDark}
+          />
         </AccordionDetails>
       </Accordion>
 
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
           aria-controls="panel-covid-content"
           id="panel-covid-header"
         >
-          <Typography>COVID</Typography>
+          <StyledTypography className="panel-label">COVID</StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
-          <Covid data={filteredData} variable={variableSelected} />
+          <Covid
+            data={filteredData}
+            variable={variableSelected}
+            themeDark={themeDark}
+          />
         </AccordionDetails>
       </Accordion>
 
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
           aria-controls="panel-longcovid-content"
           id="panel-longcovid-header"
         >
-          <Typography>Long COVID</Typography>
+          <StyledTypography className="panel-label">
+            Long COVID
+          </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
-          <LongCovid data={filteredData} variable={variableSelected} />
+          <LongCovid
+            data={filteredData}
+            variable={variableSelected}
+            themeDark={themeDark}
+          />
         </AccordionDetails>
       </Accordion>
 
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
           aria-controls="panel-measures-content"
           id="panel-measures-header"
         >
-          <Typography>Precautionary Measures</Typography>
+          <StyledTypography className="panel-label">
+            Precautionary Measures
+          </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
           <PrecautionaryMeasures
             data={filteredData}
             variable={variableSelected}
+            themeDark={themeDark}
           />
         </AccordionDetails>
       </Accordion>
 
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      <Accordion
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
           aria-controls="panel-vaccine-content"
           id="panel-vaccine-header"
         >
-          <Typography>Vaccination</Typography>
+          <StyledTypography className="panel-label">
+            Vaccination
+          </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
-          <Vaccination data={filteredData} variable={variableSelected} />
+          <Vaccination
+            data={filteredData}
+            variable={variableSelected}
+            themeDark={themeDark}
+          />
         </AccordionDetails>
       </Accordion>
+      {/* </ThemeProvider> */}
 
       {/* <TravelHistory /> */}
-      <Resources />
+      <Resources themeDark={themeDark} />
       {/* <Explore /> */}
       <Footer />
     </>

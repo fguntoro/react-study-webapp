@@ -45,9 +45,9 @@ const propsMain = {
 const propsUrban = {
   id: "propsUrban",
   lightBg: true,
-  lightText: true,
-  darkText: false,
-  lightTextDesc: true,
+  themeDark: true,
+  themeDark: false,
+  themeDarkDesc: true,
   topLine: "Home and Work Status",
   headLine: "Lives in urban",
   description: "",
@@ -60,9 +60,9 @@ const propsUrban = {
 
 const propsHouseholdSize = {
   id: "propsHouseholdSize",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Household Size",
   description:
@@ -76,9 +76,9 @@ const propsHouseholdSize = {
 
 const propsHouseholdChildren = {
   id: "propsHouseholdChildren",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Household Children",
   description:
@@ -92,9 +92,9 @@ const propsHouseholdChildren = {
 
 const propsCarehome = {
   id: "propsCarehome",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Carehome",
   description: "Whether lives in a carehome?",
@@ -107,9 +107,9 @@ const propsCarehome = {
 
 const propsCampus = {
   id: "Campus",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Campus",
   description: "Where are you currently living in campus?",
@@ -121,9 +121,9 @@ const propsCampus = {
 
 const propsEmployment = {
   id: "employment",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Employment",
   description: "Current economic activity status?",
@@ -136,9 +136,9 @@ const propsEmployment = {
 
 const propsEducation = {
   id: "Education",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Education",
   description: "What is your highest educational qualification?",
@@ -151,9 +151,9 @@ const propsEducation = {
 
 const propsWorkType = {
   id: "WorkType",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Work Type",
   description: "What is the type of work that you do?",
@@ -166,9 +166,9 @@ const propsWorkType = {
 
 const propsWorkOutdoors = {
   id: "WorkOutdoors",
-  lightText: false,
-  darkText: true,
-  lightTextDesc: true,
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
   topLine: "",
   headLine: "Work Outdoors",
   description:
@@ -215,7 +215,7 @@ const code_worktype = {
 //   Uncertain: [7],
 // };
 
-const WorkStatus = ({ data, variable }) => {
+const WorkStatus = ({ data, variable, themeDark }) => {
   const [dataHouseholdSize, setDataHouseholdSize] = useState(data.nadults);
   const [dataHouseholdChildren, setDataHouseholdChildren] = useState(
     data.nchild
@@ -249,48 +249,54 @@ const WorkStatus = ({ data, variable }) => {
 
   return (
     <>
-      <InfoContainer lightBg={propsMain.lightBg} id={propsMain.id}>
+      <InfoContainer themeDark={themeDark} id={propsMain.id}>
         <InfoWrapper>
           {/* <InfoRowUrban {...propsUrban} data={data.urban} /> */}
           <InfoRowHouseholdSize
             {...propsHouseholdSize}
             data={dataHouseholdSize}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowHouseholdChildren
             {...propsHouseholdChildren}
             data={dataHouseholdChildren}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowCarehome
             {...propsCarehome}
             data={dataCarehome}
             variable={variable}
+            themeDark={themeDark}
           />
           {/* <InfoRowCampus
             {...propsCampus}
             data={data.campus2}
-            variable={variable}
+            variable={variable} themeDark={themeDark}
           /> */}
           <InfoRowEmployment
             {...propsEmployment}
             data={dataEmployment}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowEducation
             {...propsEducation}
             data={dataEducation}
             variable={variable}
+            themeDark={themeDark}
           />
           <InfoRowWorkType
             {...propsWorkType}
             data={dataWorkType}
             variable={variable}
+            themeDark={themeDark}
           />
           {/* <InfoRowWorkOutdoors
             {...propsWorkOutdoors}
             data={data.work_type2}
-            variable={variable}
+            variable={variable} themeDark={themeDark}
           /> */}
         </InfoWrapper>
       </InfoContainer>

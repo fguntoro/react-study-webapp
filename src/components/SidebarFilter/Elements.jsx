@@ -8,7 +8,7 @@ export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 1002;
   width: 100vw;
-  height: 150px;
+  height: 170px;
   background: #0d0d0d;
   display: grid;
   top: 0;
@@ -16,7 +16,7 @@ export const SidebarContainer = styled.aside`
   transition: 0.3s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
   top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
-  padding: 0 24px;
+  padding: 10px 24px;
   align-items: center;
 
   @media screen and (max-width: 480px) {
@@ -29,12 +29,11 @@ export const SidebarWrapper = styled.div`
   z-index: 1;
   height: 150px;
   background: #0d0d0d;
-  width: 80%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
   color: #fff;
-  background-color: red;
 
   @media screen and (max-width: 480px) {
     padding: 0 0;
@@ -46,10 +45,10 @@ export const CloseIcon = styled(FaTimes)`
 `;
 
 export const Icon = styled.div`
-  position: absolute;
-  z-index: 2;
-  top: 0.5rem;
-  right: 1.5rem;
+  /* position: absolute;
+  z-index: 2; */
+  /* top: 1rem; */
+  /* right: 1.5rem; */
   background: transparent;
   font-size: 2rem;
   cursor: pointer;
@@ -58,13 +57,13 @@ export const Icon = styled.div`
 
 export const SidebarRow = styled.div`
   display: grid;
-  grid-auto-columns: minmax(auto, 1fr);
+  grid-auto-columns: minmax(1fr, auto);
   align-items: center;
   grid-template-areas: "col1 col2";
 
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     grid-template-areas: "col1 col1" "col2 col2";
-  }
+  } */
 `;
 
 export const SidebarRow2 = styled.div`
@@ -81,9 +80,18 @@ export const Column1 = styled.div`
 `;
 
 export const Column2 = styled.div`
+  justify-self: right;
   margin-bottom: 10px;
-  padding: 0 15px;
+  padding: 0 50px;
   grid-area: col2;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 15px;
+  }
 `;
 
 export const SidebarMenu = styled.div`
