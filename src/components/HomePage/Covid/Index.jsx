@@ -96,7 +96,7 @@ const propsLongCovid1 = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Long Lasting Symptoms?",
+  headLine: "Long Lasting Symptoms",
   description:
     "Whether symptoms of COVID-19 lasted for more than four weeks in total?",
   imgStart: true,
@@ -114,7 +114,7 @@ const propsSymptoms = {
   themeDarkDesc: true,
   topLine: "",
   headLine: "COVID Symptoms",
-  description: "Which of these symptoms have you had in the last 7 days?",
+  description: "Which of these symptoms did you experience? (Check out the most popular symptoms - switch to 'positive')",
   imgStart: true,
   alt: "propsSymptoms",
   dark: true,
@@ -145,9 +145,13 @@ const Section = ({ data, variable, themeDark }) => {
   useEffect(() => {
     if (data.contact1 !== undefined && data.contact1 !== null) {
       setDataContact(collapseContinuous(data.contact1, 10));
+    } else {
+      setDataContact(null);
     }
     if (data.longcovid1 !== undefined && data.longcovid1 !== null) {
       setDataLongCovid1(recodeNA(data.longcovid1));
+    } else {
+      setDataLongCovid1(null);
     }
     if (
       data.covidcon_1 !== undefined &&
@@ -155,6 +159,8 @@ const Section = ({ data, variable, themeDark }) => {
       data.covidcon_3 !== undefined
     ) {
       setDataCaseContact(compileData(data, var_contact));
+    } else {
+      setDataCaseContact(null);
     }
     if (
       data.covidconpl_1 !== undefined &&
@@ -165,9 +171,21 @@ const Section = ({ data, variable, themeDark }) => {
       data.covidconpl_6 !== undefined
     ) {
       setDataContactPlace(compileData(data, var_contactpl));
+    } else {
+      setDataContactPlace(null);
     }
-    if (data.symptnowaw_1 !== undefined) {
+    if (
+      data.symptnowaw_1 !== undefined &&
+      data.symptnowaw_2 !== undefined &&
+      data.symptnowaw_3 !== undefined &&
+      data.symptnowaw_4 !== undefined &&
+      data.symptnowaw_5 !== undefined &&
+      data.symptnowaw_6 !== undefined &&
+      data.symptnowaw_29 !== undefined
+    ) {
       setDataSymptoms(compileData(data, var_symptoms));
+    } else {
+      setDataSymptoms(null);
     }
   }, [data]);
 

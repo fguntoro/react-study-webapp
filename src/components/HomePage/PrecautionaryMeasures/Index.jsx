@@ -58,7 +58,7 @@ const propsShielding1 = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Shielding1",
+  headLine: "At Risk",
   description:
     "Do you consider yourself to be at risk of severe illness for COVID-19?",
   imgStart: true,
@@ -74,7 +74,7 @@ const propsShielding2 = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Shielding2",
+  headLine: "Shielding",
   description:
     "Are you shielding or taking specific precautions because you are concerned that you will become severely ill with COVID-19?",
   imgStart: true,
@@ -92,7 +92,7 @@ const propsFaceCov = {
   topLine: "",
   headLine: "Face Covering",
   description:
-    "Whether you mainly wear any kind of face covering or mask when you are outside of the home because of COVID-19?",
+    "Whether you wear any kind of face covering or mask when you are outdoors because of COVID-19?",
   imgStart: true,
   alt: "FaceCov",
   dark: true,
@@ -117,15 +117,17 @@ const propsIndoorMask = {
 
 const Section = ({ data, variable, themeDark }) => {
   const [dataFaceCov, setDataFaceCov] = useState(data.face_cov);
-  const [dataIndMask, setDataIndMask] = useState(data.indmask);
+  // const [dataIndMask, setDataIndMask] = useState(data.indmask);
 
   useEffect(() => {
     if (data.face_cov !== undefined && data.face_cov !== null) {
       setDataFaceCov(recodeNA(data.face_cov));
+    } else {
+      setDataFaceCov(null);
     }
-    if (data.indmask !== undefined && data.indmask !== null) {
-      setDataIndMask(recodeNA(data.indmask));
-    }
+    // if (data.indmask !== undefined && data.indmask !== null) {
+    //   setDataIndMask(recodeNA(data.indmask));
+    // }
   }, [data]);
 
   return (

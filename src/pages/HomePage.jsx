@@ -26,26 +26,6 @@ import {
   useData,
 } from "../components";
 import { StyledTypography, styledAccordion } from "./HomePageElements";
-import { recodeNA } from "../components/utils/dataManipulation";
-import { ThemeProvider, createTheme } from "@mui/system";
-
-const theme = createTheme({
-  palette: {
-    background: {
-      paper: "#fff",
-    },
-    text: {
-      primary: "#173A5E",
-      secondary: "#46505A",
-    },
-    action: {
-      active: "#001E3C",
-    },
-    success: {
-      dark: "#009688",
-    },
-  },
-});
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +34,11 @@ const HomePage = () => {
   const [roundSelectedRight, setRoundSelectedRight] = useState(null);
   const [variableSelected, setVariableSelected] = useState("uwt_prev");
   const [themeDark, setThemeDark] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   const data = useData();
   if (!data) {
@@ -100,6 +85,8 @@ const HomePage = () => {
 
       {/* <ThemeProvider theme={theme}> */}
       <Accordion
+        expanded={expanded === "panel-personal"}
+        onChange={handleChange("panel-personal")}
         TransitionProps={{ unmountOnExit: true }}
         sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
         disableGutters
@@ -125,6 +112,8 @@ const HomePage = () => {
       </Accordion>
 
       <Accordion
+        expanded={expanded === "panel-work"}
+        onChange={handleChange("panel-work")}
         TransitionProps={{ unmountOnExit: true }}
         sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
         disableGutters
@@ -137,7 +126,7 @@ const HomePage = () => {
           id="panel-work-header"
         >
           <StyledTypography className="panel-label">
-            Work Status
+            Living and Work Status
           </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
@@ -150,6 +139,8 @@ const HomePage = () => {
       </Accordion>
 
       <Accordion
+        expanded={expanded === "panel-covid"}
+        onChange={handleChange("panel-covid")}
         TransitionProps={{ unmountOnExit: true }}
         sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
         disableGutters
@@ -173,6 +164,8 @@ const HomePage = () => {
       </Accordion>
 
       <Accordion
+        expanded={expanded === "panel-longcovid"}
+        onChange={handleChange("panel-longcovid")}
         TransitionProps={{ unmountOnExit: true }}
         sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
         disableGutters
@@ -198,6 +191,8 @@ const HomePage = () => {
       </Accordion>
 
       <Accordion
+        expanded={expanded === "panel-measures"}
+        onChange={handleChange("panel-measures")}
         TransitionProps={{ unmountOnExit: true }}
         sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
         disableGutters
@@ -222,7 +217,7 @@ const HomePage = () => {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion
+      {/* <Accordion
         TransitionProps={{ unmountOnExit: true }}
         sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
         disableGutters
@@ -245,7 +240,7 @@ const HomePage = () => {
             themeDark={themeDark}
           />
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
       {/* </ThemeProvider> */}
 
       {/* <TravelHistory /> */}

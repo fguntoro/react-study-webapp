@@ -52,7 +52,7 @@ export const ResourcesCard = styled(Paper)`
   }
 
   @media screen and (max-width: 480px) {
-    height: 160px;
+    height: 180px;
   }
 `;
 

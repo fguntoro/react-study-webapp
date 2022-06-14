@@ -28,7 +28,7 @@ export const InfoWrapper = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    height: 250px;
+    height: 330px;
   }
 `;
 

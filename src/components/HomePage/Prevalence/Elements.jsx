@@ -42,7 +42,7 @@ export const Box1 = styled.div`
   grid-area: box1;
 
   @media screen and (max-width: 820px) {
-    height: 150px;
+    height: 200px;
   }
 `;
 
@@ -94,6 +94,10 @@ export const Subtitle = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: ${({ themeDark }) => (themeDark ? "white" : "black")};
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export const BtnWrap = styled.div`

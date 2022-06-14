@@ -44,6 +44,7 @@ const InfoSection = ({
                 <Subtitle themeDark={themeDark}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
+                    to="/"
                     onClick={() => openInNewTab(linkTo)}
                     smooth="true"
                     duration={500}

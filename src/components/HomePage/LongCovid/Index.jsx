@@ -19,6 +19,7 @@ import { default as InfoRowAbility } from "./Ability/index";
 import { default as InfoRowActivity } from "./Activity/index";
 import { default as InfoRowDescribe } from "./Describe/index";
 import { default as InfoRowSymptoms } from "./Symptoms/index";
+import Alert from "@mui/material/Alert";
 
 import {
   getSum,
@@ -49,10 +50,10 @@ const propsAbility = {
   themeDark: false,
   themeDark: true,
   themeDarkDesc: true,
-  topLine: "Long COVID Symptoms",
+  topLine: "",
   headLine: "Ability Reduction",
   description:
-    "How much, if at all, does your 'long COVID' symptoms reduce your ability to carry out day-to-day activities?",
+    "How much, if at all, did your 'Long COVID' symptoms reduce your ability to carry out day-to-day activities?",
   imgStart: true,
   alt: "propsAbility",
   dark: true,
@@ -68,7 +69,7 @@ const propsActivity = {
   topLine: "",
   headLine: "Activity Reduction",
   description:
-    "How much, if at all, does your 'long COVID' symptoms reduce the amount or kind of activities that you can do",
+    "How much, if at all, did your 'Long COVID' symptoms reduce the amount or kind of activities that you can do",
   imgStart: true,
   alt: "propsActivity",
   dark: true,
@@ -82,9 +83,9 @@ const propsDescribe = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Long Covid?",
+  headLine: "Long Covid",
   description:
-    "Would you describe yourself as having 'long COVID' symptoms lasting at least 4 weeks after you first had COVID-19?",
+    "Would you describe yourself as having 'Long COVID' symptoms lasting at least 4 weeks after you first had COVID-19?",
   imgStart: true,
   alt: "propsDescribe",
   dark: true,
@@ -100,7 +101,7 @@ const propsIntermit = {
   themeDarkDesc: true,
   topLine: "",
   headLine: "Long COVID Frequency",
-  description: "How often do you exhibit long COVID symptoms?",
+  description: "How often did you exhibit Long COVID symptoms?",
   imgStart: true,
   alt: "propsIntermit",
   dark: true,
@@ -149,18 +150,32 @@ const Section = ({ data, variable, themeDark }) => {
   useEffect(() => {
     if (data.longintermit !== undefined && data.longintermit !== null) {
       setDataIntermit(recodeNA(data.longintermit));
+    } else {
+      setDataIntermit(null);
     }
     if (data.longcovidability !== undefined && data.longcovidability !== null) {
       setDataAbility(recodeNA(data.longcovidability));
+    } else {
+      setDataAbility(null);
     }
     if (data.longcovidactiv !== undefined && data.longcovidactiv !== null) {
       setDataActivity(recodeNA(data.longcovidactiv));
+    } else {
+      setDataActivity(null);
     }
     if (data.longcoviddesc !== undefined && data.longcoviddesc !== null) {
       setDataDescribe(recodeNA(data.longcoviddesc));
+    } else {
+      setDataDescribe(null);
     }
-    if (data.covidsym2_1 !== undefined) {
+    if (
+      data.covidsym2_1 !== undefined &&
+      data.covidsym2_13 !== undefined &&
+      data.covidsym2_14 !== undefined
+    ) {
       setDataSymptoms(compileData(data, var_symptoms_filtered));
+    } else {
+      setDataSymptoms(null);
     }
   }, [data]);
 
@@ -168,6 +183,18 @@ const Section = ({ data, variable, themeDark }) => {
     <>
       <InfoContainer themeDark={themeDark} id={propsMain.id}>
         <InfoWrapper>
+          <Alert
+            variant="outlined"
+            severity="info"
+            style={{ marginTop: "25px", marginBottom: "10px" }}
+            sx={{
+              width: "80%",
+            }}
+          >
+            <strong>
+              For this section, change 'variable' to positive/ total.
+            </strong>
+          </Alert>
           <InfoRowIntermit
             {...propsIntermit}
             data={dataIntermit}

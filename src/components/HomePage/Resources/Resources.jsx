@@ -59,16 +59,16 @@ const Resources = ({ themeDark }) => {
           sx={{ backgroundColor: themeDark ? "black" : "white" }}
           onClick={() =>
             openInNewTab(
-              "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/news/"
+              "https://www.voice-global.org/public/groups/react-covid-19-community-network/"
             )
           }
         >
           <ResourcesH2>
             <IconTable />
-            News
+            Community Network
           </ResourcesH2>
           <ResourcesP themeDark={themeDark}>
-            Read news about the REACT studies
+            Join the COVID-19 community network to hear about our latest findings and getting involved.
           </ResourcesP>
         </ResourcesCard>
       </ResourcesWrapper>

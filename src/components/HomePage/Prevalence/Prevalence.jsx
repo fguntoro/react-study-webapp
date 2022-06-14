@@ -27,8 +27,8 @@ const props = {
   topLine: "",
   headLine: "Prevalence",
   description:
-    "Our REACT-1 study looked at how many people already had COVID-19...",
-  buttonLabel: "Show",
+    "Our REACT-1 study looked at how many people in England were infected with SARS-CoV-2. The map here shows the weighted prevalence for each local authority area for 19 study rounds throughout the COVID pandemic (May 2020 - Apr 2022).",
+  buttonLabel: "Show timeline",
   imgStart: true,
   alt: "prevalence",
   dark: true,
@@ -103,7 +103,7 @@ const Prevalence = ({ themeDark }) => {
     lat: 53,
     lng: -1,
   });
-  const [mapZoom, setMapZoom] = useState(5.5);
+  const [mapZoom, setMapZoom] = useState(5);
 
   return (
     <>

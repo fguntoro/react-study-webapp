@@ -18,7 +18,6 @@ import { default as InfoRowHouseholdSize } from "./HouseholdSize/index";
 import { default as InfoRowHouseholdChildren } from "./HouseholdChildren/index";
 import { default as InfoRowCarehome } from "./Carehome/index";
 import { default as InfoRowEmployment } from "./Employment/index";
-import { default as InfoRowEducation } from "./Education/index";
 import { default as InfoRowCampus } from "./Campus/index";
 import { default as InfoRowWorkType } from "./WorkType/index";
 import { default as InfoRowWorkOutdoors } from "./WorkOutdoors/index";
@@ -66,7 +65,7 @@ const propsHouseholdSize = {
   topLine: "",
   headLine: "Household Size",
   description:
-    "Including yourself, how many adults aged 18 and over currently live in your household?",
+    "How many adults aged 18 and over currently live in your household?",
   imgStart: true,
   alt: "propsHouseholdSize",
   dark: true,
@@ -97,7 +96,7 @@ const propsCarehome = {
   themeDarkDesc: true,
   topLine: "",
   headLine: "Carehome",
-  description: "Whether lives in a carehome?",
+  description: "Do you live in a carehome?",
   imgStart: true,
   alt: "Carehome",
   dark: true,
@@ -126,7 +125,7 @@ const propsEmployment = {
   themeDarkDesc: true,
   topLine: "",
   headLine: "Employment",
-  description: "Current economic activity status?",
+  description: "What is your current economic activity status?",
   imgStart: true,
   alt: "propsEmployment",
   dark: true,
@@ -134,20 +133,6 @@ const propsEmployment = {
   xAxisLabel: "Employment Status",
 };
 
-const propsEducation = {
-  id: "Education",
-  themeDark: false,
-  themeDark: true,
-  themeDarkDesc: true,
-  topLine: "",
-  headLine: "Education",
-  description: "What is your highest educational qualification?",
-  imgStart: true,
-  alt: "propsEducation",
-  dark: true,
-  primary: true,
-  xAxisLabel: "Education Level",
-};
 
 const propsWorkType = {
   id: "WorkType",
@@ -190,15 +175,6 @@ const code_employment = {
   NA: [-92, -91, -77],
 };
 
-const code_education = {
-  Degree: [1, 2],
-  ALevel: [3],
-  GCSE: [4, 5],
-  Other: [6],
-  No: [7],
-  NA: [-92, -91, -77, 8],
-};
-
 const code_worktype = {
   Healthcare: [1, 2],
   Carehome: [3, 4],
@@ -222,28 +198,33 @@ const WorkStatus = ({ data, variable, themeDark }) => {
   );
   const [dataCarehome, setDataCarehome] = useState(data.carehome);
   const [dataEmployment, setDataEmployment] = useState(data.empl);
-  const [dataEducation, setDataEducation] = useState(data.educ);
   const [dataWorkType, setDataWorkType] = useState(data.work_type1);
 
   useEffect(() => {
     if (data.nadults !== undefined && data.nadults !== null) {
       setDataHouseholdSize(collapseContinuous(data.nadults, 6));
+    } else {
+      setDataHouseholdSize(null);
     }
-
     if (data.nchild !== undefined && data.nchild !== null) {
       setDataHouseholdChildren(collapseContinuous(data.nchild, 4));
+    } else {
+      setDataHouseholdChildren(null);
     }
     if (data.carehome !== undefined && data.carehome !== null) {
       setDataCarehome(recodeNA(data.carehome));
+    } else {
+      setDataCarehome(null);
     }
     if (data.empl !== undefined && data.empl !== null) {
       setDataEmployment(recode(data.empl, code_employment));
-    }
-    if (data.educ !== undefined && data.educ !== null) {
-      setDataEducation(recode(data.educ, code_education));
+    } else {
+      setDataEmployment(null);
     }
     if (data.work_type1 !== undefined && data.work_type1 !== null) {
       setDataWorkType(recode(data.work_type1, code_worktype));
+    } else {
+      setDataWorkType(null);
     }
   }, [data]);
 
@@ -281,12 +262,7 @@ const WorkStatus = ({ data, variable, themeDark }) => {
             variable={variable}
             themeDark={themeDark}
           />
-          <InfoRowEducation
-            {...propsEducation}
-            data={dataEducation}
-            variable={variable}
-            themeDark={themeDark}
-          />
+          
           <InfoRowWorkType
             {...propsWorkType}
             data={dataWorkType}

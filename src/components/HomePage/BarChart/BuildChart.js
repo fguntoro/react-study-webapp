@@ -72,7 +72,7 @@ function BuildChart({
 
   const tickOffset = -5;
   const xAxisLabelOffset = 40;
-  const yAxisLabelOffset = 35;
+  const yAxisLabelOffset = 40;
 
   function getYAxisLabel() {
     const inDict = yAxisLabelDict.filter(function (v) {
@@ -287,8 +287,6 @@ const Chart = ({
   xAxisLabel,
   axisLabelDict,
 }) => {
-  const progress = 60;
-
   if (!data) {
     return (
       <>

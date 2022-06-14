@@ -34,7 +34,7 @@ export const AboutContent = styled.div`
 
 export const AboutContainer = styled.div`
   background: ${({ themeDark }) => (themeDark ? "#1E1C1C" : "whitesmoke")};
-  height: 700px;
+  height: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +47,7 @@ export const AboutContainer = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    height: 750px;
+    height: 820px;
   }
 `;
 

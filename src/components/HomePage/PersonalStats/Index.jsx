@@ -17,6 +17,13 @@ import {
 import { default as InfoRowAge } from "./AgeGroup/index";
 import { default as InfoRowEthnic } from "./Ethnicity/index";
 import { default as InfoRowGender } from "./Gender/index";
+import { default as InfoRowEducation } from "../PersonalStats/Education/index";
+
+
+import {
+  recode,
+} from "../../utils/dataManipulation";
+
 
 const propsMain = {
   id: "personalStats",
@@ -37,8 +44,8 @@ const propsGender = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Gender",
-  description: "Which one of the following best describes your gender?",
+  headLine: "Sex",
+  description: "",
   imgStart: true,
   alt: "propsGender",
   dark: true,
@@ -53,8 +60,8 @@ const propsAge = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Age Groups",
-  description: "Age recoded into groups",
+  headLine: "Age Group",
+  description: "",
   imgStart: true,
   alt: "propsAge",
   dark: true,
@@ -71,12 +78,28 @@ const propsEthnic = {
   topLine: "",
   headLine: "Ethnicity",
   description:
-    "which one fo the following best describes your ethnic group or background?",
+    "What best describes your ethnic group or background?",
   imgStart: true,
   alt: "propsEthnic",
   dark: true,
   primary: true,
   xAxisLabel: "Ethnicity",
+};
+
+
+const propsEducation = {
+  id: "Education",
+  themeDark: false,
+  themeDark: true,
+  themeDarkDesc: true,
+  topLine: "",
+  headLine: "Education",
+  description: "What is your highest educational qualification?",
+  imgStart: true,
+  alt: "propsEducation",
+  dark: true,
+  primary: true,
+  xAxisLabel: "Education Level",
 };
 
 const code_ethnic = {
@@ -87,6 +110,17 @@ const code_ethnic = {
   other: [17, 18, 20],
   na: [19, -92, -91, -77],
 };
+
+
+const code_education = {
+  Degree: [1, 2],
+  ALevel: [3],
+  GCSE: [4, 5],
+  Other: [6],
+  No: [7],
+  NA: [-92, -91, -77, 8],
+};
+
 
 function getSum(data, ethnicity, variable) {
   const tmp = data.filter((d) => code_ethnic[ethnicity].includes(d.ethnic));
@@ -140,9 +174,16 @@ function recode_ethnic(data) {
 
 const PersonalStats = ({ data, variable, themeDark }) => {
   const [dataEthnic, setDataEthnic] = useState(data.ethnic);
+  const [dataEducation, setDataEducation] = useState(data.educ);
 
   useEffect(() => {
     setDataEthnic(recode_ethnic(data.ethnic));
+
+    if (data.educ !== undefined && data.educ !== null) {
+      setDataEducation(recode(data.educ, code_education));
+    } else {
+      setDataEducation(null);
+    }
   }, [data]);
 
   return (
@@ -164,6 +205,12 @@ const PersonalStats = ({ data, variable, themeDark }) => {
           <InfoRowEthnic
             {...propsEthnic}
             data={dataEthnic}
+            variable={variable}
+            themeDark={themeDark}
+          />
+          <InfoRowEducation
+            {...propsEducation}
+            data={dataEducation}
             variable={variable}
             themeDark={themeDark}
           />
