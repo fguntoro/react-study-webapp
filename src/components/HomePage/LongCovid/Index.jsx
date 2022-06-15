@@ -53,7 +53,7 @@ const propsAbility = {
   topLine: "",
   headLine: "Ability Reduction",
   description:
-    "How much, if at all, did your 'Long COVID' symptoms reduce your ability to carry out day-to-day activities?",
+    "How much, if at all, did your Long COVID symptoms reduce your ability to carry out day-to-day activities?",
   imgStart: true,
   alt: "propsAbility",
   dark: true,
@@ -69,7 +69,7 @@ const propsActivity = {
   topLine: "",
   headLine: "Activity Reduction",
   description:
-    "How much, if at all, did your 'Long COVID' symptoms reduce the amount or kind of activities that you can do",
+    "How much, if at all, did your Long COVID symptoms reduce the amount or kind of activities that you can do?",
   imgStart: true,
   alt: "propsActivity",
   dark: true,
@@ -85,7 +85,7 @@ const propsDescribe = {
   topLine: "",
   headLine: "Long Covid",
   description:
-    "Would you describe yourself as having 'Long COVID' symptoms lasting at least 4 weeks after you first had COVID-19?",
+    "Would you describe yourself as having Long COVID symptoms lasting at least 4 weeks after you first had COVID-19?",
   imgStart: true,
   alt: "propsDescribe",
   dark: true,

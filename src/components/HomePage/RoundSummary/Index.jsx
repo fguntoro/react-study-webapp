@@ -46,7 +46,7 @@ const Section = ({ roundSelected, themeDark }) => {
         <AboutWrapper>
           <AboutPaper
             elevation={5}
-            sx={{ backgroundColor: themeDark ? "black" : "white" }}
+            sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           >
             <p style={{ color: themeDark ? "white" : "black" }}>
               Round Selected
@@ -55,7 +55,7 @@ const Section = ({ roundSelected, themeDark }) => {
           </AboutPaper>
           <AboutPaper
             elevation={5}
-            sx={{ backgroundColor: themeDark ? "black" : "white" }}
+            sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           >
             <p style={{ color: themeDark ? "white" : "black" }}>Prevalence</p>
             <h1 style={{ color: "lightseagreen" }}>
@@ -64,7 +64,7 @@ const Section = ({ roundSelected, themeDark }) => {
           </AboutPaper>
           <AboutPaper
             elevation={5}
-            sx={{ backgroundColor: themeDark ? "black" : "white" }}
+            sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           >
             <p style={{ color: themeDark ? "white" : "black" }}>Start Date</p>
             <h2 style={{ color: "lightseagreen" }}>
@@ -73,7 +73,7 @@ const Section = ({ roundSelected, themeDark }) => {
           </AboutPaper>
           <AboutPaper
             elevation={5}
-            sx={{ backgroundColor: themeDark ? "black" : "white" }}
+            sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           >
             <p style={{ color: themeDark ? "white" : "black" }}>End Date</p>
             <h2 style={{ color: "lightseagreen" }}>
@@ -82,7 +82,7 @@ const Section = ({ roundSelected, themeDark }) => {
           </AboutPaper>
           <AboutPaper
             elevation={5}
-            sx={{ backgroundColor: themeDark ? "black" : "white" }}
+            sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           >
             <p style={{ color: themeDark ? "white" : "black" }}>
               Positive Tests
@@ -93,7 +93,7 @@ const Section = ({ roundSelected, themeDark }) => {
           </AboutPaper>
           <AboutPaper
             elevation={5}
-            sx={{ backgroundColor: themeDark ? "black" : "white" }}
+            sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           >
             <p style={{ color: themeDark ? "white" : "black" }}>Total Swabs</p>
             <h1 style={{ color: "lightseagreen" }}>{filteredData[0].Tested}</h1>
@@ -103,15 +103,14 @@ const Section = ({ roundSelected, themeDark }) => {
           variant="outlined"
           severity="info"
           style={{ marginTop: "25px", marginBottom: "10px" }}
-          sx={
-            {
-              width: '80%',
-            }
-          }
+          sx={{
+            width: "80%",
+          }}
         >
           <strong>
             Use the filter button at the top-right corner to navigate between
-            rounds and variable of interest (prevalence/ number of positive swabs/ total number).
+            rounds and variable of interest (prevalence/ number of positive
+            swabs/ total number).
           </strong>
         </Alert>
       </AboutContent>

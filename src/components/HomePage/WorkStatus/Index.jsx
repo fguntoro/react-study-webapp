@@ -96,7 +96,7 @@ const propsCarehome = {
   themeDarkDesc: true,
   topLine: "",
   headLine: "Carehome",
-  description: "Do you live in a carehome?",
+  description: "Do you live in a care home?",
   imgStart: true,
   alt: "Carehome",
   dark: true,

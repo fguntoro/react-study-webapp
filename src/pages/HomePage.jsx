@@ -152,7 +152,7 @@ const HomePage = () => {
           aria-controls="panel-covid-content"
           id="panel-covid-header"
         >
-          <StyledTypography className="panel-label">COVID</StyledTypography>
+          <StyledTypography className="panel-label">COVID-19 Contacts and Symptoms</StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
           <Covid

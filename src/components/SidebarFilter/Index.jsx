@@ -5,6 +5,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+import Tooltip from "@mui/material/Tooltip";
+
 import {
   SidebarContainer,
   Icon,
@@ -83,91 +85,97 @@ const SidebarFilter = ({
               defaultValue="uwt_prev"
               onChange={onRadioChange}
             >
-              <FormControlLabel
-                value="uwt_prev"
-                control={
-                  <Radio
-                    sx={{
-                      color: "lightseagreen",
-                      "&.Mui-checked": {
+              <Tooltip title="Unweighted prevalence">
+                <FormControlLabel
+                  value="uwt_prev"
+                  control={
+                    <Radio
+                      sx={{
                         color: "lightseagreen",
-                      },
-                      "& .MuiSvgIcon-root": {
-                        fontSize: 18,
-                        [`@media (max-width: 768px)`]: {
-                          fontSize: 15,
+                        "&.Mui-checked": {
+                          color: "lightseagreen",
                         },
+                        "& .MuiSvgIcon-root": {
+                          fontSize: 18,
+                          [`@media (max-width: 768px)`]: {
+                            fontSize: 15,
+                          },
+                        },
+                      }}
+                    />
+                  }
+                  label="Prevalence"
+                  sx={{
+                    ".MuiFormControlLabel-label	": {
+                      fontSize: 15,
+                      [`@media (max-width: 768px)`]: {
+                        fontSize: 12,
                       },
-                    }}
-                  />
-                }
-                label="Prevalence"
-                sx={{
-                  ".MuiFormControlLabel-label	": {
-                    fontSize: 15,
-                    [`@media (max-width: 768px)`]: {
-                      fontSize: 12,
                     },
-                  },
-                }}
-              />
-              <FormControlLabel
-                value="positive"
-                control={
-                  <Radio
-                    sx={{
-                      color: "lightseagreen",
-                      "&.Mui-checked": {
+                  }}
+                />
+              </Tooltip>
+              <Tooltip title="Number of positive tests">
+                <FormControlLabel
+                  value="positive"
+                  control={
+                    <Radio
+                      sx={{
                         color: "lightseagreen",
-                      },
-                      "& .MuiSvgIcon-root": {
-                        fontSize: 18,
-                        [`@media (max-width: 768px)`]: {
-                          fontSize: 15,
+                        "&.Mui-checked": {
+                          color: "lightseagreen",
                         },
+                        "& .MuiSvgIcon-root": {
+                          fontSize: 18,
+                          [`@media (max-width: 768px)`]: {
+                            fontSize: 15,
+                          },
+                        },
+                      }}
+                    />
+                  }
+                  label="Positive"
+                  sx={{
+                    ".MuiFormControlLabel-label	": {
+                      fontSize: 15,
+                      [`@media (max-width: 768px)`]: {
+                        fontSize: 12,
                       },
-                    }}
-                  />
-                }
-                label="Positive"
-                sx={{
-                  ".MuiFormControlLabel-label	": {
-                    fontSize: 15,
-                    [`@media (max-width: 768px)`]: {
-                      fontSize: 12,
                     },
-                  },
-                }}
-              />
-              <FormControlLabel
-                className="FilterControl"
-                value="total"
-                control={
-                  <Radio
-                    sx={{
-                      color: "lightseagreen",
-                      "&.Mui-checked": {
+                  }}
+                />
+              </Tooltip>
+              <Tooltip title="Number of total swabs">
+                <FormControlLabel
+                  className="FilterControl"
+                  value="total"
+                  control={
+                    <Radio
+                      sx={{
                         color: "lightseagreen",
-                      },
-                      "& .MuiSvgIcon-root": {
-                        fontSize: 18,
-                        [`@media (max-width: 768px)`]: {
-                          fontSize: 15,
+                        "&.Mui-checked": {
+                          color: "lightseagreen",
                         },
+                        "& .MuiSvgIcon-root": {
+                          fontSize: 18,
+                          [`@media (max-width: 768px)`]: {
+                            fontSize: 15,
+                          },
+                        },
+                      }}
+                    />
+                  }
+                  label="Total"
+                  sx={{
+                    ".MuiFormControlLabel-label	": {
+                      fontSize: 15,
+                      [`@media (max-width: 768px)`]: {
+                        fontSize: 12,
                       },
-                    }}
-                  />
-                }
-                label="Total"
-                sx={{
-                  ".MuiFormControlLabel-label	": {
-                    fontSize: 15,
-                    [`@media (max-width: 768px)`]: {
-                      fontSize: 12,
                     },
-                  },
-                }}
-              />
+                  }}
+                />
+              </Tooltip>
             </RadioGroup>
           </div>
         </SidebarRow2>

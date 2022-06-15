@@ -8,7 +8,7 @@ const row = (d) => {
   d.Round = +d.Round;
   d.Tested = +d.Tested;
   d.Positive = +d.Positive;
-  d.Prevalence = +d.Prevalence;
+  d.Prevalence = (+d.Prevalence).toFixed(2);
   d.Prevalence_low = +d.Prevalence_low;
   d.Prevalence_high = +d.Prevalence_high;
   d.Start = new Date(d.Start);

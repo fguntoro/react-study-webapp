@@ -96,14 +96,14 @@ const propsLongCovid1 = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "Long Lasting Symptoms",
+  headLine: "Long-Lasting Symptoms",
   description:
     "Whether symptoms of COVID-19 lasted for more than four weeks in total?",
   imgStart: true,
   alt: "propsLongCovid1",
   dark: true,
   primary: true,
-  xAxisLabel: "Experiencing COVID symptoms",
+  xAxisLabel: "Experiencing COVID-19 symptoms",
 };
 
 const propsSymptoms = {
@@ -113,8 +113,8 @@ const propsSymptoms = {
   themeDark: true,
   themeDarkDesc: true,
   topLine: "",
-  headLine: "COVID Symptoms",
-  description: "Which of these symptoms did you experience? (Check out the most popular symptoms - switch to 'positive')",
+  headLine: "COVID-19 Symptoms",
+  description: "Which of these symptoms did you experience? (Check out the most common symptoms - switch to 'positive')",
   imgStart: true,
   alt: "propsSymptoms",
   dark: true,

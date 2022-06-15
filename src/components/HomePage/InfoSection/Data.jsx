@@ -5,7 +5,7 @@ export const homeObjOne = {
   topLine: "",
   headLine: "REACT-1",
   description:
-    "Each month, over 150,000 randomly selected people across England are sent a nose/throat swab test to take at home. This helps us understand how many people are currently infected with SARS-CoV-2, including those who are not showing symptoms.",
+    "Approximately monthly, randomly selected people (aged 5 and over) across England were sent a nose/throat swab test to take at home. This helps us understand how many people had been infected with SARS-CoV-2 at any one time, including those not showing symptoms.",
   buttonLabel: "Learn more",
   linkTo:
     "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/studies/the-react-1-programme/",
@@ -23,7 +23,7 @@ export const homeObjTwo = {
   topLine: "",
   headLine: " REACT-2",
   description:
-    "Our REACT-2 study looked at how many people already had COVID-19 and developed antibodies against the virus. This enhances our understanding of the spread of COVID-19 across England.",
+    "Our REACT-2 study looked at how many people already had SARS-CoV-2 infection and developed antibodies against the virus. This enhances our understanding of the spread of COVID-19 across England. In later rounds, we were able to determine how many people had antibodies due to previous infection or vaccination.",
   buttonLabel: "Learn more",
   linkTo:
     "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/studies/the-react-2-programme/",
@@ -41,7 +41,7 @@ export const homeObjThree = {
   topLine: "",
   headLine: "REACT-GE",
   description:
-    "The REACT-GE study aims to look for biological signatures, such as molecules in the blood or variations in people' genes that could help explain why some individuals experience serious illness whilst others don't.",
+    "The REACT-GE study aims to look for biological signatures, such as molecules in the blood or variations in people's genes that could help explain why some individuals experience serious illness whilst others don't.",
   buttonLabel: "Learn more",
   linkTo:
     "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/studies/react-ge/",
@@ -59,7 +59,7 @@ export const homeObjFour = {
   topLine: "",
   headLine: "REACT-LC",
   description:
-    "The REACT Long COVID study involves more than 120,000 people to better understand why some people who are infected with SARS-CoV-2 continue to have symptoms for several weeks or even months.",
+    "The REACT Long COVID study involves more than 140,000 people to better understand why some people who are infected with SARS-CoV-2 continue to have symptoms for several weeks or even months, as well as how these persistent symptoms impact long-term health and wellbeing.",
   buttonLabel: "Learn more",
   linkTo:
     "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/studies/react-long-covid/",

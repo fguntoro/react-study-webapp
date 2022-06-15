@@ -28,7 +28,7 @@ const Footer = () => {
                   )
                 }
               >
-                People
+                Study Team
               </FooterLink>
               <FooterLink
                 to="/"

@@ -20,7 +20,7 @@ const Resources = ({ themeDark }) => {
       <ResourcesWrapper>
         <ResourcesCard
           elevation={5}
-          sx={{ backgroundColor: themeDark ? "black" : "white" }}
+          sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           onClick={() =>
             openInNewTab(
               "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/for-researchers/"
@@ -38,7 +38,7 @@ const Resources = ({ themeDark }) => {
 
         <ResourcesCard
           elevation={5}
-          sx={{ backgroundColor: themeDark ? "black" : "white" }}
+          sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           onClick={() =>
             openInNewTab(
               "https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/real-time-assessment-of-community-transmission-findings/"
@@ -56,7 +56,7 @@ const Resources = ({ themeDark }) => {
 
         <ResourcesCard
           elevation={5}
-          sx={{ backgroundColor: themeDark ? "black" : "white" }}
+          sx={{ backgroundColor: themeDark ? "#010606" : "white" }}
           onClick={() =>
             openInNewTab(
               "https://www.voice-global.org/public/groups/react-covid-19-community-network/"
@@ -68,7 +68,8 @@ const Resources = ({ themeDark }) => {
             Community Network
           </ResourcesH2>
           <ResourcesP themeDark={themeDark}>
-            Join the COVID-19 community network to hear about our latest findings and getting involved.
+            Join the COVID-19 community network to hear about our latest
+            findings and getting involved.
           </ResourcesP>
         </ResourcesCard>
       </ResourcesWrapper>
