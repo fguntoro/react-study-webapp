@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/react-study-webapp/static/css/main.36ba9a27.css",
-    "main.js": "/react-study-webapp/static/js/main.226da4ad.js",
+    "main.css": "/react-study-webapp/static/css/main.98ade92a.css",
+    "main.js": "/react-study-webapp/static/js/main.70343853.js",
     "static/js/787.6f00fbaa.chunk.js": "/react-study-webapp/static/js/787.6f00fbaa.chunk.js",
-    "static/media/virus_white.mp4": "/react-study-webapp/static/media/virus_white.e179e7634509123518cd.mp4",
     "static/media/video.mp4": "/react-study-webapp/static/media/video.31fbd7eda740f5033ce0.mp4",
     "static/media/react2.svg": "/react-study-webapp/static/media/react2.d14bd8489269e34f9e933b898ed2c76a.svg",
     "static/media/reactLC.svg": "/react-study-webapp/static/media/reactLC.f206a27578838b51c29f9388be40256b.svg",
     "static/media/reactGE.svg": "/react-study-webapp/static/media/reactGE.cb52ad51f28c533d82757e2d33596243.svg",
     "static/media/react1.svg": "/react-study-webapp/static/media/react1.da1b35af45975df093bdf7244d3bccb5.svg",
     "index.html": "/react-study-webapp/index.html",
-    "main.36ba9a27.css.map": "/react-study-webapp/static/css/main.36ba9a27.css.map",
-    "main.226da4ad.js.map": "/react-study-webapp/static/js/main.226da4ad.js.map",
+    "main.98ade92a.css.map": "/react-study-webapp/static/css/main.98ade92a.css.map",
+    "main.70343853.js.map": "/react-study-webapp/static/js/main.70343853.js.map",
     "787.6f00fbaa.chunk.js.map": "/react-study-webapp/static/js/787.6f00fbaa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.36ba9a27.css",
-    "static/js/main.226da4ad.js"
+    "static/css/main.98ade92a.css",
+    "static/js/main.70343853.js"
   ]
 }
