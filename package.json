@@ -1,4 +1,5 @@
 {
+  "homepage": "https://fguntoro.github.io/react-study-webapp",
   "name": "react-study-webapp",
   "version": "0.1.0",
   "private": true,
@@ -24,7 +25,9 @@
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.3.1",
+    "react-iframe": "^1.8.4",
     "react-leaflet": "^4.0.0",
+    "react-loading-iframe": "^1.1.0",
     "react-native": "^0.68.2",
     "react-native-web": "^0.17.7",
     "react-redux": "^7.2.6",
@@ -36,6 +39,8 @@
     "yarn": "^1.22.17"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -58,5 +63,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

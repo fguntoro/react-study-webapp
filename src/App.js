@@ -1,28 +1,26 @@
-import './App.css';
-import React from 'react'
-import ReactDOM from 'react-dom';
+import "./App.css";
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { HomePage, SignInPage, DashboardPage } from './pages'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HomePage, SignInPage, DashboardPage } from "./pages";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from './redux/reducers'
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import rootReducer from "./redux/reducers";
 
-const store = createStore(
-  rootReducer
-)
+const store = createStore(rootReducer);
 
 const App = () => {
   return (
-    <Router className="App">
+    <Router className="App" basename={window.location.pathname || ""}>
       <Routes>
-        <Route exact path="/" element={<HomePage/>}/>
+        <Route exact path="/" element={<HomePage />} />
         {/* <Route exact path="/dashboard" element={<DashboardPage/>}/> */}
       </Routes>
     </Router>
   );
-}
+};
 
 // ReactDOM.render(
 //   <Provider store={store}>
@@ -33,4 +31,4 @@ const App = () => {
 //   document.getElementById('root')
 // );
 
-export default App
+export default App;

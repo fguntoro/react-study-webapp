@@ -24,8 +24,10 @@ import {
   Explore,
   Footer,
   useData,
+  BasicExample,
 } from "../components";
 import { StyledTypography, styledAccordion } from "./HomePageElements";
+import Iframe from 'react-iframe'
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -152,7 +154,9 @@ const HomePage = () => {
           aria-controls="panel-covid-content"
           id="panel-covid-header"
         >
-          <StyledTypography className="panel-label">COVID-19 Contacts and Symptoms</StyledTypography>
+          <StyledTypography className="panel-label">
+            COVID-19 Contacts and Symptoms
+          </StyledTypography>
         </AccordionSummary>
         <AccordionDetails>
           <Covid
@@ -216,6 +220,36 @@ const HomePage = () => {
           />
         </AccordionDetails>
       </Accordion>
+
+      <Iframe
+        url="https://datastudio.google.com/embed/reporting/f1f0a990-1591-4975-acfe-81bcfeac9e36/page/YB7KC"
+        width="1000px"
+        height="600px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"
+        allowFullScreen
+      />
+
+      {/* <Accordion
+        expanded={expanded === "panel-measures"}
+        onChange={handleChange("panel-measures")}
+        TransitionProps={{ unmountOnExit: true }}
+        sx={{ backgroundColor: themeDark ? "#101010" : "white" }}
+        disableGutters
+      >
+        <AccordionSummary
+          expandIcon={
+            <ExpandMoreIcon sx={{ color: themeDark ? "white" : "darkgrey" }} />
+          }
+          aria-controls="panel-measures-content"
+          id="panel-measures-header"
+        >
+          <StyledTypography className="panel-label">Covid Lit</StyledTypography>
+        </AccordionSummary>
+        <AccordionDetails></AccordionDetails>
+      </Accordion> */}
 
       {/* <Accordion
         TransitionProps={{ unmountOnExit: true }}

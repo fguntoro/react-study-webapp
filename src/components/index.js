@@ -20,6 +20,7 @@ export { default as LongCovid } from "./HomePage/LongCovid/Index";
 export { default as PrecautionaryMeasures } from "./HomePage/PrecautionaryMeasures/Index";
 export { default as Vaccination } from "./HomePage/Vaccination/Index";
 export { default as TravelHistory } from "./HomePage/TravelHistory/Index";
+export { default as BasicExample } from "./HomePage/CovidLitDashboard/Index";
 export { useData } from "./useData";
 
 
